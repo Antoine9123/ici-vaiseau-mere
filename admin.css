@@ -36,14 +36,21 @@ h1 {
 .container-menu div{
     margin-left: 5vw ;
     margin-right: 5vw;
+    cursor:pointer;
 }
-
-
 
 .primary-title {
     display: none;
     padding: 20px;
-    cursor:pointer;
+    
+    width: 15vw;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: 1px solid #dedede;
+}
+
+.primary-title p {
+    padding: 10px 0px;
 }
 
 img {
