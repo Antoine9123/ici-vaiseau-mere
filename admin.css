@@ -1,0 +1,57 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background-color: #393939;
+    color: #dedede;
+    font-family: "Inconsolata", monospace;
+}
+
+.container-title {
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    border: 2px solid #dedede;
+    padding: 10px 20px;
+    letter-spacing: 0.4em;
+}
+
+.container-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    font-size: x-large;
+    text-transform: uppercase;
+}
+
+.container-menu div{
+    margin-left: 5vw ;
+    margin-right: 5vw;
+}
+
+
+
+.primary-title {
+    display: none;
+    padding: 20px;
+    cursor:pointer;
+}
+
+img {
+    position: absolute;
+    width: auto; 
+    height: 50vh; 
+    opacity: 0.3;
+    right: -80px;
+    top: 20vh;
+    
+}

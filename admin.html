@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>admin</title>
-</head>
-<body>
-    <nav>
-        <a href="index.html">home</a>
-        <a href="admin.html">admin</a>
-        <a href="agenda.html">agenda</a>
-        <a href="become_member.html">become a member</a>
-        <a href="contact.html">contact</a>
-        <a href="explore.html">explore</a>
-        <a href="koi_residency.html">koy residency</a>
-        <a href="vaisseau_mere.html">vaisseau mere</a>
-      </nav>
-      <p>This is the administration page</p>
-</body>
+    <link rel="stylesheet" href="admin.css" />
+    <script src="admin.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container-title">
+      <h1>CONTENTS MANAGER</h1>
+    </div><hr>
+
+    <div class="container-menu">
+        <div id="events-link" onclick="showContent('pages')">PAGES</div>
+      <div id="artist-link" onclick="showContent('artist')">ARTISTES</div>
+      <div id="events-link" onclick="showContent('events')">EVENTS</div>
+    </div><hr>
+    <div class="primary-title" id="pages">
+        <h2>Pages list</h2>
+        <p>This is the content for the pages.</p>
+      </div>
+    <div class="primary-title" id="artist">
+      <h2>Artist List</h2>
+      <p>This is the content for the artist page.</p>
+    </div>
+
+    <div class="primary-title" id="events">
+      <h2>Upcoming Events</h2>
+      <p>This is the content for the events page.</p>
+    </div>
+    <img src="img/4_white.png" alt="white koi">
+  </body>
 </html>
