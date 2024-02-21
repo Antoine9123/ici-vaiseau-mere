@@ -42,6 +42,7 @@ h1 {
 .primary-title {
     display: none;
     padding: 20px;
+    cursor:pointer;
     
     width: 15vw;
     margin-top: 10px;
@@ -49,7 +50,7 @@ h1 {
     border: 1px solid #dedede;
 }
 
-.primary-title p {
+.primary-title div {
     padding: 10px 0px;
 }
 
@@ -61,4 +62,41 @@ img {
     right: -80px;
     top: 20vh;
     
+}
+
+.container-display {
+    position: absolute;
+    top: 20vh;
+    left: 50%; 
+    width: 50vw;
+    transform: translateX(-50%); 
+    text-align: space-between; 
+    
+    padding: 8px; 
+    border: #dedede solid 0.25px;
+}
+
+.container-display section{
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+
+.container-display th {
+    background-color: #393939;
+    text-transform: uppercase;
+    border-bottom: #dedede 2px solid;
+    text-align: left;
+    font-size: larger;
+    
+}
+
+
+.container-display td {
+    background-color: #393939;
+    border-bottom: #dedede 1px solid;
+    text-align: left;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }

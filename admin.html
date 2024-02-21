@@ -13,32 +13,42 @@
   <body>
     <div class="container-title">
       <h1>CONTENTS MANAGER</h1>
-    </div><hr>
+    </div>
+    <hr />
 
     <div class="container-menu">
-        <div id="events-link" onclick="showContent('pages')">PAGES</div>
-      <div id="artist-link" onclick="showContent('artist')">ARTISTES</div>
-      <div id="events-link" onclick="showContent('events')">EVENTS</div>
-    </div><hr>
+      <div id="events-link" onclick="showSubmenu('pages')">PAGES</div>
+      <div id="artist-link" onclick="showSubmenu('artist')">ARTISTES</div>
+      <div id="events-link" onclick="showSubmenu('events')">EVENTS</div>
+    </div>
+    <hr />
     <div class="primary-title" id="pages">
-        <p>Home</p>
-        <p>Agenda</p>
-        <p>Become a member</p>
-        <p>Contact</p>
-        <p>Explore</p>
-        <p>Koy residency</p>
-        <p>Vaisseau Mère</p>
-        
-      </div>
+      <div>Home</div>
+      <div>Agenda</div>
+      <div>Become a member</div>
+      <div>Contact</div>
+      <div>Explore</div>
+      <div>Koy residency</div>
+      <div>Vaisseau Mère</div>
+    </div>
     <div class="primary-title" id="artist">
-      <p>Liste des artistes</p>
-      <p>Créer un artiste</p>
+      <div id="artists-list-link" onclick="ArtistManager.generateTable()">Liste des artistes</div>
+      <div id="artists-create-link" onclick="showContent('artists-create')">Créer un artiste</div>
     </div>
-
     <div class="primary-title" id="events">
-      <p>Liste des events</p>
-      <p>Créer un event</p>
+      <div>Liste des events</div>
+      <div>Créer un event</div>
     </div>
-    <img src="img/4_white.png" alt="white koi">
+    <div class="container-display">
+        <section class="content"> </section>
+        <table class="data-table">
+            <thead>
+              <tr id="table-headers">
+              </tr>
+            </thead>
+            <tbody class="dataList"></tbody>
+          </table>
+    </div>
+    <img src="img/4_white.png" alt="white koi" />
   </body>
 </html>
