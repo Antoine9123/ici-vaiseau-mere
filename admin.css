@@ -5,6 +5,8 @@
     
 }
 
+
+
 body{
     background-color: #393939;
     color: #dedede;
@@ -99,4 +101,22 @@ img {
     text-align: left;
     padding-top: 1vh;
     padding-bottom: 1vh;
+}
+
+.container-display form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-display form>label {
+    margin-bottom: 5px;
+}
+
+.container-display form>input {
+    margin-bottom: 25px;
+    background-color: #747474;
+}
+
+section.content{
+    display: none;
 }
