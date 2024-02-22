@@ -36,6 +36,7 @@ class ArtistManager {
     });
     section.appendChild(table);
   }
+
   static generateForm() {
     const section = document.getElementById("artists-create");
     const form = document.createElement("form");
@@ -54,12 +55,16 @@ class ArtistManager {
       "Website",
     ];
 
+    // This forEach should be changed. Cause the input type shouldn't be "text" for all fields. 
+    // Take a look at line 65-66.
     fields.forEach((fieldName) => {
       const label = document.createElement("label");
       label.innerText = fieldName;
 
       const input = document.createElement("input");
+      // Just under this line.
       input.type = "text";
+      // this regex replace all name field to match the ones line 82>92. Not good I guess.
       input.name = fieldName.toLowerCase().replace(/\s+/g, "_");
 
       form.appendChild(label);
@@ -118,6 +123,9 @@ class ArtistManager {
     newArtist["instagram"] = instagram;
     newArtist["website"] = website;
 
+
+// !!!! ATTENTION, FS doesn't work cause nodejs is used with server side only not browser.
+// We will need to change it for the database later
     const existingData = fs.readFileSync(pathfile, "utf-8");
     const existingArtists = JSON.parse(existingData);
     console.log(existingArtists);
@@ -127,5 +135,6 @@ class ArtistManager {
   }
 }
 
+// Generate table + Form as soon as the thml is read by the browser.
 ArtistManager.generateTable();
 ArtistManager.generateForm();
