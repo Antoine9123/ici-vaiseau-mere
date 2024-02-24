@@ -1,5 +1,5 @@
 class ArtistManager {
-  static pathfile = "database/artists.json";
+  static pathfile = "../temp_database/artists.json";
 
   static async generateTable() {
     const section = document.getElementById("artists-list");

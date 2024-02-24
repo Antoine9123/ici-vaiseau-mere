@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+router.get("/admin", (req, res) => {
+    res.sendFile("admin.html", { root: "public" });
+  });
+
 router.get("/", (req, res) => {
   res.sendFile("index.html", { root: "public" });
 });
@@ -20,9 +24,6 @@ router.get("/explore", (req, res) => {
   res.sendFile("explore.html", { root: "public" });
 });
 
-router.get("/admin", (req, res) => {
-  res.sendFile("admin.html", { root: "public" });
-});
 router.get("/koi-residency", (req, res) => {
   res.sendFile("koi_residency.html", { root: "public" });
 });
