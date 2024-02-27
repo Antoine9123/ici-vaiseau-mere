@@ -7,7 +7,7 @@ router.use(express.static("public"));
 router.use(express.urlencoded({ extended: true }));
 
 router.get("/", (req, res) => {
-  res.render("./admin/admin", { content: null });
+  res.render("./admin/admin", { content: './partials/home-admin' });
 });
 
 // ----- ARTIST ROUTES --------------------------------------------------------------->
