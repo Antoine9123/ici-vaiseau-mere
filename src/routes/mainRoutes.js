@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-
-
 router.get("/", (req, res) => {
   res.render('index');
 });
@@ -30,6 +28,7 @@ router.get("/vaisseau-mere", (req, res) => {
   res.render('vaisseau_mere')
 });
 
+// TODO >>> Need to create authentification for that page.
 router.get("/admin", (req, res) => {
   res.render('admin')
 });
