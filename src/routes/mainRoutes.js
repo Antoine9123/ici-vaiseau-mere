@@ -28,13 +28,5 @@ router.get("/vaisseau-mere", (req, res) => {
   res.render('vaisseau_mere')
 });
 
-// TODO >>> Need to create authentification for that page.
-router.get("/admin", (req, res) => {
-  res.render('admin')
-});
-
-router.use((req, res) => {
-  res.status(404).render('404')
-})
 
 module.exports = router;

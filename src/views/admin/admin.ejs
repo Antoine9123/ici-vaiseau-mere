@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/admin.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <img src="img/white_koi.png" alt="white koi" />
+    <div class="container-title">
+      <h1>CONTENTS MANAGER</h1>
+    </div>
+    <hr />
+
+    <div class="primary-title">
+      <h2>PAGES</h2>
+      <div>Home</div>
+      <div>Agenda</div>
+      <div>Become a member</div>
+      <div>Contact</div>
+      <div>Explore</div>
+      <div>Koy residency</div>
+      <div>Vaisseau Mère</div>
+
+      <h2>ARTISTS</h2>
+      <div>Liste des artistes</div>
+      <div>Créer un artiste</div>
+      <h2>EVENTS</h2>
+      <div>Liste des events</div>
+      <div>Créer un event</div>
+    </div>
+    <div class="container-display">
+      <section class="content">
+        <% if (file) { %>
+           <%- include(file) %> 
+        <% } %>
+      </section>
+    </div>
+  </body>
+</html>

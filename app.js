@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const homeRoute = require("./src/routes/mainRoutes");
+const adminRoute = require("./src/routes/adminRoutes");
 
 const app = express();
 const PORT = 3001;
@@ -22,3 +23,12 @@ app.use(express.static("public"));
 
 
 app.use("/", homeRoute);
+
+// Add some security authentification here
+app.use("/admin", adminRoute);
+
+app.use((req, res) => {
+  res.status(404).render('404')
+})
+
+

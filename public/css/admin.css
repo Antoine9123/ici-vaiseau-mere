@@ -42,7 +42,6 @@ h1 {
 }
 
 .primary-title {
-    display: none;
     padding: 20px;
     cursor:pointer;
     
@@ -117,6 +116,6 @@ img {
     background-color: #747474;
 }
 
-section.content{
-    display: none;
+h2 {
+    margin-top: 20px;
 }
