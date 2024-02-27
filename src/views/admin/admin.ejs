@@ -12,32 +12,38 @@
   </head>
   <body>
     <img src="img/white_koi.png" alt="white koi" />
+
     <div class="container-title">
       <h1>CONTENTS MANAGER</h1>
     </div>
     <hr />
 
-    <div class="primary-title">
-      <h2>PAGES</h2>
+    <div class="menu">
 
-      <a href="/admin/index-content">Home</a>
-      <a href="/admin/agenda-content">Agenda</a>
-      <a href="/admin/member-content">Become a member</a>
-      <a href="/admin/contact-content">Contact</a>
-      <a href="/admin/explore-content">Explore</a>
-      <a href="/admin/koi-content">Koy residency</a>
-      <a href="/admin/vaisseau-content">Vaisseau Mère</a>
+      <div class="submenu">
+        <h2>PAGES</h2>
+        <a href="/admin/index-content">Home</a>
+        <a href="/admin/agenda-content">Agenda</a>
+        <a href="/admin/member-content">Become a member</a>
+        <a href="/admin/contact-content">Contact</a>
+        <a href="/admin/explore-content">Explore</a>
+        <a href="/admin/koi-content">Koy residency</a>
+        <a href="/admin/vaisseau-content">Vaisseau Mère</a>
+      </div>
 
-      <h2>ARTISTS</h2>
+      <div class="submenu">
+        <h2>ARTISTS</h2>
+        <a href="/admin/artists-list">Liste des artistes</a>
+        <a href="/admin/artists-add">Créer un artiste</a>
+      </div>
 
-      <a href="/admin/artists-list">Liste des artistes</a>
-      <a href="/admin/artists-add">Créer un artiste</a>
-
-      <h2>EVENTS</h2>
-
-      <a href="/admin/events-list">Liste des events</a>
-      <a href="/admin/events-add">Créer un event</a>
+      <div class="submenu">
+        <h2>EVENTS</h2>
+        <a href="/admin/events-list">Liste des events</a>
+        <a href="/admin/events-add">Créer un event</a>
+      </div>
     </div>
+    
     <div class="container-display">
       <section class="content"><% if (content) { %> <%- include(content) %> <% } %></section>
     </div>
