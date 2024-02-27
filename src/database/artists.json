@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Antoine",
+    "projectName": "Petite souris",
+    "artFields": "théatre",
+    "shortDescription": "C'est une petite souris qui court",
+    "longDescription": "C'est une longue souris qui court court court court court",
+    "thumbnail": "tinytiny",
+    "picture": "painting",
+    "mail": "antoine@mail.com",
+    "facebook": "antoine.fb",
+    "instagram": "antoine.insta",
+    "website": "antoine.be"
+  },
+  {
+    "name": "João",
+    "projectName": "Super Champion",
+    "artFields": "danse",
+    "shortDescription": "Courte réprésentation",
+    "longDescription": "Ca dure dure dure dure dure dure dure dure",
+    "thumbnail": "tinytiny",
+    "picture": "photo?jpg",
+    "mail": "joao@mail.com",
+    "facebook": "joao.fb",
+    "instagram": "joao.insta",
+    "website": "joao.be"
+  },
+  {
+    "name": "Nicolas",
+    "projectName": "Bourlingueur du dimanche",
+    "artFields": "chanteur",
+    "shortDescription": "Courte chansonnette",
+    "longDescription": "Ca fait lonftemps que je l'attends, cette princesse aux yeux d'or",
+    "thumbnail": "tinytiny",
+    "picture": "pictureguitar.jpg",
+    "mail": "nico@mail.com",
+    "facebook": "nico.fb",
+    "instagram": "nico.insta",
+    "website": "nico.be"
+  }
+]
