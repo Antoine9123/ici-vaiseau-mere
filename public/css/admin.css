@@ -119,3 +119,20 @@ img {
 h2 {
     margin-top: 20px;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #dedede; 
+}
+
+textarea {
+    margin-bottom: 25px;
+    background-color: #747474; 
+    font-size: large;
+    max-width: 100%; 
+    min-width: 100%;
+    height: 20vh; 
+  }

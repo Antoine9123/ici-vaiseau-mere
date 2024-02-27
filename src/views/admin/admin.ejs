@@ -29,15 +29,15 @@
 
       <h2>ARTISTS</h2>
       <div>Liste des artistes</div>
-      <div>Créer un artiste</div>
+      <a href="/admin/artists-add">Créer un artiste</a>
       <h2>EVENTS</h2>
       <div>Liste des events</div>
       <div>Créer un event</div>
     </div>
     <div class="container-display">
       <section class="content">
-        <% if (file) { %>
-           <%- include(file) %> 
+        <% if (content) { %>
+           <%- include(content) %> 
         <% } %>
       </section>
     </div>
