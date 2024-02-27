@@ -22,7 +22,7 @@ router.post("/artists-add", (req, res) => {
 
   artist.save()
     .then((result) => {
-      res.redirect('/')
+      res.redirect('/admin')
     })
     .catch((err) => {
       console.log(err)
