@@ -35,7 +35,7 @@ h1 {
     text-transform: uppercase;
 }
 
-.container-menu div{
+.container-menu a{
     margin-left: 5vw ;
     margin-right: 5vw;
     cursor:pointer;
@@ -51,8 +51,10 @@ h1 {
     border: 1px solid #dedede;
 }
 
-.primary-title div {
+.primary-title a {
     padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 img {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin</title>
-    <link rel="stylesheet" href="css/admin.css"/>
+    <link rel="stylesheet" href="css/admin.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,27 +19,27 @@
 
     <div class="primary-title">
       <h2>PAGES</h2>
-      <div>Home</div>
-      <div>Agenda</div>
-      <div>Become a member</div>
-      <div>Contact</div>
-      <div>Explore</div>
-      <div>Koy residency</div>
-      <div>Vaisseau Mère</div>
+
+      <a href="/admin/index-content">Home</a>
+      <a href="/admin/agenda-content">Agenda</a>
+      <a href="/admin/member-content">Become a member</a>
+      <a href="/admin/contact-content">Contact</a>
+      <a href="/admin/explore-content">Explore</a>
+      <a href="/admin/koi-content">Koy residency</a>
+      <a href="/admin/vaisseau-content">Vaisseau Mère</a>
 
       <h2>ARTISTS</h2>
-      <div>Liste des artistes</div>
+
+      <a href="/admin/artists-list">Liste des artistes</a>
       <a href="/admin/artists-add">Créer un artiste</a>
+
       <h2>EVENTS</h2>
-      <div>Liste des events</div>
-      <div>Créer un event</div>
+
+      <a href="/admin/events-list">Liste des events</a>
+      <a href="/admin/events-add">Créer un event</a>
     </div>
     <div class="container-display">
-      <section class="content">
-        <% if (content) { %>
-           <%- include(content) %> 
-        <% } %>
-      </section>
+      <section class="content"><% if (content) { %> <%- include(content) %> <% } %></section>
     </div>
   </body>
 </html>
