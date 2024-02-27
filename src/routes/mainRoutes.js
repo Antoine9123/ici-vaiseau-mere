@@ -1,35 +1,37 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/admin", (req, res) => {
-    res.sendFile("admin.html", { root: "public" });
-  });
+
 
 router.get("/", (req, res) => {
-  res.sendFile("index.html", { root: "public" });
+  res.render('index');
 });
 
 router.get("/agenda", (req, res) => {
-  res.sendFile("agenda.html", { root: "public" });
+  res.render('agenda')
 });
 
 router.get("/become-member", (req, res) => {
-  res.sendFile("become_member.html", { root: "public" });
+  res.render('become_member')
 });
 router.get("/contact", (req, res) => {
-  res.sendFile("contact.html", { root: "public" });
+  res.render('contact')
 });
 
 router.get("/explore", (req, res) => {
-  res.sendFile("explore.html", { root: "public" });
+  res.render('explore')
 });
 
 router.get("/koi-residency", (req, res) => {
-  res.sendFile("koi_residency.html", { root: "public" });
+  res.render('koi_residency')
 });
 
 router.get("/vaisseau-mere", (req, res) => {
-  res.sendFile("vaisseau_mere.html", { root: "public" });
+  res.render('vaisseau_mere')
+});
+
+router.get("/admin", (req, res) => {
+  res.render('admin')
 });
 
 module.exports = router;
