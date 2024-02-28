@@ -1,4 +1,5 @@
 const Artist = require("../models/artist");
+const Event = require("../models/event");
 
 const admin_index = (req, res) => {
     res.render("./admin/admin", { content: './partials/home-admin' });
@@ -35,6 +36,18 @@ const event_list = (req, res) => {
 const event_add_get = (req, res) => {
     res.render("./admin/admin", { content: './partials/events-add' });
   } 
+
+  const event_add_post = (req, res) => {
+    const event = new Event(req.body)
+   console.log(event)
+    event.save()
+      .then((result) => {
+        res.redirect('/admin/events-list')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
 // ----- PAGES CTRL ------------------------------------------------------------------>
 const agenda_get = (req, res) => {
@@ -74,6 +87,7 @@ module.exports = {
 
     event_list,
     event_add_get,
+    event_add_post,
 
     agenda_get,
     member_get,

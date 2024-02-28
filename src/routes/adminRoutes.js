@@ -17,6 +17,7 @@ router.post("/artists-add", AdminController.artist_add_post);
 // ----- EVENT ROUTES --------------------------------------------------------------->
 router.get("/events-list", AdminController.event_list);
 router.get("/events-add", AdminController.event_add_get);
+router.post("/events-add", AdminController.event_add_post);
 
 // ----- PAGES ROUTES --------------------------------------------------------------->
 
