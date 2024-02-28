@@ -1,1 +1,23 @@
-Tototooootoooodoo
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (events.length > 0) { %>
+      <% events.forEach(event => { %>
+        <tr>
+          <td><%= event.name %></td>
+          <td><%= event.date %></td>
+        </tr>
+      <% }); %>
+    <% } else { %>
+      <tr>
+        <td colspan="2">No events available</td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>

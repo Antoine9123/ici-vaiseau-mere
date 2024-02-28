@@ -35,7 +35,11 @@ const artist_add_post = (req, res) => {
 // ----- EVENTS CTRL ------------------------------------------------------------------>
 
 const event_list = (req, res) => {
-  res.render("./admin/admin", { content: "./partials/events-list" });
+  Event.find()
+    .then((result) => {
+      res.render("./admin/admin", { content: "./partials/events-list" , events: result });
+    })
+    .catch((err) => console.log(err));
 };
 
 const event_add_get = (req, res) => {
