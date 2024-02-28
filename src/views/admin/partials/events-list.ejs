@@ -1,23 +1,23 @@
-
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Date</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
-    <% if (events.length > 0) { %>
-      <% events.forEach(event => { %>
-        <tr>
-          <td><%= event.name %></td>
-          <td><%= event.date %></td>
-        </tr>
-      <% }); %>
-    <% } else { %>
-      <tr>
-        <td colspan="2">No events available</td>
-      </tr>
+    <% if (events.length > 0) { %> <% events.forEach(event => { %>
+    <tr>
+      <td><%= event.name %></td>
+      <td><%= event.date %></td>
+      <td><button>Modifier</button><button>Supprimer</button></td>
+   
+    </tr>
+    <% }); %> <% } else { %>
+    <tr>
+      <td colspan="2">No events available</td>
+    </tr>
     <% } %>
   </tbody>
 </table>

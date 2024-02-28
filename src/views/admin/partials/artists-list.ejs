@@ -1,25 +1,24 @@
 <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Project</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- EJS loop to fill in the table rows -->
-      <% if (artists.length > 0) { %>
-        <% artists.forEach(artist => { %>
-          <tr>
-            <td><%= artist.name %></td>
-            <td><%= artist.project_name %></td>
-            <td><%= artist.email %></td>
-          </tr>
-        <% }); %>
-      <% } else { %>
-        <tr>
-          <td colspan="3">No artists available</td>
-        </tr>
-      <% } %>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Project</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (artists.length > 0) { %> <% artists.forEach(artist => { %>
+    <tr>
+      <td><%= artist.name %></td>
+      <td><%= artist.project_name %></td>
+      <td><%= artist.email %></td>
+      <td><button>Modifier</button><button>Supprimer</button></td>
+    </tr>
+    <% }); %> <% } else { %>
+    <tr>
+      <td colspan="3">No artists available</td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>

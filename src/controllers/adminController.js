@@ -10,7 +10,7 @@ const admin_index = (req, res) => {
 const artist_list = (req, res) => {
   Artist.find()
     .then((result) => {
-      res.render("./admin/admin", { content: "./partials/artists-list" , artists: result });
+      res.render("./admin/admin", { content: "./partials/artists-list", artists: result });
     })
     .catch((err) => console.log(err));
 };
@@ -37,7 +37,7 @@ const artist_add_post = (req, res) => {
 const event_list = (req, res) => {
   Event.find()
     .then((result) => {
-      res.render("./admin/admin", { content: "./partials/events-list" , events: result });
+      res.render("./admin/admin", { content: "./partials/events-list", events: result });
     })
     .catch((err) => console.log(err));
 };
@@ -48,7 +48,6 @@ const event_add_get = (req, res) => {
 
 const event_add_post = (req, res) => {
   const event = new Event(req.body);
-  console.log(event);
   event
     .save()
     .then((result) => {
