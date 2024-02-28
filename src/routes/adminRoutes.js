@@ -1,75 +1,32 @@
 const express = require("express");
-const Artist = require("../models/artist");
+const AdminController = require('../controllers/adminController')
 
 const router = express.Router();
 
 router.use(express.static("public"));
 router.use(express.urlencoded({ extended: true }));
 
-router.get("/", (req, res) => {
-  res.render("./admin/admin", { content: './partials/home-admin' });
-});
+// ----- MAIN ROUTE --------------------------------------------------------------->
+router.get("/", AdminController.admin_index);
 
 // ----- ARTIST ROUTES --------------------------------------------------------------->
-router.get("/artists-list", (req, res) => {
-  res.render("./admin/admin", { content: './partials/artists-list' });
-});
-
-router.get("/artists-add", (req, res) => {
-  res.render("./admin/admin", { content: './partials/artists-add' });
-});
-
-router.post("/artists-add", (req, res) => {
-  const artist = new Artist(req.body)
-
-  artist.save()
-    .then((result) => {
-      res.redirect('/admin/artists-list')
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-})
+router.get("/artists-list", AdminController.artist_list);
+router.get("/artists-add", AdminController.artist_add_get);
+router.post("/artists-add", AdminController.artist_add_post);
 
 // ----- EVENT ROUTES --------------------------------------------------------------->
-router.get("/events-list", (req, res) => {
-  res.render("./admin/admin", { content: './partials/events-list' });
-});
+router.get("/events-list", AdminController.event_list);
+router.get("/events-add", AdminController.event_add_get);
 
-router.get("/events-add", (req, res) => {
-  res.render("./admin/admin", { content: './partials/events-add' });
-});
+// ----- PAGES ROUTES --------------------------------------------------------------->
 
-// ------------------------------------------------------------------>
-
-router.get("/agenda-content", (req, res) => {
-  res.render("./admin/admin", { content: './partials/agenda-content' });
-});
-
-router.get("/member-content", (req, res) => {
-  res.render("./admin/admin", { content: './partials/member-content' });
-});
-
-router.get("/contact-content", (req, res) => {
-  res.render("./admin/admin", { content: './partials/contact-content' });
-});
-
-router.get("/explore-content", (req, res) => {
-  res.render("./admin/admin", { content: './partials/explore-content' });
-});
-
-router.get("/index-content", (req, res) => {
-  res.render("./admin/admin", { content: './partials/index-content' });
-});
-
-router.get("/koi-content", (req, res) => {
-  res.render("./admin/admin", { content: './partials/koi-content' });
-});
-
-router.get("/vaisseau-content", (req, res) => {
-  res.render("./admin/admin", { content: './partials/vaisseau-content' });
-});
-
+router.get("/agenda-content", AdminController.agenda_get);
+router.get("/member-content", AdminController.member_get);
+router.get("/contact-content", AdminController.contact_get);
+router.get("/explore-content", AdminController.explore_get);
+router.get("/index-content", AdminController.index_get);
+router.get("/koi-content", AdminController.koi_get);
+router.get("/vaisseau-content", AdminController.vaisseau_get);
 
 
 module.exports = router;
