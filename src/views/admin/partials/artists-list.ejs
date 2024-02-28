@@ -1,1 +1,25 @@
-TODO !!!
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Project</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- EJS loop to fill in the table rows -->
+      <% if (artists.length > 0) { %>
+        <% artists.forEach(artist => { %>
+          <tr>
+            <td><%= artist.name %></td>
+            <td><%= artist.project_name %></td>
+            <td><%= artist.email %></td>
+          </tr>
+        <% }); %>
+      <% } else { %>
+        <tr>
+          <td colspan="3">No artists available</td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
