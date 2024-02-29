@@ -117,6 +117,16 @@ body {
   height: 20vh;
 }
 
+.container-display a:link,
+.container-display a:visited {
+  cursor: pointer;
+  color: #dedede;
+  padding: 10px 0px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
 
 img {
   position: absolute;

@@ -1,4 +1,5 @@
 const express = require("express");
+const MainController = require('../controllers/mainController')
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -27,6 +28,8 @@ router.get("/koi-residency", (req, res) => {
 router.get("/vaisseau-mere", (req, res) => {
   res.render('vaisseau_mere')
 });
+
+router.get("/artist/:id", MainController.artist_index);
 
 
 module.exports = router;

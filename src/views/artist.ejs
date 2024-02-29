@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist Page</title>
+  <style>
+    p {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    span {
+        font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+    <h1>Artist page</h1>
+  <p>Nom: <br><span><%= artist.name %></span></p>
+  <p>Project Name: <br><span><%= artist.project_name %></span></p>
+  <p>Email: <br><span><%= artist.email %></span></p>
+  <p>Art Fields: <br><span><%= artist.art_fields %></span></p>
+  <p>Short Description: <br><span><%= artist.short_description %></span></p>
+  <p>Long Description: <br><span><%= artist.long_description %></span></p>
+  <p>Thumbnail: <br><span><%= artist.thumbnail %></span></p>
+  <p>Picture: <br><span><%= artist.picture %></span></p>
+  <p>Instagram: <br><span><%= artist.instagram %></span></p>
+  <p>Facebook: <br><span><%= artist.facebook %></span></p>
+  <p>Website: <br><span><%= artist.website %></span></p>
+</body>
+</html>
