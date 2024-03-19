@@ -13,7 +13,7 @@ app.set("views", "src/views");
 
 //connect to database Mongo
 //dbURI = "mongodb+srv://admin:123@cluster0.uni1dnd.mongodb.net/koi_website?retryWrites=true&w=majority&appName=Cluster0";
-// dbURI = "mongodb+srv://ndz:test1234@cluster0.6mhcgws.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+//dbURI = "mongodb+srv://ndz:test1234@cluster0.6mhcgws.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
   .connect(process.env.DB_CONNECT)
