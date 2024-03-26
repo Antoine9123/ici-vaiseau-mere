@@ -11,22 +11,27 @@ router.get("/agenda", (req, res) => {
 });
 
 router.get("/become-member", (req, res) => {
-  res.render('become_member')
+  // res.render('become_member')
+  res.render('underconstruction')
 });
 router.get("/contact", (req, res) => {
-  res.render('contact')
+  // res.render('contact')
+  res.render('underconstruction')
 });
 
 router.get("/explore", (req, res) => {
-  res.render('explore')
+  // res.render('explore')
+  res.render('underconstruction')
 });
 
 router.get("/koi-residency", (req, res) => {
-  res.render('koi_residency')
+  // res.render('koi_residency')
+  res.render('underconstruction')
 });
 
 router.get("/vaisseau-mere", (req, res) => {
-  res.render('vaisseau_mere')
+  // res.render('vaisseau_mere')
+  res.render('underconstruction')
 });
 
 router.get("/artist/:id", MainController.artist_index);
