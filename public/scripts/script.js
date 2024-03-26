@@ -26,17 +26,26 @@ const displayNavBtn = () => {
 const lineThroughLink = () => {
     navBtn.forEach((btn) => {
 
-        if (btn.href.charAt(btn.href.length-1) == '#'){
+        if (btn.href.includes("wip")){
             btn.style.textDecoration = "line-through";
         }else{
             btn.style.textDecoration = "none";
         }
     });
 }
+//this will select a string after a / or between to / 
+getPageName = (string) =>{
+    const pageNameRegExp = /(?:\/([^/]+)|\/(?=[^/]+\/([^/]+)))/;
+    const pageName = /(?:\/([^/]+)|\/(?=[^/]+\/([^/]+)))/.exec(string)
+    console.log(pageName)
+}
+
+
 
 const highlightCurrentPage = () => {
     navBtn.forEach((btn) => {
-        
+        console.log(btn.href);
+        getPageName(btn.href)
     })
 }
 
@@ -62,3 +71,4 @@ let makeArtEnable = checkbox.checked
 //call the variable to be executed when de page is displayed
 displayNavBtn();
 lineThroughLink();
+highlightCurrentPage();
