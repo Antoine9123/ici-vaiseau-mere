@@ -1,20 +1,29 @@
-@font-face {
-  font-family: "impact"; /*a name to be used later*/
-  src: url("../assets/fonts/impact.ttf") format("truetype");
+:root {
+  --text-color: black;
+  --highlight-color: #FF877D;
 }
+
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  color: hex(ff877d);
+}
+
+body {
+  background-image: url("../assets/NB 4 1.png");
 }
 
 header {
-  background-color: rgb(60, 60, 71);
+  font-family: "Oswald";
+  font-size: 1rem;
+  line-height: 20px;
   padding: 10px 0px;
-  color: white;
+  color: var(--text-color);
+  text-transform: uppercase;
 }
 header a {
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
 }
 
@@ -23,10 +32,6 @@ nav {
   justify-content: center;
   align-items: center;
   margin: 0px 100px;
-  font-family: "impact";
-  font-size: 16px;
-  line-height: 20px;
-  text-transform: uppercase;
 }
 nav .nav-container {
   width: 100%;
@@ -41,19 +46,19 @@ nav .nav-container {
   margin-top: 30px;
   /* Hide default HTML checkbox */
   /* The slider */
-  /* Rounded sliders */
 }
 .switch-container .label {
-  font-family: "knewave";
   text-transform: uppercase;
-  font-size: 16px;
-  line-height: 20px;
+  margin: 0px 0.5rem;
+}
+.switch-container .label span {
+  color: var(--highlight-color);
 }
 .switch-container .switch {
   position: relative;
   display: inline-block;
   width: 44px;
-  height: 25px;
+  height: 20px;
 }
 .switch-container .switch input {
   opacity: 0;
@@ -69,27 +74,21 @@ nav .nav-container {
   bottom: 0;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  border: 4px solid white;
+  border: 4px solid var(--text-color);
 }
 .switch-container .slider:before {
   position: absolute;
   content: "";
-  height: 15px;
+  height: 10px;
   width: 15px;
-  left: 2px;
+  left: 1px;
   bottom: 1px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  background-color: var(--text-color);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 .switch-container input:checked + .slider:before {
-  -webkit-transform: translateX(17px);
-  -ms-transform: translateX(17px);
-  transform: translateX(17px);
-}
-.switch-container .slider.round {
-  border-radius: 13px;
-}
-.switch-container .slider.round:before {
-  border-radius: 50%;
+  -webkit-transform: translateX(19px);
+  -ms-transform: translateX(19px);
+  transform: translateX(19px);
 }/*# sourceMappingURL=style.css.map */

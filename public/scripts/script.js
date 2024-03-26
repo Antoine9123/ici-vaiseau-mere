@@ -34,17 +34,25 @@ const lineThroughLink = () => {
     });
 }
 
+const highlightCurrentPage = () => {
+    navBtn.forEach((btn) => {
+        
+    })
+}
+
 // this generate the event listener on the love art / make art switch.
 // the swith behave like a checkbox button.
 let checkbox = document.querySelector("input[type='checkbox']");
-
-//if the body of the html page has the class make-art, the button is switch to true
-//and only the make art buttons are displayed.
-checkbox.checked = document.body.classList.contains("make-art");
 checkbox.addEventListener("change", (e) => {
     makeArtEnable = checkbox.checked;
     displayNavBtn();
 });
+
+// if the body of the html page has the class make-art, 
+// the switch button is switched to make art
+// and only the make art buttons are displayed.
+checkbox.checked = document.body.classList.contains("make-art");
+
 
 // this variable stores if we are in the love art or make art section.
 // true = make Art, false = love art
