@@ -31,7 +31,7 @@ router.get("/explore", (req, res) => {
 });
 
 router.get("/koi-residency", (req, res) => {
-  // res.render('koi_residency')
+  // res.render('koi_residency')chibidi
   res.render('underconstruction')
 });
 
