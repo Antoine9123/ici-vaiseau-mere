@@ -28,7 +28,7 @@ const lineThroughLink = () => {
         btn.style.textDecoration = btn.classList.contains("wip") 
         ? "line-through" 
         : "none";
-    });
+    })
 }
 //this will select a string after a / or between to / 
 
