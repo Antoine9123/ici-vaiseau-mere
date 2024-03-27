@@ -24,23 +24,13 @@ const displayNavBtn = () => {
     }
 }
 const lineThroughLink = () => {
-    navBtn.forEach((btn) => {
-
-        if (btn.href.includes("wip")){
-            btn.style.textDecoration = "line-through";
-        }else{
-            btn.style.textDecoration = "none";
-        }
+    navBtn.forEach((btn) => { 
+        btn.style.textDecoration = btn.classList.contains("wip") 
+        ? "line-through" 
+        : "none";
     });
 }
 //this will select a string after a / or between to / 
-getPageName = (string) =>{
-    const pageNameRegExp = /(?:\/([^/]+)|\/(?=[^/]+\/([^/]+)))/;
-    const pageName = /(?:\/([^/]+)|\/(?=[^/]+\/([^/]+)))/.exec(string)
-    console.log(pageName)
-}
-
-
 
 const highlightCurrentPage = () => {
     navBtn.forEach((btn) => {

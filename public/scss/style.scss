@@ -1,5 +1,6 @@
 :root {
   --text-color: black;
+  --text-color-secondary:white; 
   --highlight-color: #FF877D;
 
 }
@@ -15,6 +16,10 @@
 body{
   background-image: url("../assets/NB 4 1.png");
 }
+a{
+  color: var(--text-color);
+  text-decoration: none;
+}
 
 header{
   font-family: 'Oswald';
@@ -23,10 +28,8 @@ header{
   padding:10px 0px;
   color: var(--text-color);
   text-transform: uppercase;
-  a{
-      color: var(--text-color);
-      text-decoration: none;
-  }
+
+
 }
 nav{
     display: flex;
@@ -34,11 +37,25 @@ nav{
     align-items: center;
     margin:0px 100px;
 
-
     .nav-container{
         width:100%;
         display:flex;
         justify-content: space-evenly;
+
+        
+
+        a{
+          padding:0.5rem 2.5rem;
+        }
+        a:hover{
+          background-color: var(--highlight-color);
+          color: var(--text-color-secondary);
+        }
+        a.wip:hover{
+          background-color: var(--text-color);
+        }
+
+
     }
 
 }
