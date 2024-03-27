@@ -1,63 +1,29 @@
-:root {
-  --text-color: black;
-  --text-color-secondary:white; 
-  --highlight-color: #FF877D;
-
-}
-
-*{
-    padding:0px;
-    margin:0px;
-    box-sizing: border-box;
-    color: hex(ff877d);
-
-    
-}
-body{
-  background-image: url("../assets/NB 4 1.png");
-}
-a{
-  color: var(--text-color);
-  text-decoration: none;
-}
+@use './components' as c;
 
 header{
   font-family: 'Oswald';
   font-size: 1rem;
   line-height: 20px;
-  padding:10px 0px;
-  color: var(--text-color);
   text-transform: uppercase;
-
+  padding:10px 0px;
 
 }
+
 nav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin:0px 100px;
-
-    .nav-container{
-        width:100%;
-        display:flex;
-        justify-content: space-evenly;
-
-        
-
-        a{
-          padding:0.5rem 2.5rem;
-        }
-        a:hover{
-          background-color: var(--highlight-color);
-          color: var(--text-color-secondary);
-        }
-        a.wip:hover{
-          background-color: var(--text-color);
-        }
-
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .nav-container{
+      width:100%;
+      display:flex;
+      justify-content: space-evenly;
+    a{
+      @include c.link;
+      flex-grow:1;
+      padding:0.5rem 0rem;
+      max-width: 200px;
     }
-
+  }
 }
 
 .switch-container{

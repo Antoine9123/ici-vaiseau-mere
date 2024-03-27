@@ -23,13 +23,6 @@ const displayNavBtn = () => {
         loveArtNavBtn.forEach((btn) => btn.style.display = "inline")
     }
 }
-const lineThroughLink = () => {
-    navBtn.forEach((btn) => { 
-        btn.style.textDecoration = btn.classList.contains("wip") 
-        ? "line-through" 
-        : "none";
-    })
-}
 
 
 // this generate the event listener on the love art / make art switch.

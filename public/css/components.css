@@ -1,0 +1,22 @@
+:root {
+  --text-color: rgb(0, 0, 0);
+  --text-color-secondary:white;
+  --highlight-color: #FF877D;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+body {
+  background-image: url("../assets/background/home.png");
+  background-size: cover;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}/*# sourceMappingURL=components.css.map */
