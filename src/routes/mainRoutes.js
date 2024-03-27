@@ -3,6 +3,7 @@ const MainController = require('../controllers/mainController')
 const router = express.Router();
 
 const Event = require("../models/event");
+const Artist = require("../models/artist");
 
 router.get("/", (req, res) => {
   res.render('index');
@@ -16,17 +17,23 @@ router.get("/agenda", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/become-member", (req, res) => {
+router.get("/become-a-member", (req, res) => {
   // res.render('become_member')
   res.render('underconstruction')
 });
-router.get("/contact", (req, res) => {
+
+router.get("/what-we-do", (req, res) => {
   // res.render('contact')
   res.render('underconstruction')
 });
 
-router.get("/explore", (req, res) => {
-  // res.render('explore')
+router.get("/team", (req, res) => {
+  // res.render('contact')
+  res.render('underconstruction')
+});
+
+router.get("/contact", (req, res) => {
+  // res.render('contact')
   res.render('underconstruction')
 });
 
@@ -35,16 +42,23 @@ router.get("/koi-residency", (req, res) => {
   res.render('underconstruction')
 });
 
-router.get("/vaisseau-mere", (req, res) => {
+router.get("/history", (req, res) => {
+  // res.render('contact')
+  res.render('underconstruction')
+});
+
+router.get("/what-we-offer", (req, res) => {
   // res.render('vaisseau_mere')
   res.render('underconstruction')
 });
 
-router.get("/wip", (req, res) => {
-  res.render('wip')
+router.get("/space-rental", (req, res) => {
+  // res.render('contact')
+  res.render('underconstruction')
 });
 
-router.get("/artist/:id", MainController.artist_index);
+
+router.get("/artists/:id", MainController.artist_index);
 
 
 module.exports = router;
