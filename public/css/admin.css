@@ -16,6 +16,19 @@ body {
   color: #514a5e;
 }
 
+.container-display h2 {
+  font-size: x-large;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #f39589
+}
+
+.container-display span {
+  margin-bottom: 20px;
+  margin-top: 0px;
+  color: #f39589
+}
+
 /* ------------------------ */
 .container-title {
   display: flex;

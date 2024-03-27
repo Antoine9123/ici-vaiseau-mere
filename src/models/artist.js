@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const artistSchema = new Schema(
   {
-    name: {
+    collective_name: {
       type: String,
       required: true,
     },
@@ -11,42 +11,136 @@ const artistSchema = new Schema(
       type: String,
       required: true,
     },
-    email: {
+    residency_start: {
+      type: Date,
+      required: true,
+    },
+    residency_end: {
+      type: Date,
+      required: true,
+    },
+    description: {
       type: String,
       required: true,
     },
-    art_fields: {
+    image1: {
       type: String,
-      required: true,
     },
-    short_description: {
+    image2: {
       type: String,
-      required: true,
     },
-    long_description: {
+    image3: {
       type: String,
-      required: true,
     },
-    thumbnail: {
+    image4: {
       type: String,
-      required: true,
     },
-    picture: {
+    image5: {
       type: String,
-      required: true,
     },
-    instagram: {
+    project_insta: {
       type: String,
-      required: true,
     },
-    facebook: {
+    project_facebook: {
       type: String,
-      required: true,
     },
-    website: {
+    project_youtube: {
       type: String,
-      required: true,
     },
+    project_website: {
+      type: String,
+    },
+    artist_name_1: {
+      type: String,
+    },
+    artist_url_1: {
+      type: String,
+    },
+    artist_name_2: {
+      type: String,
+    },
+    artist_url_2: {
+      type: String,
+    },
+    artist_name_3: {
+      type: String,
+    },
+    artist_url_3: {
+      type: String,
+    },
+    artist_name_4: {
+      type: String,
+    },
+    artist_url_4: {
+      type: String,
+    },
+    artist_name_5: {
+      type: String,
+    },
+    artist_url_5: {
+      type: String,
+    },
+    artist_name_6: {
+      type: String,
+    },
+    artist_url_6: {
+      type: String,
+    },
+    artist_name_7: {
+      type: String,
+    },
+    artist_url_7: {
+      type: String,
+    },
+    artist_name_8: {
+      type: String,
+    },
+    artist_url_8: {
+      type: String,
+    },
+    artist_name_9: {
+      type: String,
+    },
+    artist_url_9: {
+      type: String,
+    },
+    artist_name_10: {
+      type: String,
+    },
+    artist_url_10: {
+      type: String,
+    },
+    artist_name_11: {
+      type: String,
+    },
+    artist_url_11: {
+      type: String,
+    },
+    artist_name_12: {
+      type: String,
+    },
+    artist_url_12: {
+      type: String,
+    },
+    artist_name_13: {
+      type: String,
+    },
+    artist_url_13: {
+      type: String,
+    },
+    artist_name_14: {
+      type: String,
+    },
+    artist_url_14: {
+      type: String,
+    },
+    artist_name_15: {
+      type: String,
+    },
+    artist_url_15: {
+      type: String,
+    },
+
   },
   { timestamps: true }
 );

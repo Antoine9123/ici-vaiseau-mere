@@ -1,39 +1,83 @@
-<h1>Ajouter un artiste</h1>
-<hr/>
+<h1>Ajouter un projet</h1>
+<hr />
 <form action="/admin/artists-add" method="POST">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
-  
-    <label for="project_name">Project Name</label>
-    <input type="text" id="project_name" name="project_name" required>
+  <h2>Informations concernant le collectif</h2>
 
-    <label for="email">Mail</label>
-    <input type="text" id="email" name="email" required>
+  <label for="collective_name">Nom du collectif</label>
+  <input type="text" id="collective_name" name="collective_name" required />
+
+  <label for="project_name">Nom du projet</label>
+  <input type="text" id="project_name" name="project_name" required />
+
+  <label for="residency_start">Début de résidence</label>
+  <input type="date" id="residency_start" name="residency_start" required />
+
+  <label for="residency_end">Fin de résidence</label>
+  <input type="date" id="residency_end" name="residency_end" required />
+
+  <label for="description">Description du projet</label>
+  <textarea id="description" name="description" required></textarea>
+
+  <h2>Visuel du collectif</h2>
+
+
+  <label for="image1">Visuel 1 (.jpg, .jpeg, .png)</label>
+  <input type="file" id="image1" name="image1" required accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
+  <span id="image1FileName"></span>
+  <br>
   
-    <label for="art_fields">Art Fields</label>
-    <input type="text" id="art_fields" name="art_fields" required>
+  <label for="image2">Visuel 2 (.jpg, .jpeg, .png)</label>
+  <input type="file" id="image2" name="image2" required accept=".jpg,.jpeg,.png" onchange="displayFileName('image2')" />
+  <span id="image2FileName"></span>
   
-    <label for="short_description">Short Description</label>
-    <input type="text" id="short_description" name="short_description" required>
+  <label for="image3">Visuel 3 (.jpg, .jpeg, .png)</label>
+  <input type="file" id="image3" name="image3" required accept=".jpg,.jpeg,.png" onchange="displayFileName('image3')" />
+  <span id="image3FileName"></span>
   
-    <label for="long_description">Long Description</label>
-    <textarea id="long_description" name="long_description" required></textarea>
+  <label for="image4">Visuel 4 (.jpg, .jpeg, .png)</label>
+  <input type="file" id="image4" name="image4" required accept=".jpg,.jpeg,.png" onchange="displayFileName('image4')" />
+  <span id="image4FileName"></span>
   
-    <label for="thumbnail">Thumbnail</label>
-    <input type="text" id="thumbnail" name="thumbnail" required>
+  <label for="image5">Visuel 5 (.jpg, .jpeg, .png)</label>
+  <input type="file" id="image5" name="image5" required accept=".jpg,.jpeg,.png" onchange="displayFileName('image5')" />
+  <span id="image5FileName"></span>
   
-    <label for="picture">Picture</label>
-    <input type="text" id="picture" name="picture" required>
-  
-    <label for="facebook">Facebook</label>
-    <input type="text" id="facebook" name="facebook" required>
-  
-    <label for="instagram">Instagram</label>
-    <input type="text" id="instagram" name="instagram" required>
-  
-    <label for="website">Website</label>
-    <input type="text" id="website" name="website" required>
-  
-    <button> Ajouter artiste</button>
-  </form>
-  
+  <script>
+  function displayFileName(inputId) {
+      const input = document.getElementById(inputId);
+      const fileNameSpan = document.getElementById(inputId + "FileName");
+      if (input.files.length > 0) {
+          fileNameSpan.textContent = " File loaded :  " + input.files[0].name;
+      } else {
+          fileNameSpan.textContent = "";
+      }
+  }
+  </script>
+
+  <h2>Réseaux du collectif</h2>
+
+  <label for="project_insta">Instagram du collectif</label>
+  <input type="text" id="project_insta" name="project_insta" />
+
+  <label for="project_facebook">Facebook du collectif</label>
+  <input type="text" id="project_facebook" name="project_facebook" />
+
+  <label for="project_youtube">Youtube du collectif</label>
+  <input type="text" id="project_youtube" name="project_youtube" />
+
+  <label for="project_website">Site Web du collectif</label>
+  <input type="text" id="project_website" name="project_website" />
+
+  <h2>Artistes du collectif</h2>
+
+  <% for (let i = 1; i <= 15; i++) { %>
+  <label for="artist_name_<%= i %>">Artiste n°<%= i %> : Nom</label>
+  <input type="text" id="artist_name_<%= i %>" name="artist_name_<%= i %>" />
+
+  <label for="artist_url_<%= i %>">Artiste n°<%= i %> : URL</label>
+  <input type="text" id="artist_url_<%= i %>" name="artist_url_<%= i %>" />
+  <hr />
+  <% } %>
+
+  <button>Ajouter le projet</button>
+</form>
