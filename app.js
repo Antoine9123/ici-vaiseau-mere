@@ -6,7 +6,7 @@ const adminRoute = require("./src/routes/adminRoutes");
 require('dotenv').config();
 
 const app = express();
-const PORT = 3001;
+const PORT = 3002;
 
 // register view engine
 app.set("view engine", "ejs");
@@ -29,4 +29,4 @@ app.use("/admin", adminRoute);
 
 app.use((req, res) => {
   res.status(404).render('404')
-})
+}) 

@@ -1,6 +1,6 @@
 <h1>Ajouter un projet</h1>
 <hr />
-<form action="/admin/artists-add" method="POST">
+<form action="/admin/artists-add" method="POST" enctype="multipart/form-data" >
   <h2>Informations concernant le collectif</h2>
 
   <label for="collective_name">Nom du collectif</label>
@@ -20,27 +20,27 @@
 
   <h2>Visuel du collectif</h2>
 
+  <label for="image">Visuel 1 (.jpg, .jpeg, .png)</label>
+<input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
+<span id="image1FileName"></span>
+<br>
 
-  <label for="image1">Visuel 1 (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image1" name="image1" required accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
-  <span id="image1FileName"></span>
-  <br>
-  
-  <label for="image2">Visuel 2 (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image2" name="image2" required accept=".jpg,.jpeg,.png" onchange="displayFileName('image2')" />
-  <span id="image2FileName"></span>
-  
-  <label for="image3">Visuel 3 (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image3" name="image3" required accept=".jpg,.jpeg,.png" onchange="displayFileName('image3')" />
-  <span id="image3FileName"></span>
-  
-  <label for="image4">Visuel 4 (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image4" name="image4" required accept=".jpg,.jpeg,.png" onchange="displayFileName('image4')" />
-  <span id="image4FileName"></span>
-  
-  <label for="image5">Visuel 5 (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image5" name="image5" required accept=".jpg,.jpeg,.png" onchange="displayFileName('image5')" />
-  <span id="image5FileName"></span>
+<label for="image">Visuel 2 (.jpg, .jpeg, .png)</label>
+<input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image2')" />
+<span id="image2FileName"></span>
+
+<label for="image">Visuel 3 (.jpg, .jpeg, .png)</label>
+<input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image3')" />
+<span id="image3FileName"></span>
+
+<label for="image">Visuel 4 (.jpg, .jpeg, .png)</label>
+<input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image4')" />
+<span id="image4FileName"></span>
+
+<label for="image">Visuel 5 (.jpg, .jpeg, .png)</label>
+<input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image5')" />
+<span id="image5FileName"></span>
+
   
   <script>
   function displayFileName(inputId) {

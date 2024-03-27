@@ -1,7 +1,10 @@
+const multerUpload = require('./multer');
 
 
 const Artist = require("../models/artist");
 const Event = require("../models/event");
+
+
 
 const admin_index = (req, res) => {
   res.render("./admin/admin", { content: "./partials/home-admin" });
@@ -22,16 +25,33 @@ const artist_add_get = (req, res) => {
 };
 
 const artist_add_post = (req, res) => {
+  console.log("-----------------------------------------------------------")
   const artist = new Artist(req.body);
 
-  artist
-    .save()
-    .then((result) => {
-      res.redirect("/admin/artists-list");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
+
+
+  // Utilise Multer pour gérer le téléchargement des images
+  // multerUpload.array('image1', 1)(req, res, function (err) {
+  //   if (err instanceof multer.MulterError) {
+  //     console.log("Une erreur Multer s'est produite lors du téléchargement des fichiers :", err);
+  //   } else if (err) {
+  //     console.log("Une erreur s'est produite lors du téléchargement des fichiers :", err);
+  //   }
+  //   if (req.files.length > 0) {
+  //     console.log("OK -------------------------------------------");
+  //   } else {
+  //     console.log("Une erreur s'est produite lors du téléchargement des fichiers :", err);
+  //   }
+    artist
+      .save()
+      .then((result) => {
+        res.redirect("/admin/artists-list"); // Redirige vers la liste des artistes après l'enregistrement réussi
+      })
+      .catch((err) => {
+        console.log(err); // Affiche une erreur s'il y a un problème lors de l'enregistrement
+      // });
+  });
 };
 
 // ----- EVENTS CTRL ------------------------------------------------------------------>
