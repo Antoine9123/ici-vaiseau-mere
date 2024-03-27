@@ -25,12 +25,11 @@ const storage = multer.diskStorage({
     cb(null, `public/assets/projects_image/${folderName}`); 
   },
   filename: function (req, file, cb) {
-    uploadedImages++; // Incrémente le compteur des images téléchargées
-    const fileName = 'img' + uploadedImages + path.extname(file.originalname); // Génère le nom du fichier
+    uploadedImages++; 
+    const fileName = 'img' + uploadedImages + path.extname(file.originalname); 
     cb(null, fileName); 
   }
 });
-
 
 const upload = multer({ storage: storage });
 
