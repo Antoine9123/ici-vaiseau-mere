@@ -34,6 +34,10 @@ router.get("/vaisseau-mere", (req, res) => {
   res.render('underconstruction')
 });
 
+router.get("/wip", (req, res) => {
+  res.render('wip')
+});
+
 router.get("/artist/:id", MainController.artist_index);
 
 

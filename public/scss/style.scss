@@ -1,0 +1,124 @@
+:root {
+  --text-color: black;
+  --text-color-secondary:white; 
+  --highlight-color: #FF877D;
+
+}
+
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+    color: hex(ff877d);
+
+    
+}
+body{
+  background-image: url("../assets/NB 4 1.png");
+}
+a{
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+header{
+  font-family: 'Oswald';
+  font-size: 1rem;
+  line-height: 20px;
+  padding:10px 0px;
+  color: var(--text-color);
+  text-transform: uppercase;
+
+
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0px 100px;
+
+    .nav-container{
+        width:100%;
+        display:flex;
+        justify-content: space-evenly;
+
+        
+
+        a{
+          padding:0.5rem 2.5rem;
+        }
+        a:hover{
+          background-color: var(--highlight-color);
+          color: var(--text-color-secondary);
+        }
+        a.wip:hover{
+          background-color: var(--text-color);
+        }
+
+
+    }
+
+}
+
+.switch-container{
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:30px;
+
+    .label{
+        text-transform: uppercase;
+        span{
+          color: var(--highlight-color);
+        }
+        margin: 0px 0.5rem;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 44px;
+        height: 20px;
+      }
+      
+      /* Hide default HTML checkbox */
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      
+      /* The slider */
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border: 4px solid var(--text-color);
+      }
+      
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 10px;
+        width: 15px;
+        left: 1px;
+        bottom: 1px;
+        background-color: var(--text-color);
+        -webkit-transition: .2s;
+        transition: .2s;
+      }
+      
+      input:checked + .slider:before {
+        -webkit-transform: translateX(19px);
+        -ms-transform: translateX(19px);
+        transform: translateX(19px);
+      }
+
+}
+
