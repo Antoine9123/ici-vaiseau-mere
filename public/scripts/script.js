@@ -30,14 +30,7 @@ const lineThroughLink = () => {
         : "none";
     })
 }
-//this will select a string after a / or between to / 
 
-const highlightCurrentPage = () => {
-    navBtn.forEach((btn) => {
-        console.log(btn.href);
-        getPageName(btn.href)
-    })
-}
 
 // this generate the event listener on the love art / make art switch.
 // the swith behave like a checkbox button.
