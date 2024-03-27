@@ -2,12 +2,18 @@ const express = require("express");
 const MainController = require('../controllers/mainController')
 const router = express.Router();
 
+const Event = require("../models/event");
+
 router.get("/", (req, res) => {
   res.render('index');
 });
 
 router.get("/agenda", (req, res) => {
-  res.render('agenda')
+  Event.find()
+    .then((result) => {
+      res.render("agenda", { events: result });
+    })
+    .catch((err) => console.log(err));
 });
 
 router.get("/become-member", (req, res) => {
