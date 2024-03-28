@@ -12,9 +12,9 @@ router.use(express.json());
 router.get("/", AdminController.admin_index);
 
 // ----- PROJECT ROUTES --------------------------------------------------------------->
-router.get("/artists-list", AdminController.artist_list);
-router.get("/artists-add", AdminController.artist_add_get);
-router.post("/artists-add", Multer.projectUpload.array("image", 5), AdminController.artist_add_post);
+router.get("/projects-list", AdminController.project_list);
+router.get("/projects-add", AdminController.project_add_get);
+router.post("/projects-add", Multer.projectUpload.array("image", 6), AdminController.project_add_post);
 
 // ----- EVENT ROUTES --------------------------------------------------------------->
 router.get("/events-list", AdminController.event_list);

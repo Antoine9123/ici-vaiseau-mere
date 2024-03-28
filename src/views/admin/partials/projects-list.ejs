@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Projet</th>
+      <th>Collectif</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (projects.length > 0) { %> <% projects.forEach(project => { %>
+    <tr>
+      <td><a href="/project/<%= project.id %>"><%= project.project_name %></a></td>
+      <td><%= project.collective_name %></td>
+      <td><button>Modifier</button><button>Supprimer</button></td>
+    </tr>
+    <% }); %> <% } else { %>
+    <tr>
+      <td colspan="3">No projects available</td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>

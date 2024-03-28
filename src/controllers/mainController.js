@@ -1,14 +1,14 @@
-const Artist = require("../models/artist");
+const Project = require("../models/project");
 
-const artist_index = (req, res) => {
+const project_index = (req, res) => {
   const id = req.params.id;
-  Artist.findById(id)
+  Project.findById(id)
     .then((result) => {
-      res.render("./artist", { artist: result });
+      res.render("./project", { project: result });
     })
     .catch((err) => console.log(err));
 };
 
 module.exports = {
-  artist_index,
+  project_index,
 };

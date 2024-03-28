@@ -41,8 +41,8 @@ const eventStorage = multer.diskStorage({
     cb(null, `public/assets/events_image/${folderName}`);
   },
   filename: function (req, file, cb) {
-    uploadedImages++;
     const fileName = "img" + uploadedImages + path.extname(file.originalname);
+    uploadedImages++;
     cb(null, fileName);
   },
 });

@@ -1,5 +1,5 @@
 
-const Artist = require("../models/artist");
+const Project = require("../models/project");
 const Event = require("../models/event");
 
 
@@ -10,25 +10,25 @@ const admin_index = (req, res) => {
 
 // ----- ARTIST CTRL ----------------------------------------------------------------->
 
-const artist_list = (req, res) => {
-  Artist.find()
+const project_list = (req, res) => {
+  Project.find()
     .then((result) => {
-      res.render("./admin/admin", { content: "./partials/artists-list", artists: result });
+      res.render("./admin/admin", { content: "./partials/projects-list", projects: result });
     })
     .catch((err) => console.log(err));
 };
 
-const artist_add_get = (req, res) => {
-  res.render("./admin/admin", { content: "./partials/artists-add" });
+const project_add_get = (req, res) => {
+  res.render("./admin/admin", { content: "./partials/projects-add" });
 };
 
-const artist_add_post = (req, res) => {
+const project_add_post = (req, res) => {
   console.log("-----------------------------------------------------------")
-  const artist = new Artist(req.body);
-    artist
+  const project = new Project(req.body);
+    project
       .save()
       .then((result) => {
-        res.redirect("/admin/artists-list");  
+        res.redirect("/admin/projects-list");  
       })
       .catch((err) => {
         console.log(err); 
@@ -94,9 +94,9 @@ const vaisseau_get = (req, res) => {
 module.exports = {
   admin_index,
 
-  artist_list,
-  artist_add_get,
-  artist_add_post,
+  project_list,
+  project_add_get,
+  project_add_post,
 
   event_list,
   event_add_get,

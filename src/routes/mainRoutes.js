@@ -3,7 +3,7 @@ const MainController = require('../controllers/mainController')
 const router = express.Router();
 
 const Event = require("../models/event");
-const Artist = require("../models/artist");
+const Project = require("../models/project");
 
 router.get("/", (req, res) => {
   res.render('index');
@@ -18,6 +18,11 @@ router.get("/agenda", (req, res) => {
 });
 
 router.get("/become-a-member", (req, res) => {
+  // res.render('become_member')
+  res.render('underconstruction')
+});
+
+router.get("/projects", (req, res) => {
   // res.render('become_member')
   res.render('underconstruction')
 });
@@ -58,7 +63,7 @@ router.get("/space-rental", (req, res) => {
 });
 
 
-router.get("/artists/:id", MainController.artist_index);
+router.get("/projects/:id", MainController.project_index);
 
 
 module.exports = router;
