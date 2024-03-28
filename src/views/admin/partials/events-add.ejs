@@ -1,33 +1,53 @@
 <h1>Ajouter un event</h1>
 <hr/>
 
-<form action="/admin/events-add" method="POST">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
-  
-    <label for="date">Date</label>
-    <input type="text" id="date" name="date" required>
+<form action="/admin/events-add" method="POST" enctype="multipart/form-data">
 
-    <label for="hour_start">Starting hour</label>
-    <input type="text" id="hour_start" name="hour_start" required>
+  <h2>Informations générales</h2>
+    <label for="event_name">Nom de l'event</label>
+    <input type="text" id="event_name" name="event_name" required>
+
+    <label for="event_type">Type d'event</label>
+    <input type="text" id="event_type" name="event_type" required>
+
+    <label for="date_start">Date de début</label>
+    <input type="date" id="date_start" name="date_start" required>
+
+    <label for="date_end">Date de fin</label>
+    <input type="date" id="date_end" name="date_end" required>
+
+    <h2>Informations textuelles</h2>
+
+    <label for="event_price">Tarifs</label>
+    <input type="text" id="event_price" name="event_price" required>
+
+    <label for="event_description">Description</label>
+    <textarea id="event_description" name="event_description" required></textarea>
   
-    <label for="hour_end">Ending hour</label>
-    <input type="text" id="hour_end" name="hour_end" required>
+    <label for="event_programmation">Programmation</label>
+    <textarea id="event_programmation" name="event_programmation" required></textarea>
   
-    <label for="short_description">Short Description</label>
-    <input type="text" id="short_description" name="short_description" required>
-  
-    <label for="long_description">Long Description</label>
-    <textarea id="long_description" name="long_description" required></textarea>
-  
-    <label for="picture">Picture</label>
-    <input type="text" id="picture" name="picture" required>
-  
-    <label for="price">Price</label>
-    <input type="text" id="price" name="price" required>
-  
-    <label for="artists">Artists</label>
-    <input type="text" id="artists" name="artists" required>
+    <h2>Réseaux</h2>
+
+    <label for="event_youtube">Vidéo Youtube</label>
+    <input type="text" id="event_youtube" name="event_youtube" >
+
+    <label for="image">Vignette de l'event (.jpg, .jpeg, .png)</label>
+    <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
+    <span id="image1FileName"></span>
+
+    <h2>Artistes présents</h2>
+
+    <ul style="list-style-type: none; max-height: 200px; overflow-y: scroll;">
+      <% projects.sort((a, b) => a.project_name.localeCompare(b.project_name)).forEach(function(project) { %>
+        <li>
+          <label for="<%= project._id %>">
+            <input type="checkbox" id="<%= project._id %>" name="selectedProjects" value="<%= project._id %>">
+            <%= project.project_name %>
+          </label>
+        </li>
+      <% }); %>
+    </ul>
 
     <button> Ajouter event</button>
   </form>

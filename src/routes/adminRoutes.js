@@ -19,7 +19,7 @@ router.post("/projects-add", Multer.projectUpload.array("image", 6), AdminContro
 // ----- EVENT ROUTES --------------------------------------------------------------->
 router.get("/events-list", AdminController.event_list);
 router.get("/events-add", AdminController.event_add_get);
-router.post("/events-add", AdminController.event_add_post);
+router.post("/events-add", Multer.eventUpload.single("image", 1),AdminController.event_add_post);
 
 // ----- PAGES ROUTES --------------------------------------------------------------->
 

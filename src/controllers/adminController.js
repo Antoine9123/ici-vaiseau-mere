@@ -47,7 +47,11 @@ const event_list = (req, res) => {
 };
 
 const event_add_get = (req, res) => {
-  res.render("./admin/admin", { content: "./partials/events-add" });
+  Project.find()
+  .then((result =>{
+    res.render("./admin/admin", { content: "./partials/events-add" , projects : result});
+  }))
+  
 };
 
 const event_add_post = (req, res) => {

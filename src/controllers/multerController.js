@@ -35,10 +35,10 @@ const projectStorage = multer.diskStorage({
 
 const eventStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const folderName = req.body.collective_name.replace(/ /g, "_");
-    createDirectory(`public/assets/events_image/${folderName}`);
+    const folderName = req.body.event_name.replace(/ /g, "_");
+    createDirectory(`public/assets/events_img/${folderName}`);
 
-    cb(null, `public/assets/events_image/${folderName}`);
+    cb(null, `public/assets/events_img/${folderName}`);
   },
   filename: function (req, file, cb) {
     const fileName = "img" + uploadedImages + path.extname(file.originalname);
