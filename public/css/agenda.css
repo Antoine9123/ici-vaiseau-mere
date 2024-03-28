@@ -63,7 +63,12 @@ a {
 }
 .title-section .top-container .section-title {
   font-family: "Impact";
+}
+.title-section .top-container h1.section-title {
   font-size: 3rem;
+}
+.title-section .top-container h2.section-title {
+  font-size: 2rem;
 }
 .title-section .line {
   background-image: linear-gradient(45deg, var(--text-color) 25%, transparent 25%), linear-gradient(135deg, var(--text-color) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--text-color) 75%), linear-gradient(135deg, transparent 75%, var(--text-color) 75%);

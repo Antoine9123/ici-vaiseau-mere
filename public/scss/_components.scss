@@ -41,15 +41,12 @@ background-position:0 0, $size 0, $size $size, 0px $size;
     padding: 0px 10px;
 }
 
-
-
 *{
     padding:0px;
     margin:0px;
     box-sizing: border-box;    
     
 }
-
 body{
 background-image: url("../assets/background/home.png");
 background-size: cover;
@@ -58,12 +55,10 @@ background-position: center;
 height: 100vh;
 color: var(--text-color);
 }
-
 a{
 color: var(--text-color);
 text-decoration: none;
 }
-
 .become-member{
     @include link;
     padding : 0.5rem 2rem ;
@@ -73,7 +68,6 @@ text-decoration: none;
 .wip{
     text-decoration: line-through;
 }
-
 .title-section{
     @include max-width;
     
@@ -84,7 +78,12 @@ text-decoration: none;
 
         .section-title{
             font-family: 'Impact';
+        }
+        h1.section-title{
             font-size: 3rem;
+        }
+        h2.section-title{
+            font-size: 2rem;
         }
     }
     .line{
@@ -92,6 +91,7 @@ text-decoration: none;
         height:16px;
         margin-top: 1rem;
     }
+
 }
 
 .event{
