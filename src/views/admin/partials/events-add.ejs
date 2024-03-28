@@ -42,7 +42,7 @@
       <% projects.sort((a, b) => a.project_name.localeCompare(b.project_name)).forEach(function(project) { %>
         <li>
           <label for="<%= project._id %>">
-            <input type="checkbox" id="<%= project._id %>" name="selectedProjects" value="<%= project._id %>">
+            <input type="checkbox" id="<%= project._id %>" name="current_projects" value="<%= project._id %>">
             <%= project.project_name %>
           </label>
         </li>

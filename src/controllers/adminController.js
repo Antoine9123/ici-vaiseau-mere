@@ -56,6 +56,8 @@ const event_add_get = (req, res) => {
 
 const event_add_post = (req, res) => {
   const event = new Event(req.body);
+  console.log("----------------------------------------------------")
+  console.log(event)
   event
     .save()
     .then((result) => {

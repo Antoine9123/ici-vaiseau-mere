@@ -2,26 +2,32 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Date</th>
-      <th>Action</th>
+      <th>Start</th>
+      <th>End</th>
     </tr>
   </thead>
   <tbody>
-    <% if (events.length > 0) { %> <% events.forEach(event => { %>
-    <tr>
-      <td><%= event.event_name %></td>
-      <td><%= event.date_start.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) %></td>
- <td><%= event.date_end.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) %></td>
-
-
-
-
-      <td><button>Modifier</button><button>Supprimer</button></td>
-    </tr>
-    <% }); %> <% } else { %>
-    <tr>
-      <td colspan="2">No events available</td>
-    </tr>
+    <% if (events.length > 0) { %> 
+      <% events.sort((a, b) => a.date_start - b.date_start).forEach(event => { %>
+        <tr>
+          <td><%= event.event_name %></td>
+          <td>
+            <%= event.date_start.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) %>
+          </td>
+          <td>
+            <%= event.date_end.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) %>
+          </td>
+          <td>
+            <button>Modifier</button>
+            <button>Supprimer</button>
+          </td>
+        </tr>
+      <% }); %> 
+    <% } else { %>
+      <tr>
+        <td colspan="2">Aucun événement disponible</td>
+      </tr>
     <% } %>
   </tbody>
+  
 </table>
