@@ -8,7 +8,7 @@
   </thead>
   <tbody>
     <% if (events.length > 0) { %> 
-      <% events.sort((a, b) => a.date_start - b.date_start).forEach(event => { %>
+      <% events.sort((a, b) => b.date_start - a.date_start).forEach(event => { %>
         <tr>
           <td><%= event.event_name %></td>
           <td>
