@@ -1,6 +1,6 @@
 const express = require("express");
-const AdminController = require('../controllers/adminController')
-const upload = require('../controllers/multer');
+const AdminController = require("../controllers/adminController");
+const Multer = require("../controllers/multerController");
 
 const router = express.Router();
 
@@ -11,10 +11,10 @@ router.use(express.json());
 // ----- MAIN ROUTE --------------------------------------------------------------->
 router.get("/", AdminController.admin_index);
 
-// ----- ARTIST ROUTES --------------------------------------------------------------->
+// ----- PROJECT ROUTES --------------------------------------------------------------->
 router.get("/artists-list", AdminController.artist_list);
 router.get("/artists-add", AdminController.artist_add_get);
-router.post("/artists-add", upload.array('image', 5), AdminController.artist_add_post);
+router.post("/artists-add", Multer.projectUpload.array("image", 5), AdminController.artist_add_post);
 
 // ----- EVENT ROUTES --------------------------------------------------------------->
 router.get("/events-list", AdminController.event_list);
@@ -30,6 +30,5 @@ router.get("/explore-content", AdminController.explore_get);
 router.get("/index-content", AdminController.index_get);
 router.get("/koi-content", AdminController.koi_get);
 router.get("/vaisseau-content", AdminController.vaisseau_get);
-
 
 module.exports = router;
