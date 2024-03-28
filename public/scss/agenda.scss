@@ -9,25 +9,7 @@ main{
     margin-top: 4rem;
 
 }
-.main-header{
-    @include components.main-content;
-    
-    .top-container{
-        display:flex;
-        align-items: center;
-        justify-content: space-between;
 
-        .section-title{
-            font-family: 'Impact';
-            font-size: 3rem;
-        }
-    }
-    .line{
-        @include components.checkerboard(8px);
-        height:16px;
-        margin-top: 1rem;
-    }
-}
 .event-list{
     height:70vh;
     overflow: scroll;
@@ -37,36 +19,7 @@ main{
 .event-list::-webkit-scrollbar {
     display: none;
 }
-.event{
-    @include components.main-content;
-    display:flex;
-    flex-direction: row;
-    font-family: 'Oswald';
-    align-items: center;
-    height: 120px;
-    padding:0px 10px;
-    
-    .date{
-        font-size: 2rem;
-        line-height: 1.8rem;
-        font-weight: 700;
-    }
-    .type{
-        width: 180px;
-        text-align: center;
-        margin:0px 50px;
-        font-size: 20px;
-        text-transform: uppercase;
-        background-color: var(--text-color);
-        color: var(--text-color-secondary);
-    }
-    .name{
-        font-size:24px;
-        line-height: 40px;
-        max-width: 500px;
-    }
 
-}
 .link{
     display: block;
 }
