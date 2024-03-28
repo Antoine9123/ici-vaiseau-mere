@@ -1,0 +1,29 @@
+@use './components';
+body{
+    background-image: url("../assets/background/agenda.png");
+
+    }
+
+main{
+
+    margin-top: 4rem;
+
+}
+
+.event-list{
+    height:70vh;
+    overflow: scroll;
+    scrollbar-width: none;
+
+}
+.event-list::-webkit-scrollbar {
+    display: none;
+}
+
+.link{
+    display: block;
+}
+.link:hover{
+    background-color: var(--highlight-color-transparent);
+    color: var(--text-color-secondary);
+}

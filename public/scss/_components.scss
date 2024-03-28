@@ -1,0 +1,127 @@
+:root {
+    --text-color: rgb(0, 0, 0);
+    --text-color-secondary:white; 
+    --highlight-color: #FF877D;
+    --highlight-color-transparent: #ff887dbd;
+    --become-member:#FFD37E;
+  }
+
+@font-face {
+font-family: 'Impact';
+src: url('../assets/fonts/impact.ttf') format('ttf');
+}
+
+@mixin link{
+    font-family: 'Oswald';
+    font-size: 1rem;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    &:hover{
+    background-color: var(--highlight-color);
+    color: var(--text-color-secondary);
+        &.wip {
+            background-color: var(--text-color);
+        }
+    }
+}
+@mixin checkerboard($size){
+    $double-size: $size*2;
+    background-image:
+    linear-gradient(45deg, var(--text-color) 25%, transparent 25%), 
+    linear-gradient(135deg, var(--text-color) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--text-color) 75%),
+    linear-gradient(135deg, transparent 75%, var(--text-color) 75%);
+background-size:$double-size $double-size;
+background-position:0 0, $size 0, $size $size, 0px $size;
+}
+@mixin max-width{
+    max-width: 1100px;
+    margin:auto;
+    padding: 0px 10px;
+}
+
+
+
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;    
+    
+}
+
+body{
+background-image: url("../assets/background/home.png");
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+height: 100vh;
+color: var(--text-color);
+}
+
+a{
+color: var(--text-color);
+text-decoration: none;
+}
+
+.become-member{
+    @include link;
+    padding : 0.5rem 2rem ;
+    background-color: #FFD37E;
+
+}
+.wip{
+    text-decoration: line-through;
+}
+
+.title-section{
+    @include max-width;
+    
+    .top-container{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .section-title{
+            font-family: 'Impact';
+            font-size: 3rem;
+        }
+    }
+    .line{
+        @include checkerboard(8px);
+        height:16px;
+        margin-top: 1rem;
+    }
+}
+
+.event{
+    @include max-width;
+    display:flex;
+    flex-direction: row;
+    font-family: 'Oswald';
+    align-items: center;
+    height: 120px;
+    padding:0px 10px;
+    
+    .date{
+        font-size: 2rem;
+        line-height: 1.8rem;
+        font-weight: 700;
+    }
+    .type{
+        width: 180px;
+        text-align: center;
+        margin:0px 50px;
+        font-size: 20px;
+        text-transform: uppercase;
+        background-color: var(--text-color);
+        color: var(--text-color-secondary);
+    }
+    .name{
+        font-size:24px;
+        line-height: 40px;
+        max-width: 500px;
+    }
+
+}
+

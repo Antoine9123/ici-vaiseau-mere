@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("./partials/head.ejs")%>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/agenda.css">
+  <script defer src ="/scripts/script.js"></script>
+  <title>Agenda</title>
+</head>
   <body class="love-art agenda">
     <%- include('./partials/header.ejs') %>
-
-    <h1>Current</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
+    <main>
+      <section class="title-section">
+        <div class = "top-container">
+          <h1 class = "section-title">Upcoming event</h1>
+          <a href="#" class = "become-member wip">become a member</a>
+        </div>
+        <div class="line"></div>
+      </section> 
+      <section class="event-list">
         <% if (events.length > 0) { %> <% events.forEach(event => { %>
-        <tr>
-          <td><%= event.name %></td>
-          <td><%= event.date %></td>
-          <td><button>Modifier</button><button>Supprimer</button></td>
-        </tr>
+          <a class = "link"  href = "/agenda/<%=event.id %>">
+            <afticle class="event">
+              <div class="date">
+                <!-- <%= event.hour_start %></br><%= event.hour_end %> -->
+                15 -> 16</br>
+                04.24
+              </div>
+              <div class="type"><%= event.short_description %></div>
+              <div class="name"><%= event.name %></div>
+            </article>
+          </a>
+
         <% }); %> <% } else { %>
-        <tr>
-          <td colspan="2">No events available</td>
-        </tr>
+          <div>No events available</div>
         <% } %>
-      </tbody>
-    </table>
-    <h1>Coming</h1>
-    <h1>Past</h1>
-    <h1>SHOW ALL</h1>
+      </section>
+
+
+    </main>
   </body>
 </html>
