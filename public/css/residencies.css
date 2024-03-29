@@ -1,0 +1,206 @@
+:root {
+  --text-color: rgb(0, 0, 0);
+  --text-color-secondary:white;
+  --highlight-color: #FF877D;
+  --highlight-color-transparent: #ff887dbd;
+  --become-member:#FFD37E;
+}
+
+@font-face {
+  font-family: "Impact";
+  src: url("../assets/fonts/impact.ttf") format("truetype");
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../assets/background/home.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  color: var(--text-color);
+}
+
+main {
+  margin-top: 70px;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.become-member {
+  font-family: "Oswald";
+  font-size: 1rem;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.5rem 2rem;
+  background-color: #FFD37E;
+}
+.become-member:hover {
+  background-color: var(--highlight-color);
+  color: var(--text-color-secondary);
+}
+.become-member:hover.wip {
+  background-color: var(--text-color);
+}
+
+.wip {
+  text-decoration: line-through;
+}
+
+.title-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0px 10px;
+}
+.title-section .top-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title-section .top-container .section-title {
+  font-family: "Impact";
+}
+.title-section .top-container h1.section-title {
+  font-size: 3rem;
+}
+.title-section .top-container h2.section-title {
+  font-size: 2rem;
+}
+.title-section .line {
+  background-image: linear-gradient(45deg, var(--text-color) 25%, transparent 25%), linear-gradient(135deg, var(--text-color) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--text-color) 75%), linear-gradient(135deg, transparent 75%, var(--text-color) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 0, 8px 8px, 0px 8px;
+  height: 16px;
+  margin-top: 0.5rem;
+}
+
+.event {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: row;
+  font-family: "Oswald";
+  align-items: center;
+  height: 120px;
+  padding: 0px 10px;
+}
+.event .date {
+  font-size: 2rem;
+  line-height: 1.8rem;
+  font-weight: 700;
+}
+.event .type {
+  width: 180px;
+  text-align: center;
+  margin: 0px 50px;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: var(--text-color);
+  color: var(--text-color-secondary);
+}
+.event .name {
+  font-size: 24px;
+  line-height: 40px;
+  max-width: 500px;
+}
+
+.date .first-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.date .arrow {
+  height: 1px;
+  width: 30px;
+  align-self: center;
+  margin: 5px;
+  position: relative;
+  background-color: var(--text-color);
+}
+.date .arrow:before, .date .arrow:after {
+  content: "";
+  background: var(--text-color);
+  position: absolute;
+  height: 1px;
+  width: 4px;
+}
+.date .arrow:before {
+  right: -1px;
+  bottom: -1px;
+  transform: rotate(-35deg);
+}
+.date .arrow:after {
+  right: -1px;
+  top: -1px;
+  transform: rotate(35deg);
+}
+
+.date div {
+  text-align: right;
+  font-family: "oswald";
+}
+
+body {
+  background-image: url("../assets/background/residencies.png");
+}
+
+.residencies-list {
+  overflow: scroll;
+  scrollbar-width: none;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0px 10px;
+  height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.residency {
+  width: 260px;
+  height: 300px;
+  margin: 5px;
+  padding-top: 10px;
+  background-color: var(--text-color-secondary);
+  align-items: center;
+}
+.residency .img-container {
+  width: 220px;
+  height: 220px;
+  margin: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.residency .checkerboard {
+  background-image: linear-gradient(45deg, var(--text-color-secondary) 25%, transparent 25%), linear-gradient(135deg, var(--text-color-secondary) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--text-color-secondary) 75%), linear-gradient(135deg, transparent 75%, var(--text-color-secondary) 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 0, 4px 4px, 0px 4px;
+  width: 220px;
+  height: 8px;
+}
+.residency .text-container {
+  padding: 5px 10px 0px 10px;
+  display: flex;
+}
+.residency .text-container .titles {
+  flex-grow: 1;
+}
+.residency .text-container .titles h2 {
+  font-family: "Impact";
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.residency .text-container .titles h3 {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 1rem;
+}/*# sourceMappingURL=residencies.css.map */

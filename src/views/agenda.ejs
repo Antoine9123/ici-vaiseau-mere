@@ -22,14 +22,14 @@
       <section class="event-list">
         <% if (events.length > 0) { %> <% events.forEach(event => { %>
           <a class = "link"  href = "/agenda/<%=event.id %>">
-            <afticle class="event">
+            <article class="event">
               <div class="date">
                 <!-- <%= event.hour_start %></br><%= event.hour_end %> -->
                 15 -> 16</br>
                 04.24
               </div>
-              <div class="type"><%= event.short_description %></div>
-              <div class="name"><%= event.name %></div>
+              <div class="type"><%= event.event_type %></div>
+              <div class="name"><%= event.event_name %></div>
             </article>
           </a>
 

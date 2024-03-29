@@ -1,0 +1,110 @@
+@use './components';
+
+.title-container{
+    display:flex;
+
+    .titles{
+      flex-grow: 1;
+      h1{
+        font-size: 3rem;
+        font-family: 'Impact';
+      }
+      h2{
+          font-family: "Oswald";
+          font-weight: 200;
+          font-size:2rem;
+      }
+    }
+
+    .date{
+      margin-right: 2rem;
+      font-family:"Oswald";
+      font-weight: 800;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      div{
+        font-family: "Oswald";
+        font-weight:900;
+        font-size:2.2rem;
+      }
+    
+      .big-arrow {
+        height: 2px;
+        width: 50px;
+        align-self: center;
+        margin: 15px;
+        position: relative;
+        background-color: var(--text-color);
+    
+      
+        &:before,
+        &:after {
+          content: "";
+          background: var(--text-color);
+          position: absolute;
+          height: 2px;
+          width: 6px;
+        }
+      
+        &:before {
+          right: -1px;
+          bottom: -1px;
+          transform: rotate(-35deg);
+        }
+      
+        &:after {
+          right: -1px;
+          top: -1px;
+          transform: rotate(35deg);
+        }
+      }
+    }
+
+    .socials{
+      display: flex;
+      flex-direction: row;
+      align-items:flex-end;
+  
+      a{
+        display:inline-block;
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0px 5px;
+
+      }
+  
+  
+      .siteweb{
+        background-image: url("/assets/icon/globe-solid.svg");
+      }
+      .fb{
+        background-image: url("/assets/icon/facebook.svg");
+      }
+      .insta{
+        background-image: url("/assets/icon/instagram.svg");
+      }
+      .youtube{
+        background-image: url("/assets/icon/youtube.svg");
+      }
+    }
+
+}
+
+.main-content{
+  @include components.max-width;
+  .info{
+    display:flex;
+    flex-direction: row;
+
+    aside{
+      border:1px solid gray
+    }
+    p{
+      border: 1px solid gray;
+    }
+  }
+}

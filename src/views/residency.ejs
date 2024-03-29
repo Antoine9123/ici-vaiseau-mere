@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs")%>
+    <link rel="stylesheet" href="/css/residency.css">
+
+    <title>explore</title>
+  </head>
+    <body>
+      <%- include('./partials/header.ejs') %>
+      <main>
+        <section class="title-section">
+          <div class = "title-container">
+            <div class="date">
+              <div class="first-line">
+                <div class = "start-day"><%= residency.residency_start.getDate(); %> </div>
+                <div class="big-arrow"></div>
+                <div class="end-day"><%= residency.residency_end.getDate() %></div> 
+              </div>
+
+              <div>
+                <%= (residency.residency_end.getMonth()<10)?"0"+ residency.residency_end.getMonth():+ residency.residency_end.getMonth() %>.<%=residency.residency_end.getFullYear()-2000%>&nbsp
+              </div>
+            </div>
+
+            <div class="titles">
+              <h1><%= residency.collective_name %></h1>
+              <h2><%= residency.project_name %></h2>
+            </div>
+
+            <div class="socials">
+              <a class = "siteweb" href="<%= residency.project_website %>" target="_blank" rel="noopener noreferrer"></a>
+              <a class = "fb" href="<%= residency.project_facebook %>" target="_blank" rel="noopener noreferrer"></a>
+              <a class = "insta" href="<%= residency.project_insta %>" target="_blank" rel="noopener noreferrer"></a>
+              <a class = "youtube" href="<%= residency.project_youtube %>" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+          </div>
+
+          <div class="line"></div>
+        </section> 
+        <section class="main-content">
+          <section class="info">
+            <aside>
+              <div class="residency-artists">
+                <h3>artists</h3>
+                <% let i = 1; %>
+                <% while(residency["artist_name_"+i] !== undefined) {%>
+                  <% if (residency["artist_name_"+i] !=="") { %>
+                    <a href="<%= residency["artist_url_"+i] %>" target="_blank" rel="noopener noreferrer"><%=residency["artist_name_"+i]%></a>
+                  <% } %>
+                  <% i++ %>
+                <% } %>
+                 
+
+              </div>
+              <div class="residency-events">
+                <h3>events</h3>
+                <!-- ejs génération events -->
+              </div>
+            </aside>
+            <p class="description"><%= residency.description %></p>
+          </section>
+          <section class="pictures">
+            <div class="left-column">
+              <div class="img-container"></div>
+              <div class="img-container"></div>
+              <div class="img-container"></div>
+            </div>
+            <div class="right-column">
+              <div class="img-container"></div>
+              <div class="img-container"></div>
+            </div>
+
+          </section>
+        </section>
+      </main>
+</body>
+</html>

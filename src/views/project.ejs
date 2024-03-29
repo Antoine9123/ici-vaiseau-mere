@@ -2,24 +2,54 @@
 <html lang="en">
   <head>
     <%- include("./partials/head.ejs")%>
+    <link rel="stylesheet" href="/css/residencies.css">
 
-    <title>projects</title>
+    <title>Residencies</title>
   </head>
   <body>
 
     <%- include('./partials/header.ejs') %>
-    
-    <h1>Artist page</h1>
-  <p>Nom: <br><span><%= artist.name %></span></p>
-  <p>Project Name: <br><span><%= artist.project_name %></span></p>
-  <p>Email: <br><span><%= artist.email %></span></p>
-  <p>Art Fields: <br><span><%= artist.art_fields %></span></p>
-  <p>Short Description: <br><span><%= artist.short_description %></span></p>
-  <p>Long Description: <br><span><%= artist.long_description %></span></p>
-  <p>Thumbnail: <br><span><%= artist.thumbnail %></span></p>
-  <p>Picture: <br><span><%= artist.picture %></span></p>
-  <p>Instagram: <br><span><%= artist.instagram %></span></p>
-  <p>Facebook: <br><span><%= artist.facebook %></span></p>
-  <p>Website: <br><span><%= artist.website %></span></p>
-</body>
+    <main>
+
+      <section class="title-section">
+        <div class = "top-container">
+          <h1 class = "section-title">Residencies</h1>
+          <a href="#" class = "become-member wip">become a member</a>
+        </div>
+        <div class="line"></div>
+      </section> 
+
+      <section class="filter-section">
+
+      </section>
+
+      <section class="residencies-list">
+        <% projects.forEach((project) => { %>
+          <a class = "residency" href="/projects/<%= project._id%>">
+            <div class="img-container" style = "background-image: url(<%= "/assets/projects_img/"+project.collective_name.replaceAll(" ", "_")+"/img0.jpg" %>)">
+              <div class="checkerboard"></div>
+            </div>
+
+            <div class="text-container">
+              <div class="titles">
+                <h2><%= project.collective_name %></h2>
+                <h3><%= project.project_name %></h3>
+              </div>
+
+              <div class="date">
+                <div class="first-line">
+                  <div class = "start-day"><%= project.residency_start.getDate(); %> </div>
+                  <div class="arrow"></div>
+                  <div class="end-day"><%= project.residency_end.getDate() %></div> 
+                </div>
+                <div class = "month"><%= (project.residency_end.getMonth()<10)?"0"+ project.residency_end.getMonth():+ project.residency_end.getMonth() %>.<%=project.residency_end.getFullYear()-2000%>&nbsp</div>
+              </div>
+            </div>
+          </a>
+        <% }) %>
+        
+      </section>
+    </main>
+  </body>
+
 </html>

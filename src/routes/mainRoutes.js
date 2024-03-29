@@ -23,8 +23,12 @@ router.get("/become-a-member", (req, res) => {
 });
 
 router.get("/projects", (req, res) => {
-  // res.render('become_member')
-  res.render('underconstruction')
+  Project.find()
+    .then((result) =>{
+      res.render("project", {projects: result})
+    })
+    .catch((err) => console.log(err))
+  
 });
 
 router.get("/what-we-do", (req, res) => {

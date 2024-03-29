@@ -46,5 +46,6 @@ let makeArtEnable = checkbox.checked
 
 //call the variable to be executed when de page is displayed
 displayNavBtn();
-lineThroughLink();
-highlightCurrentPage();
+
+
+

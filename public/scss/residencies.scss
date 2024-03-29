@@ -1,0 +1,59 @@
+@use './components';
+body{
+    background-image: url("../assets/background/residencies.png")
+}
+
+.residencies-list{
+    @include components.scroll-box;
+    @include components.max-width;
+    height:70vh;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.residency{
+    width:260px;
+    height:300px;
+    margin: 5px;
+    padding-top:10px;
+    background-color: var(--text-color-secondary);
+    align-items: center;
+
+    .img-container{
+        width: 220px;
+        height: 220px;
+        margin:auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .checkerboard{
+        @include components.checkerboard(4px, var(--text-color-secondary));
+        width:220px;
+        height: 8px;
+    }
+    .text-container{
+        padding:5px 10px 0px 10px;
+        display: flex;
+        .titles{
+            flex-grow: 1;
+            h2{
+                font-family: "Impact";
+                font-weight: 600;
+                font-size:1.2rem;
+            }
+            h3{
+                font-family: "Oswald";
+                font-weight: 400;
+                font-size: 1rem;
+            }
+        }
+
+        
+
+    }
+
+
+
+
+}
