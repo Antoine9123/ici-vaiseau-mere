@@ -1,1 +1,9 @@
-<p>Le nom du contenu est : <%= data.text %></p>
+<h2>Safe Place >>> (Modification)</h2>
+
+<form action="/admin/safe-content" method="POST">
+
+  <label for="text">Description</label>
+  <textarea id="text" name="text" required><%= data.text %></textarea>
+
+  <button> Mettre à jour</button>
+</form>

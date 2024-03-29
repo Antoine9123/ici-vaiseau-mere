@@ -1,4 +1,6 @@
 const Event = require("../models/event");
+const Project = require("../models/project");
+
 
 const event_list = (req, res) => {
   Event.find()

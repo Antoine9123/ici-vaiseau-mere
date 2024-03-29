@@ -34,6 +34,8 @@ router.get("/explore-content", AdminController.explore_get);
 router.get("/index-content", AdminController.index_get);
 router.get("/koi-content", AdminController.koi_get);
 router.get("/vaisseau-content", AdminController.vaisseau_get);
+
 router.get("/safe-content", AdminController.safe_get);
+router.post("/safe-content", AdminController.safe_update);
 
 module.exports = router;
