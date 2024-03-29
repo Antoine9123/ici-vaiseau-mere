@@ -64,7 +64,7 @@ router.get("/space-rental", (req, res) => {
 
 
 router.get("/projects/:id", MainController.project_index);
-router.get("/events/:id", MainController.event_index);
+router.get("/agenda/:id", MainController.event_index);
 
 
 module.exports = router;
