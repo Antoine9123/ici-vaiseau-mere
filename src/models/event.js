@@ -11,7 +11,7 @@ const eventSchema = new Schema(
     event_description: { type: String, required: true },
     event_programmation: { type: String, required: true },
     event_youtube: { type: String },
-    current_projects: [{ type: Schema.Types.ObjectId, ref: "Project" }],
+    current_residencies: [{ type: Schema.Types.ObjectId, ref: "Residency" }],
   },
   { timestamps: true }
 );

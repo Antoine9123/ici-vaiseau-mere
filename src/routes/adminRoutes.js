@@ -1,6 +1,6 @@
 const express = require("express");
 const AdminController = require("../controllers/adminController");
-const ProjectController = require("../controllers/projectController");
+const ResidencyController = require("../controllers/residencyController");
 const EventController = require("../controllers/eventController");
 const Multer = require("../controllers/multerController");
 
@@ -14,11 +14,11 @@ router.use(express.json());
 router.get("/", AdminController.admin_index);
 
 // ----- PROJECT ROUTES --------------------------------------------------------------->
-router.get("/projects-list", ProjectController.project_list);
-router.get("/projects-add", ProjectController.project_add_get);
-router.post("/projects-add", Multer.projectUpload.array("image", 6), ProjectController.project_add_post);
+router.get("/residencies-list", ResidencyController.residency_list);
+router.get("/residencies-add", ResidencyController.residency_add_get);
+router.post("/residencies-add", Multer.residencyUpload.array("image", 6), ResidencyController.residency_add_post);
 
-router.get("/projects-mod", ProjectController.project_mod_get);
+router.get("/residencies-mod", ResidencyController.residency_mod_get);
 
 // ----- EVENT ROUTES --------------------------------------------------------------->
 router.get("/events-list", EventController.event_list);

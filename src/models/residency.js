@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const projectSchema = new Schema(
+const residencySchema = new Schema(
   {
     collective_name: { type: String, required: true },
-    project_name: { type: String, required: true },
+    residency_name: { type: String, required: true },
     residency_start: { type: Date, required: true },
     residency_end: { type: Date, required: true },
     description: { type: String, required: true },
 
-    project_insta: { type: String },
-    project_facebook: { type: String },
-    project_youtube: { type: String },
-    project_website: { type: String },
+    residency_insta: { type: String },
+    residency_facebook: { type: String },
+    residency_youtube: { type: String },
+    residency_website: { type: String },
     
     artist_name_1: { type: String },
     artist_url_1: { type: String },
@@ -49,5 +49,5 @@ const projectSchema = new Schema(
 );
 
 
-const Project = mongoose.model("Project", projectSchema);
-module.exports = Project;
+const Residency = mongoose.model("Residency", residencySchema);
+module.exports = Residency;

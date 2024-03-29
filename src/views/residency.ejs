@@ -17,26 +17,26 @@
           <div class = "title-container">
             <div class="date">
               <div class="first-line">
-                <div class = "start-day"><%= project.residency_start.getDate(); %> </div>
+                <div class = "start-day"><%= residency.residency_start.getDate(); %> </div>
                 <div class="big-arrow"></div>
-                <div class="end-day"><%= project.residency_end.getDate() %></div> 
+                <div class="end-day"><%= residency.residency_end.getDate() %></div> 
               </div>
 
               <div>
-                <%= (project.residency_end.getMonth()<10)?"0"+ project.residency_end.getMonth():+ project.residency_end.getMonth() %>.<%=project.residency_end.getFullYear()-2000%>&nbsp
+                <%= (residency.residency_end.getMonth()<10)?"0"+ residency.residency_end.getMonth():+ residency.residency_end.getMonth() %>.<%=residency.residency_end.getFullYear()-2000%>&nbsp
               </div>
             </div>
 
             <div class="titles">
-              <h1><%= project.collective_name %></h1>
-              <h2><%= project.project_name %></h2>
+              <h1><%= residency.collective_name %></h1>
+              <h2><%= residency.residency_name %></h2>
             </div>
 
             <div class="socials">
-              <a class = "siteweb" href="<%= project.project_website %>" target="_blank" rel="noopener noreferrer"></a>
-              <a class = "fb" href="<%= project.project_facebook %>" target="_blank" rel="noopener noreferrer"></a>
-              <a class = "insta" href="<%= project.project_insta %>" target="_blank" rel="noopener noreferrer"></a>
-              <a class = "youtube" href="<%= project.project_youtube %>" target="_blank" rel="noopener noreferrer"></a>
+              <a class = "siteweb" href="<%= residency.residency_website %>" target="_blank" rel="noopener noreferrer"></a>
+              <a class = "fb" href="<%= residency.residency_facebook %>" target="_blank" rel="noopener noreferrer"></a>
+              <a class = "insta" href="<%= residency.residency_insta %>" target="_blank" rel="noopener noreferrer"></a>
+              <a class = "youtube" href="<%= residency.residency_youtube %>" target="_blank" rel="noopener noreferrer"></a>
             </div>
           </div>
 
@@ -48,9 +48,9 @@
               <div class="residency-artists">
                 <h3>artists</h3>
                 <% let i = 1; %>
-                <% while(project["artist_name_"+i] !== undefined) {%>
-                  <% if (project["artist_name_"+i] !=="") { %>
-                    <a href="<%= project["artist_url_"+i] %>" target="_blank" rel="noopener noreferrer"><%=project["artist_name_"+i]%></a>
+                <% while(residency["artist_name_"+i] !== undefined) {%>
+                  <% if (residency["artist_name_"+i] !=="") { %>
+                    <a href="<%= residency["artist_url_"+i] %>" target="_blank" rel="noopener noreferrer"><%=residency["artist_name_"+i]%></a>
                   <% } %>
                   <% i++ %>
                 <% } %>
@@ -62,7 +62,7 @@
                 <!-- ejs génération events -->
               </div>
             </aside>
-            <p class="description"><%= project.description %></p>
+            <p class="description"><%= residency.description %></p>
           </section>
           <section class="pictures">
             <div class="left-column">

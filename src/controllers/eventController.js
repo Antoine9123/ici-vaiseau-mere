@@ -1,5 +1,5 @@
 const Event = require("../models/event");
-const Project = require("../models/project");
+const Residency = require("../models/residency");
 
 
 const event_list = (req, res) => {
@@ -11,8 +11,8 @@ const event_list = (req, res) => {
 };
 
 const event_add_get = (req, res) => {
-  Project.find().then((result) => {
-    res.render("./admin/admin", { content: "./partials/events-add", projects: result });
+  Residency.find().then((result) => {
+    res.render("./admin/admin", { content: "./partials/events-add", residencies: result });
   });
 };
 

@@ -19,12 +19,12 @@ const createDirectory = (directoryPath) => {
 
 let uploadedImages = 0;
 
-const projectStorage = multer.diskStorage({
+const residencyStorage = multer.diskStorage({
   destination: function (req, file, cb) {
     const folderName = req.body.collective_name.replace(/ /g, "_");
-    createDirectory(`public/assets/projects_img/${folderName}`);
+    createDirectory(`public/assets/residencies_img/${folderName}`);
 
-    cb(null, `public/assets/projects_img/${folderName}`);
+    cb(null, `public/assets/residencies_img/${folderName}`);
   },
   filename: function (req, file, cb) {
     uploadedImages++;
@@ -49,10 +49,10 @@ const eventStorage = multer.diskStorage({
 
 // -----MIDDLEWARES ---------------------------------------------------------------->
 
-const projectUpload = multer({ storage: projectStorage });
+const residencyUpload = multer({ storage: residencyStorage });
 const eventUpload = multer({ storage: eventStorage });
 
 module.exports = {
-  projectUpload,
+  residencyUpload,
   eventUpload,
 };

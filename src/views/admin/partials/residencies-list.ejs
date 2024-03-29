@@ -7,15 +7,15 @@
     </tr>
   </thead>
   <tbody>
-    <% if (projects.length > 0) { %> <% projects.forEach(project => { %>
+    <% if (residencies.length > 0) { %> <% residencies.forEach(residency => { %>
     <tr>
-      <td><a href="/project/<%= project.id %>"><%= project.project_name %></a></td>
-      <td><%= project.collective_name %></td>
+      <td><a href="/residency/<%= residency.id %>"><%= residency.residency_name %></a></td>
+      <td><%= residency.collective_name %></td>
       <td><button>Modifier</button><button>Supprimer</button></td>
     </tr>
     <% }); %> <% } else { %>
     <tr>
-      <td colspan="3">No projects available</td>
+      <td colspan="3">No residencies available</td>
     </tr>
     <% } %>
   </tbody>

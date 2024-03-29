@@ -1,17 +1,17 @@
-const Project = require("../models/project");
+const Residency = require("../models/residency");
 const Event = require("../models/event");
 const Content = require("../models/content");
 
 
-const project_index = (req, res) => {
+const residency_index = (req, res) => {
   const id = req.params.id;
 
-  Project.findById(id)
-    .then((project) => {
-      Event.find({ current_projects: { $in: [id] } })
+  Residency.findById(id)
+    .then((residency) => {
+      Event.find({ current_residencies: { $in: [id] } })
         .then((events) => {
           console.log(events)
-          res.render("./residency", { project: project, events: events });
+          res.render("./residency", { residency: residency, events: events });
         })
         .catch((err) => console.log(err));
     })
@@ -34,6 +34,6 @@ const event_index = (req, res) => {
 
 
 module.exports = {
-  project_index,
+  residency_index,
   event_index,
 };

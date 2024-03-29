@@ -39,11 +39,11 @@
     <h2>Artistes présents</h2>
 
     <ul style="list-style-type: none; max-height: 200px; overflow-y: scroll;">
-      <% projects.sort((a, b) => a.project_name.localeCompare(b.project_name)).forEach(function(project) { %>
+      <% residencies.sort((a, b) => a.residency_name.localeCompare(b.residency_name)).forEach(function(residency) { %>
         <li>
-          <label for="<%= project._id %>">
-            <input type="checkbox" id="<%= project._id %>" name="current_projects" value="<%= project._id %>">
-            <%= project.project_name %>
+          <label for="<%= residency._id %>">
+            <input type="checkbox" id="<%= residency._id %>" name="current_residencies" value="<%= residency._id %>">
+            <%= residency.residency_name %>
           </label>
         </li>
       <% }); %>

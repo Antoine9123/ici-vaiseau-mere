@@ -3,7 +3,7 @@ const MainController = require('../controllers/mainController')
 const router = express.Router();
 
 const Event = require("../models/event");
-const Project = require("../models/project");
+const Residency = require("../models/residency");
 
 router.get("/", (req, res) => {
   res.render('index');
@@ -22,10 +22,10 @@ router.get("/become-a-member", (req, res) => {
   res.render('underconstruction')
 });
 
-router.get("/projects", (req, res) => {
-  Project.find()
+router.get("/residencies", (req, res) => {
+  Residency.find()
     .then((result) =>{
-      res.render("project", {projects: result})
+      res.render("residencies_list", {residencies: result})
     })
     .catch((err) => console.log(err))
   
@@ -67,7 +67,7 @@ router.get("/space-rental", (req, res) => {
 });
 
 
-router.get("/projects/:id", MainController.project_index);
+router.get("/residencies/:id", MainController.residency_index);
 router.get("/agenda/:id", MainController.event_index);
 
 
