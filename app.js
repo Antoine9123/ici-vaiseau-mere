@@ -17,7 +17,10 @@ mongoose
   .connect(process.env.DB_CONNECT)
   .then((result) => app.listen(PORT, () => console.log(`Running Express Server on ${PORT}`)))
   .then(console.log('Connected to MongoDB'))
+
   .catch((err) => console.log(err));
+
+
 
 
 app.use(express.static("public"));
