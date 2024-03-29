@@ -19,7 +19,9 @@
           </td>
           <td>
             <button>Modifier</button>
-            <button>Supprimer</button>
+            <form id="delete-form-<%= event._id %>" method="post" action="/admin/event-delete/<%= event._id %>" onsubmit="return confirmDelete(event)">
+              <button type="submit">Supprimer</button>
+            </form>
           </td>
         </tr>
       <% }); %> 
@@ -29,5 +31,15 @@
       </tr>
     <% } %>
   </tbody>
-  
 </table>
+
+<script>
+  function confirmDelete(event) {
+    
+    if (!confirm("Êtes-vous sûr de vouloir supprimer cet événement ?")) {
+      event.preventDefault(); 
+      return false;
+    }
+    return true; 
+  }
+</script>

@@ -11,7 +11,9 @@
     <tr>
       <td><a href="/residency/<%= residency.id %>"><%= residency.residency_name %></a></td>
       <td><%= residency.collective_name %></td>
-      <td><button>Modifier</button><button>Supprimer</button></td>
+      <td><button>Modifier</button><form id="delete-form-<%= residency._id %>" method="post" action="/admin/residency-delete/<%= residency._id %>" onsubmit="return confirmDelete(event)">
+        <button type="submit">Supprimer</button>
+      </form></td>
     </tr>
     <% }); %> <% } else { %>
     <tr>
@@ -20,3 +22,14 @@
     <% } %>
   </tbody>
 </table>
+
+<script>
+  function confirmDelete(event) {
+    
+    if (!confirm("Êtes-vous sûr de vouloir supprimer cet événement ?")) {
+      event.preventDefault(); 
+      return false;
+    }
+    return true; 
+  }
+</script>

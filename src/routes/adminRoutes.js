@@ -17,13 +17,15 @@ router.get("/", AdminController.admin_index);
 router.get("/residencies-list", ResidencyController.residency_list);
 router.get("/residencies-add", ResidencyController.residency_add_get);
 router.post("/residencies-add", Multer.residencyUpload.array("image", 6), ResidencyController.residency_add_post);
-
-router.get("/residencies-mod", ResidencyController.residency_mod_get);
+router.post('/residency-delete/:id', ResidencyController.residency_delete_post);
+// router.get("/residencies-mod", ResidencyController.residency_mod_get);
 
 // ----- EVENT ROUTES --------------------------------------------------------------->
 router.get("/events-list", EventController.event_list);
 router.get("/events-add", EventController.event_add_get);
 router.post("/events-add", Multer.eventUpload.single("image", 1),EventController.event_add_post);
+router.post('/event-delete/:id', EventController.event_delete_post);
+
 
 // ----- PAGES ROUTES --------------------------------------------------------------->
 
