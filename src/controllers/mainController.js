@@ -11,7 +11,7 @@ const residency_index = (req, res) => {
       Event.find({ current_residencies: { $in: [id] } })
         .then((events) => {
           console.log(events)
-          res.render("./residency", { residency: residency, events: events });
+          res.render("./main/residency", { residency: residency, events: events });
         })
         .catch((err) => console.log(err));
     })
@@ -24,7 +24,7 @@ const event_index = (req, res) => {
   .then((event) => {
       Content.findOne({ page: "safeplace" })
         .then((safePlace) => {
-          res.render("./event", { events: event, safe_place: safePlace.content });
+          res.render("./main/event", { events: event, safe_place: safePlace.content });
         })
         .catch((err) => console.log(err));
     })

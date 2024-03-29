@@ -6,26 +6,26 @@ const Event = require("../models/event");
 const Residency = require("../models/residency");
 
 router.get("/", (req, res) => {
-  res.render('index');
+  res.render('main/index');
 });
 
 router.get("/agenda", (req, res) => {
   Event.find()
     .then((result) => {
-      res.render("agenda", { events: result });
+      res.render("main/agenda", { events: result });
     })
     .catch((err) => console.log(err));
 });
 
 router.get("/become-a-member", (req, res) => {
   // res.render('become_member')
-  res.render('underconstruction')
+  res.render('main/underconstruction')
 });
 
 router.get("/residencies", (req, res) => {
   Residency.find()
     .then((result) =>{
-      res.render("residencies_list", {residencies: result})
+      res.render("main/residencies_list", {residencies: result})
     })
     .catch((err) => console.log(err))
   
@@ -33,37 +33,37 @@ router.get("/residencies", (req, res) => {
 
 router.get("/what-we-do", (req, res) => {
   // res.render('contact')
-  res.render('underconstruction')
+  res.render('main/underconstruction')
 });
 
 router.get("/team", (req, res) => {
   // res.render('contact')
-  res.render('underconstruction')
+  res.render('main/underconstruction')
 });
 
 router.get("/contact", (req, res) => {
   // res.render('contact')
-  res.render('underconstruction')
+  res.render('main/underconstruction')
 });
 
 router.get("/koi-residency", (req, res) => {
   // res.render('koi_residency')chibidi
-  res.render('underconstruction')
+  res.render('main/underconstruction')
 });
 
 router.get("/history", (req, res) => {
   // res.render('contact')
-  res.render('underconstruction')
+  res.render('main/underconstruction')
 });
 
 router.get("/what-we-offer", (req, res) => {
   // res.render('vaisseau_mere')
-  res.render('underconstruction')
+  res.render('main/underconstruction')
 });
 
 router.get("/space-rental", (req, res) => {
   // res.render('contact')
-  res.render('underconstruction')
+  res.render('main/underconstruction')
 });
 
 

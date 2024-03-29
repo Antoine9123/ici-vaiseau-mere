@@ -32,5 +32,5 @@ app.use("/", homeRoute);
 app.use("/admin", adminRoute);
 
 app.use((req, res) => {
-  res.status(404).render('404')
+  res.status(404).render('main/404')
 }) 
