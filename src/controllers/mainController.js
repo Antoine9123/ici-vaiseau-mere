@@ -11,7 +11,7 @@ const project_index = (req, res) => {
       Event.find({ current_projects: { $in: [id] } })
         .then((events) => {
           console.log(events)
-          res.render("./project", { project: project, events: events });
+          res.render("./residency", { project: project, events: events });
         })
         .catch((err) => console.log(err));
     })
