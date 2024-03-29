@@ -8,7 +8,7 @@
 
 @font-face {
 font-family: 'Impact';
-src: url('../assets/fonts/impact.ttf') format('ttf');
+src: url('../assets/fonts/impact.ttf') format('truetype');
 }
 
 @mixin link{
@@ -25,13 +25,13 @@ src: url('../assets/fonts/impact.ttf') format('ttf');
         }
     }
 }
-@mixin checkerboard($size){
+@mixin checkerboard($size,$color){
     $double-size: $size*2;
     background-image:
-    linear-gradient(45deg, var(--text-color) 25%, transparent 25%), 
-    linear-gradient(135deg, var(--text-color) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, var(--text-color) 75%),
-    linear-gradient(135deg, transparent 75%, var(--text-color) 75%);
+    linear-gradient(45deg, $color 25%, transparent 25%), 
+    linear-gradient(135deg, $color 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, $color 75%),
+    linear-gradient(135deg, transparent 75%, $color 75%);
 background-size:$double-size $double-size;
 background-position:0 0, $size 0, $size $size, 0px $size;
 }
@@ -40,8 +40,16 @@ background-position:0 0, $size 0, $size $size, 0px $size;
     margin:auto;
     padding: 0px 10px;
 }
+@mixin scroll-box{
+    overflow: scroll;
+    scrollbar-width: none;
 
 
+
+}
+// &::-webkit-scrollbar {
+//     display: none;
+// }
 
 *{
     padding:0px;
@@ -49,7 +57,6 @@ background-position:0 0, $size 0, $size $size, 0px $size;
     box-sizing: border-box;    
     
 }
-
 body{
 background-image: url("../assets/background/home.png");
 background-size: cover;
@@ -58,12 +65,13 @@ background-position: center;
 height: 100vh;
 color: var(--text-color);
 }
-
+main{
+    margin-top: 70px;
+}
 a{
 color: var(--text-color);
 text-decoration: none;
 }
-
 .become-member{
     @include link;
     padding : 0.5rem 2rem ;
@@ -73,7 +81,6 @@ text-decoration: none;
 .wip{
     text-decoration: line-through;
 }
-
 .title-section{
     @include max-width;
     
@@ -84,14 +91,21 @@ text-decoration: none;
 
         .section-title{
             font-family: 'Impact';
+
+        }
+        h1.section-title{
             font-size: 3rem;
+        }
+        h2.section-title{
+            font-size: 2rem;
         }
     }
     .line{
-        @include checkerboard(8px);
+        @include checkerboard(8px, var(--text-color));
         height:16px;
-        margin-top: 1rem;
+        margin-top: 0.5rem;
     }
+
 }
 
 .event{
@@ -125,3 +139,46 @@ text-decoration: none;
 
 }
 
+
+.date{
+    .first-line {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+    }
+
+    .arrow {
+        height: 1px;
+        width: 30px;
+        align-self: center;
+        margin: 5px;
+        position: relative;
+        background-color: var(--text-color);
+
+      
+        &:before,
+        &:after {
+          content: "";
+          background: var(--text-color);
+          position: absolute;
+          height: 1px;
+          width: 4px;
+        }
+      
+        &:before {
+          right: -1px;
+          bottom: -1px;
+          transform: rotate(-35deg);
+        }
+      
+        &:after {
+          right: -1px;
+          top: -1px;
+          transform: rotate(35deg);
+        }
+      }
+}
+.date div{
+    text-align: right;
+    font-family: "oswald";
+}

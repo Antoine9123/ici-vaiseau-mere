@@ -4,20 +4,11 @@ body{
 
     }
 
-main{
 
-    margin-top: 4rem;
-
-}
 
 .event-list{
+    @include components.scroll-box;
     height:70vh;
-    overflow: scroll;
-    scrollbar-width: none;
-
-}
-.event-list::-webkit-scrollbar {
-    display: none;
 }
 
 .link{

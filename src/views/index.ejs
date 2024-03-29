@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("./partials/head.ejs")%>
+  <head>
+    <%- include("./partials/head.ejs")%>
+    <link rel="stylesheet" href="/css/index.css">
+
+    <title>Home</title>
+  </head>
   <body>
     <%- include('./partials/header.ejs') %>
 
     <div class="main-container">
       <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/fFOzbEN-6ms?si=HK84slIx1ebSFX6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/fFOzbEN-6ms"
+        title="Intro video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+      </iframe>
       </div>
     </div>
+
     <div class="bottom-container">
       <section class="title-section">
         <div class = "top-container">
-          <h1 class = "section-title">Upcoming event</h1>
+          <h2 class = "section-title" id = "next-event">next event</h1>
           <a href="#" class = "become-member wip">become a member</a>
         </div>
         <div class="line"></div>
       </section> 
+      <section class="event-list">
+
+          <a class = "link"  href = "/agenda/#">
+            <afticle class="event">
+              <div class="date">
+                15 -> 16</br>
+                04.24
+              </div>
+              <div class="type">concert</div>
+              <div class="name">Les Nuls Revival : candelight concert - La Carioca</div>
+            </article>
+          </a>
+      </section>
     </div>
   </body>
 </html>
