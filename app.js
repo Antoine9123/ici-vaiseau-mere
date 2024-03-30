@@ -33,4 +33,4 @@ app.use("/admin", adminRoute);
 
 app.use((req, res) => {
   res.status(404).render('main/404')
-}) 
+})   
