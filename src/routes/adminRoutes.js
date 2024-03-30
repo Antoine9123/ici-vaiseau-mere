@@ -1,8 +1,8 @@
 const express = require("express");
-const AdminController = require("../controllers/adminController");
-const ResidencyController = require("../controllers/residencyController");
-const EventController = require("../controllers/eventController");
-const Multer = require("../controllers/multerController");
+const AdminController = require("../controllers/admin/adminController");
+const ResidencyController = require("../controllers/admin/residencyController");
+const EventController = require("../controllers/admin/eventController");
+const Multer = require("../controllers/admin/multerController");
 
 const router = express.Router();
 
@@ -15,10 +15,13 @@ router.get("/", AdminController.admin_index);
 
 // ----- PROJECT ROUTES --------------------------------------------------------------->
 router.get("/residencies-list", ResidencyController.residency_list);
+
 router.get("/residencies-add", ResidencyController.residency_add_get);
 router.post("/residencies-add", Multer.residencyUpload.array("image", 6), ResidencyController.residency_add_post);
+
 router.post('/residency-delete/:id', ResidencyController.residency_delete_post);
-// router.get("/residencies-mod", ResidencyController.residency_mod_get);
+
+router.get("/residencies-update/:id", ResidencyController.residency_update_get);
 
 // ----- EVENT ROUTES --------------------------------------------------------------->
 router.get("/events-list", EventController.event_list);

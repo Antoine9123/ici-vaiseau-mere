@@ -1,6 +1,6 @@
-const Residency = require("../models/residency");
-const Event = require("../models/event");
-const Content = require("../models/content");
+const Residency = require("../../models/residency");
+const Event = require("../../models/event");
+const Content = require("../../models/content");
 
 
 const residency_index = (req, res) => {

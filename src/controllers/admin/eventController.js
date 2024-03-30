@@ -1,5 +1,5 @@
-const Event = require("../models/event");
-const Residency = require("../models/residency");
+const Event = require("../../models/event");
+const Residency = require("../../models/residency");
 const fs = require("fs");
 
 const event_list = (req, res) => {

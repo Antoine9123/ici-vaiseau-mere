@@ -1,4 +1,4 @@
-const Residency = require("../models/residency");
+const Residency = require("../../models/residency");
 const fs = require("fs");
 
 const residency_list = (req, res) => {
@@ -26,7 +26,7 @@ const residency_add_post = (req, res) => {
     });
 };
 
-const residency_mod_get = (req, res) => {
+const residency_update_get = (req, res) => {
   res.render("./admin/admin", { content: "./partials/residencies-mod" });
 };
 
@@ -65,6 +65,6 @@ module.exports = {
   residency_list,
   residency_add_get,
   residency_add_post,
-  residency_mod_get,
+  residency_update_get,
   residency_delete_post,
 };

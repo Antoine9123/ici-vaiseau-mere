@@ -1,5 +1,5 @@
 const { render } = require("ejs");
-const Content = require("../models/content");
+const Content = require("../../models/content");
 
 const admin_index = (req, res) => {
   res.render("./admin/admin", { content: "./partials/home-admin" });
