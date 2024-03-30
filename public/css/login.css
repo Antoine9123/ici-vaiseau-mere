@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  body {
+    background-color: #514a5e;
+    color: #dedede;
+    font-family: "Inconsolata", monospace;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  ::selection {
+    background-color: #f39589;
+    color: #514a5e;
+  }
+
+  .container{
+    display: flex;
+    width: 30vw;
+    height: 30vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dedede;
+    padding: 10px;
+  }
+
+  .container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
