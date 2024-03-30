@@ -10,6 +10,13 @@ router.use(express.static("public"));
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 
+const isAuthenticated = (req, res, next) => {
+    if (req.session.userId) {
+      return next();
+    }
+    res.redirect("/login");
+  };
+
 // ----- MAIN ROUTE --------------------------------------------------------------->
 router.get("/", AdminController.admin_index);
 
