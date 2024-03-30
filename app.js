@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const homeRoute = require("./src/routes/mainRoutes");
 const adminRoute = require("./src/routes/adminRoutes");
+const loginRoute = require("./src/routes/loginRoutes");
+
 
 require('dotenv').config();
 
@@ -27,6 +29,8 @@ app.use(express.static("public"));
 
 
 app.use("/", homeRoute);
+
+app.use("/login",loginRoute);
 
 // Add some security authentification here
 app.use("/admin", adminRoute);
