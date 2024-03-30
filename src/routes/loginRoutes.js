@@ -10,7 +10,7 @@ router.use(express.json());
 
 
 router.get("/", authentificationController.login_index);
-router.post("/", authentificationController.login_index )
+router.post("/", authentificationController.login_token);
 
 
 module.exports = router;
