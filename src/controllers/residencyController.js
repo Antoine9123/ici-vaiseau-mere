@@ -14,7 +14,6 @@ const residency_add_get = (req, res) => {
 };
 
 const residency_add_post = (req, res) => {
-  console.log("-----------------------------------------------------------");
   const residency = new Residency(req.body);
   residency
     .save()
