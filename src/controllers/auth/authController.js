@@ -9,8 +9,6 @@ const login_index = (req, res) => {
   res.render("auth/login");
 };
 
-
-
 const get_login = async (req, res) => {
   const { username, password } = req.body;
 
@@ -36,7 +34,7 @@ const get_logout = (req, res) => {
       console.error('Error destroying session:', err);
       res.status(500).send('Server error');
     } else {
-      res.redirect('/');
+      res.render("auth/logout");
     }
   });
 };
