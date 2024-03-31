@@ -4,11 +4,7 @@
     <%- include("./partials/head.ejs")%>
     <link rel="stylesheet" href="/css/residency.css">
 
-    <title>explore</title>
-    <% console.log("coucou") %>
-    <% events.forEach ((event)=>{ %>
-      <% console.log(event)%>
-      <% }) %>
+    <title><%=residency.collective_name%></title>
   </head>
     <body>
       <%- include('./partials/header.ejs') %>
@@ -59,20 +55,25 @@
               </div>
               <div class="residency-events">
                 <h3>events</h3>
-                <!-- ejs génération events -->
+
+                <% events.forEach(event => { %>
+                  <% console.log(event) %>
+                  <a href="<%= "/agenda/"+event._id %>"><%= event.event_name %></a>
+                 
+                <% }) %>
               </div>
             </aside>
             <p class="description"><%= residency.description %></p>
           </section>
           <section class="pictures">
             <div class="left-column">
-              <div class="img-container"></div>
-              <div class="img-container"></div>
-              <div class="img-container"></div>
+              <div class="img-container" style = "background-image: url(<%= "/assets/residencies_img/"+residency.collective_name.replaceAll(" ", "_")+"/img1.png" %>)"></div>
+              <div class="img-container" style = "background-image: url(<%= "/assets/residencies_img/"+residency.collective_name.replaceAll(" ", "_")+"/img2.png" %>)"></div>
+              <div class="img-container" style = "background-image: url(<%= "/assets/residencies_img/"+residency.collective_name.replaceAll(" ", "_")+"/img3.png" %>)"></div>
             </div>
             <div class="right-column">
-              <div class="img-container"></div>
-              <div class="img-container"></div>
+              <div class="img-container" style = "background-image: url(<%= "/assets/residencies_img/"+residency.collective_name.replaceAll(" ", "_")+"/img4.png" %>)"></div>
+              <div class="img-container" style = "background-image: url(<%= "/assets/residencies_img/"+residency.collective_name.replaceAll(" ", "_")+"/img5.png" %>)"></div>
             </div>
 
           </section>
