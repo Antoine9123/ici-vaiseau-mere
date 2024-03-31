@@ -194,58 +194,37 @@ a {
   transform: rotate(35deg);
 }
 
-body {
-  background-image: url("../assets/background/residencies.png");
-}
-
-.residencies-list {
-  overflow: scroll;
-  scrollbar-width: none;
-  max-width: 1100px;
-  margin: auto;
-  padding: 0px 10px;
-  height: 70vh;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.residency {
-  width: 260px;
-  height: 300px;
-  margin: 5px;
-  padding-top: 10px;
-  background-color: var(--text-color-secondary);
-  align-items: center;
-}
-.residency .img-container {
-  width: 220px;
-  height: 220px;
-  margin: auto;
+.img-container {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  width: 100%;
+  min-height: 215px;
 }
-.residency .checkerboard {
+
+.checkerboard {
   background-image: linear-gradient(45deg, var(--text-color-secondary) 25%, transparent 25%), linear-gradient(135deg, var(--text-color-secondary) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--text-color-secondary) 75%), linear-gradient(135deg, transparent 75%, var(--text-color-secondary) 75%);
-  background-size: 8px 8px;
-  background-position: 0 0, 4px 0, 4px 4px, 0px 4px;
-  width: 220px;
-  height: 8px;
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 0, 8px 8px, 0px 8px;
+  height: 16px;
+  width: 100%;
 }
-.residency .text-container {
-  padding: 5px 10px 0px 10px;
-  display: flex;
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0px 10px;
+  overflow: scroll;
+  scrollbar-width: none;
 }
-.residency .text-container .titles {
-  flex-grow: 1;
+main .main-container {
+  display: inline-flex;
 }
-.residency .text-container .titles h2 {
-  font-family: "Impact";
-  font-weight: 600;
-  font-size: 1.2rem;
+main .main-container .main-content {
+  border: 1px solid grey;
+  width: 60%;
 }
-.residency .text-container .titles h3 {
-  font-family: "Oswald";
-  font-weight: 400;
-  font-size: 1rem;
-}/*# sourceMappingURL=residencies.css.map */
+main aside {
+  border: 1px solid grey;
+  margin-left: 80px;
+}/*# sourceMappingURL=event.css.map */

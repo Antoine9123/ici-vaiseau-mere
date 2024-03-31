@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("./partials/head.ejs")%>
-  <body>
+  <head>
+    <%- include("./partials/head.ejs")%>
+    <link rel="stylesheet" href="/css/event.css">
+    <title><%= events.event_name %></title>
+  </head>
 
-    <%- include('./partials/header.ejs') %>
+<body>
+
+  <%- include('./partials/header.ejs') %>
+  <main>
+    <div class="img-container" style = "background-image: url(<%="/assets/events_img/"+events.event_name.replaceAll(" ", "_")+"/img0.jpg" %>)">
+      <div class="checkerboard"></div>
+    </div>
+    <article class="event">
+      <div class="date">
+        <div class="first-line">
+          <div class = "start-day"><%= events.date_start.getDate(); %> </div>
+          <div class="arrow"></div>
+          <div class="end-day"><%= events.date_end.getDate() %></div> 
+        </div>
+        <div>
+          <%= (events.date_end.getMonth()<10)?"0"+ events.date_end.getMonth():+ events.date_end.getMonth() %>.<%=events.date_end.getFullYear()-2000%>&nbsp
+        </div>
+      </div>
+      <div class="type"> <%= events.event_type %> </div>
+      <div class="name"><%= events.event_name%></div>
+    </article>
+  <div class="main-container">
+    <div class="main-content">
+      <iframe width="560" height="315" src=<%=events.event_youtube.replace("watch?v=","embed/")%> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <p><%= events.event_description %></p>
+    </div>
+
+    <aside>
+      <a href="/become-a-member" class="become-member">become member</a>
+    </aside>
+  </div>
     
-    <h1>Artist page</h1>
-  <p>Nom: <br><span><%=events.event_name %></span></p>
+  </main>
   <p>Nom: <br><span><%=safe_place.text %></span></p>
-
 </body>
 </html>

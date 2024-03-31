@@ -1,0 +1,38 @@
+@use './components';
+
+.img-container{
+    @include components.img-container;
+    width:100%;
+    min-height:215px;
+}
+.checkerboard{
+    @include components.checkerboard(8px, var(--text-color-secondary));
+    height:16px;
+    width:100%;
+}
+main{
+    @include components.max-width;
+    @include components.scroll-box;
+   
+
+    .main-container{
+        display: inline-flex;
+
+    .main-content{
+        border:1px solid grey;
+
+        width:60%;
+
+    }
+
+        
+    }
+    aside{
+        border:1px solid grey;
+        margin-left:80px;
+    }
+}
+
+
+
+
