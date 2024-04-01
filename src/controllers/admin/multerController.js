@@ -19,21 +19,17 @@ const createDirectory = (directoryPath) => {
 
 const residencyStorage = multer.diskStorage({
   destination: function (req, file, cb) {
+   
     const folderName = req.body.collective_name.replace(/ /g, "_");
     createDirectory(`public/assets/residencies_img/${folderName}`);
-
-    // Retrieve uploadedImages count from session or set it to 0 if not exists
-    req.session.uploadedImages = req.session.uploadedImages || 0;
 
     cb(null, `public/assets/residencies_img/${folderName}`);
   },
   filename: function (req, file, cb) {
-    // Increment uploadedImages count stored in session
-    
+    const fieldName = file.fieldname
 
-    const fileName = "img" + req.session.uploadedImages + path.extname(file.originalname);
+    const fileName = fieldName + path.extname(file.originalname);
     cb(null, fileName);
-    req.session.uploadedImages++;
   },
 });
 

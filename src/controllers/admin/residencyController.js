@@ -14,7 +14,6 @@ const residency_add_get = (req, res) => {
 };
 
 const residency_add_post = (req, res) => {
-  req.session.uploadedImages = 0;
   const residency = new Residency(req.body);
   residency
     .save()
@@ -28,7 +27,6 @@ const residency_add_post = (req, res) => {
 };
 
 const residency_modification_get = (req, res) => {
-  req.session.uploadedImages = 0;
   Residency.findById(req.params.id)
     .then(residency => {
       res.render("./admin/admin", { content: "./partials/residencies-mod", residency: residency });

@@ -26,7 +26,7 @@
     <% const folderName = residency.collective_name.replace(/ /g, "_"); %>
     <% const imagePath = `/assets/residencies_img/${folderName}/img${i}.jpg`; %>
     <label for="image<%= i %>">Visuel <%= i %> (.jpg, .jpeg, .png)</label>
-    <input type="file" id="image<%= i %>" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image<%= i %>')" />
+    <input type="file" id="img<%= i %>" name="img<%= i %>" accept=".jpg,.jpeg,.png" onchange="displayFileName('image<%= i %>')" />
     <span id="image<%= i %>FileName"><%= imagePath %></span>
   <% } %>
 
