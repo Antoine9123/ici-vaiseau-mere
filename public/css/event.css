@@ -216,19 +216,23 @@ main {
   padding: 0px 10px;
   overflow: scroll;
   scrollbar-width: none;
+  height: 77dvh;
 }
 main .main-container {
   display: inline-flex;
 }
 main .main-container .main-content {
-  border: 1px solid grey;
   width: 70%;
 }
 main aside {
-  border: 1px solid grey;
   margin-left: 80px;
 }
 main aside .become-member {
   display: inline-block;
   width: 175px;
+}
+
+.safe-space {
+  padding-top: 25px;
+  border-top: solid rgba(255, 255, 255, 0.493) 1px;
 }/*# sourceMappingURL=event.css.map */

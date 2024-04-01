@@ -13,13 +13,14 @@
 main{
     @include components.max-width;
     @include components.scroll-box;
+    height: 77dvh;
    
 
     .main-container{
         display: inline-flex;
 
     .main-content{
-        border:1px solid grey;
+    
 
         width:70%;
 
@@ -28,7 +29,7 @@ main{
         
     }
     aside{
-        border:1px solid grey;
+
         margin-left:80px;
         .become-member{
             display:inline-block;
@@ -36,6 +37,11 @@ main{
         }
         
     }
+}
+
+.safe-space{
+    padding-top: 25px;
+    border-top: solid rgba(255, 255, 255, 0.493) 1px;
 }
 
 
