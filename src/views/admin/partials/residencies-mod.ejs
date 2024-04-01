@@ -1,85 +1,61 @@
-<h1>Ajouter un projet</h1>
+<h1>Modifier une résidence</h1>
 <hr />
-<form action="/admin/residencies-add" method="POST" enctype="multipart/form-data">
+<form action="/admin/residencies-update/<%= residency._id %>" method="POST" enctype="multipart/form-data">
   <h2>Informations concernant le collectif</h2>
 
   <label for="collective_name">Nom du collectif</label>
-  <input type="text" id="collective_name" name="collective_name" required />
+  <input type="text" id="collective_name" name="collective_name" value="<%= residency.collective_name %>" required />
 
   <label for="residency_name">Nom du projet</label>
-  <input type="text" id="residency_name" name="residency_name" required />
+  <input type="text" id="residency_name" name="residency_name" value="<%= residency.residency_name %>" required />
 
   <label for="residency_start">Début de résidence</label>
-  <input type="date" id="residency_start" name="residency_start" required />
-
+  <input type="date" id="residency_start" name="residency_start" value="<%= residency.residency_start.toISOString().split('T')[0] %>" required />
+  
   <label for="residency_end">Fin de résidence</label>
-  <input type="date" id="residency_end" name="residency_end" required />
+  <input type="date" id="residency_end" name="residency_end" value="<%= residency.residency_end.toISOString().split('T')[0] %>" required />
+  
+
 
   <label for="description">Description du projet</label>
-  <textarea id="description" name="description" required></textarea>
+  <textarea id="description" name="description" required><%= residency.description %></textarea>
 
   <h2>Visuel du collectif</h2>
 
-  <label for="image">Vignette Instagram (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
-  <span id="image1FileName"></span>
+  <% for (let i = 0; i < 6; i++) { %>
+    <% const folderName = residency.collective_name.replace(/ /g, "_"); %>
+    <% const imagePath = `/assets/residencies_img/${folderName}/img${i}.jpg`; %>
+    <label for="image<%= i %>">Visuel <%= i %> (.jpg, .jpeg, .png)</label>
+    <input type="file" id="image<%= i %>" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image<%= i %>')" />
+    <span id="image<%= i %>FileName"><%= imagePath %></span>
+  <% } %>
 
-  <label for="image">Visuel 1 (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
-  <span id="image1FileName"></span>
-
-  <label for="image">Visuel 2 (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image2')" />
-  <span id="image2FileName"></span>
-
-  <label for="image">Visuel 3 (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image3')" />
-  <span id="image3FileName"></span>
-
-  <label for="image">Visuel 4 (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image4')" />
-  <span id="image4FileName"></span>
-
-  <label for="image">Visuel 5 (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image5')" />
-  <span id="image5FileName"></span>
-
-  <script>
-    function displayFileName(inputId) {
-      const input = document.getElementById(inputId);
-      const fileNameSpan = document.getElementById(inputId + "FileName");
-      if (input.files.length > 0) {
-        fileNameSpan.textContent = " File loaded :  " + input.files[0].name;
-      } else {
-        fileNameSpan.textContent = "";
-      }
-    }
-  </script>
 
   <h2>Réseaux du collectif</h2>
 
   <label for="residency_insta">Instagram du collectif</label>
-  <input type="text" id="residency_insta" name="residency_insta" />
+  <input type="text" id="residency_insta" name="residency_insta" value="<%= residency.residency_insta %>" />
 
   <label for="residency_facebook">Facebook du collectif</label>
-  <input type="text" id="residency_facebook" name="residency_facebook" />
+  <input type="text" id="residency_facebook" name="residency_facebook" value="<%= residency.residency_facebook %>" />
 
   <label for="residency_youtube">Youtube du collectif</label>
-  <input type="text" id="residency_youtube" name="residency_youtube" />
+  <input type="text" id="residency_youtube" name="residency_youtube" value="<%= residency.residency_youtube %>" />
 
   <label for="residency_website">Site Web du collectif</label>
-  <input type="text" id="residency_website" name="residency_website" />
+  <input type="text" id="residency_website" name="residency_website" value="<%= residency.residency_website %>" />
 
   <h2>Artistes du collectif</h2>
 
   <% for (let i = 1; i <= 15; i++) { %>
-  <label for="artist_name_<%= i %>">Artiste n°<%= i %> : Nom</label>
-  <input type="text" id="artist_name_<%= i %>" name="artist_name_<%= i %>" />
-
-  <label for="artist_url_<%= i %>">Artiste n°<%= i %> : URL</label>
-  <input type="text" id="artist_url_<%= i %>" name="artist_url_<%= i %>" />
-  <hr />
+    <label for="artist_name_<%= i %>">Artiste n°<%= i %> : Nom</label>
+    <input type="text" id="artist_name_<%= i %>" name="artist_name_<%= i %>" value="<%= residency['artist_name_' + i] %>" />
+  
+    <label for="artist_url_<%= i %>">Artiste n°<%= i %> : URL</label>
+    <input type="text" id="artist_url_<%= i %>" name="artist_url_<%= i %>" value="<%= residency['artist_url_' + i] %>" />
+    <hr />
   <% } %>
+  
 
-  <button>Ajouter le projet</button>
+  <button>Modifier la résidence</button>
 </form>

@@ -17,33 +17,44 @@ const createDirectory = (directoryPath) => {
 
 // -----STORAGE---------------------------------------------------------------->
 
-let uploadedImages = 0;
-
 const residencyStorage = multer.diskStorage({
   destination: function (req, file, cb) {
     const folderName = req.body.collective_name.replace(/ /g, "_");
     createDirectory(`public/assets/residencies_img/${folderName}`);
 
+    // Retrieve uploadedImages count from session or set it to 0 if not exists
+    req.session.uploadedImages = req.session.uploadedImages || 0;
+
     cb(null, `public/assets/residencies_img/${folderName}`);
   },
   filename: function (req, file, cb) {
-    uploadedImages++;
-    const fileName = "img" + uploadedImages + path.extname(file.originalname);
+    // Increment uploadedImages count stored in session
+    
+
+    const fileName = "img" + req.session.uploadedImages + path.extname(file.originalname);
     cb(null, fileName);
+    req.session.uploadedImages++;
   },
 });
 
 const eventStorage = multer.diskStorage({
   destination: function (req, file, cb) {
+    // Create a folder based on the event name
     const folderName = req.body.event_name.replace(/ /g, "_");
     createDirectory(`public/assets/events_img/${folderName}`);
+
+ 
+    req.session.uploadedEventImages = req.session.uploadedEventImages || 0;
 
     cb(null, `public/assets/events_img/${folderName}`);
   },
   filename: function (req, file, cb) {
-    const fileName = "img" + uploadedImages + path.extname(file.originalname);
-    uploadedImages++;
+
+    const fileName = "img" + req.session.uploadedEventImages + path.extname(file.originalname);
     cb(null, fileName);
+
+
+    req.session.uploadedEventImages++;
   },
 });
 

@@ -14,6 +14,7 @@ const residency_add_get = (req, res) => {
 };
 
 const residency_add_post = (req, res) => {
+  req.session.uploadedImages = 0;
   const residency = new Residency(req.body);
   residency
     .save()
@@ -26,8 +27,16 @@ const residency_add_post = (req, res) => {
     });
 };
 
-const residency_update_get = (req, res) => {
-  res.render("./admin/admin", { content: "./partials/residencies-mod" });
+const residency_modification_get = (req, res) => {
+  req.session.uploadedImages = 0;
+  Residency.findById(req.params.id)
+    .then(residency => {
+      res.render("./admin/admin", { content: "./partials/residencies-mod", residency: residency });
+    })
+    .catch(err => {
+      console.error('Error finding residency:', err);
+      res.status(500).send('Server error');
+    });
 };
 
 const residency_delete_post = (req, res) => {
@@ -61,10 +70,43 @@ const residency_delete_post = (req, res) => {
     });
 };
 
+const residency_update_post = (req, res) => {
+  
+  const { id } = req.params;
+  const updatedResidency = req.body;
+
+  // Récupérer l'ancien nom du collectif depuis la base de données
+  Residency.findById(id)
+    .then((residency) => {
+      if (!residency) {
+        return res.status(404).send("Residency not found");
+      }
+      
+      const oldCollectiveName = residency.collective_name;
+      const newCollectiveName = updatedResidency.collective_name;
+
+      const oldFolderPath = `public/assets/residencies_img/${oldCollectiveName.replace(/ /g, "_")}`;
+      const newFolderPath = `public/assets/residencies_img/${newCollectiveName.replace(/ /g, "_")}`;
+      fs.renameSync(oldFolderPath, newFolderPath);
+
+      return Residency.findByIdAndUpdate(id, updatedResidency, { new: true });
+    })
+    .then((updatedResidency) => {
+      res.redirect("/admin/residencies-list");
+    })
+    .catch((err) => {
+      console.error("Error updating residency:", err);
+      res.status(500).send("Error updating residency");
+    });
+};
+
+
+
 module.exports = {
   residency_list,
   residency_add_get,
   residency_add_post,
-  residency_update_get,
+  residency_modification_get,
   residency_delete_post,
+  residency_update_post,
 };

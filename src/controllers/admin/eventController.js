@@ -17,6 +17,7 @@ const event_add_get = (req, res) => {
 };
 
 const event_add_post = (req, res) => {
+  req.session.uploadedImages = 0;
   const event = new Event(req.body);
   event
     .save()
@@ -59,9 +60,74 @@ const event_delete_post = (req, res) => {
     });
 };
 
+const event_modification_get = (req, res) => {
+  req.session.uploadedImages = 0;
+  const eventId = req.params.id;
+
+  Event.findById(eventId)
+    .then(event => {
+      console.log(event)
+      Residency.find({ _id: { $in: event.current_residencies } })
+        .then(currentResidencies => {
+          Residency.find()
+            .then(allResidencies => {
+              console.log("current-------------------------------------------------------------------->")
+              console.log(currentResidencies)
+
+              res.render("./admin/admin", { content: "./partials/events-mod", event: event, residencies: allResidencies, currentResidencies: currentResidencies });
+            })
+            .catch(err => {
+              console.error('Error finding all residencies:', err);
+              res.status(500).send('Server error');
+            });
+        })
+        .catch(err => {
+          console.error('Error finding residencies:', err);
+          res.status(500).send('Server error');
+        });
+    })
+    .catch(err => {
+      console.error('Error finding event:', err);
+      res.status(500).send('Server error');
+    });
+};
+
+
+const event_update_post = (req, res) => {
+  const { id } = req.params;
+  const updatedEvent = req.body;
+
+  // Récupérer l'ancien nom de l'événement depuis la base de données
+  Event.findById(id)
+    .then((event) => {
+      if (!event) {
+        return res.status(404).send("Event not found");
+      }
+      
+      const oldEventName = event.event_name;
+      const newEventName = updatedEvent.event_name;
+
+      const oldFolderPath = `public/assets/events_img/${oldEventName.replace(/ /g, "_")}`;
+      const newFolderPath = `public/assets/events_img/${newEventName.replace(/ /g, "_")}`;
+      fs.renameSync(oldFolderPath, newFolderPath);
+
+      return Event.findByIdAndUpdate(id, updatedEvent, { new: true });
+    })
+    .then((updatedEvent) => {
+      res.redirect("/admin/events-list");
+    })
+    .catch((err) => {
+      console.error("Error updating event:", err);
+      res.status(500).send("Error updating event");
+    });
+};
+
+
 module.exports = {
   event_list,
   event_add_get,
   event_add_post,
   event_delete_post,
+  event_update_post,
+  event_modification_get
 };

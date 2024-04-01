@@ -10,7 +10,7 @@ const residency_index = (req, res) => {
     .then((residency) => {
       Event.find({ current_residencies: { $in: [id] } })
         .then((events) => {
-          console.log(events)
+      
           res.render("./main/residency", { residency: residency, events: events });
         })
         .catch((err) => console.log(err));

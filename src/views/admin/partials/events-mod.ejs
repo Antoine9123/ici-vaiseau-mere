@@ -1,0 +1,63 @@
+<h1>Modifier un événement</h1>
+<hr />
+<form action="/admin/events-update/<%= event._id %>" method="POST" enctype="multipart/form-data">
+  <h2>Informations générales</h2>
+
+  <label for="event_name">Nom de l'événement</label>
+  <input type="text" id="event_name" name="event_name" value="<%= event.event_name %>" required />
+
+  <label for="event_type">Type d'événement</label>
+  <input type="text" id="event_type" name="event_type" value="<%= event.event_type %>" required />
+
+  <label for="date_start">Date de début</label>
+  <input type="date" id="date_start" name="date_start" value="<%= event.date_start.toISOString().split('T')[0] %>" required />
+
+  <label for="date_end">Date de fin</label>
+  <input type="date" id="date_end" name="date_end" value="<%= event.date_end.toISOString().split('T')[0] %>" required />
+
+  <h2>Informations textuelles</h2>
+
+  <label for="event_price">Tarifs</label>
+  <input type="text" id="event_price" name="event_price" value="<%= event.event_price %>" required />
+
+  <label for="event_description">Description</label>
+  <textarea id="event_description" name="event_description" required><%= event.event_description %></textarea>
+
+  <label for="event_programmation">Programmation</label>
+  <textarea id="event_programmation" name="event_programmation" required><%= event.event_programmation %></textarea>
+
+  <h2>Réseaux</h2>
+
+  <label for="event_youtube">Vidéo Youtube</label>
+  <input type="text" id="event_youtube" name="event_youtube" value="<%= event.event_youtube %>" />
+
+  <label for="image">Vignette de l'événement (.jpg, .jpeg, .png)</label>
+  <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
+  <span id="image1FileName"><%= event.event_image_path %></span>
+
+  <h2>Artistes présents</h2>
+
+  <ul style="list-style-type: none; max-height: 200px; overflow-y: scroll;">
+    <% residencies.sort((a, b) => a.residency_name.localeCompare(b.residency_name)).forEach(function(residency) { %>
+      <li>
+        <label for="<%= residency._id %>">
+            <input type="checkbox" id="<%= residency._id %>" name="current_residencies" value="<%= residency._id %>" <% if (currentResidencies.map(curResidency => curResidency._id.toString()).includes(residency._id.toString())) { %> checked <% } %>>
+
+          <%= residency.residency_name %>
+        </label>
+      </li>
+    <% }); %>
+  </ul>
+  
+
+  <button>Modifier l'événement</button>
+</form>
+
+<script>
+    // Affiche les données transmises dans votre navigateur
+    var currentResidenciesData = <%- JSON.stringify(currentResidencies) %>;
+    console.log(currentResidenciesData);
+  </script>
+
+
+  

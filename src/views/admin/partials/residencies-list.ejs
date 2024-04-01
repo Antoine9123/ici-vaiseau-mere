@@ -9,11 +9,20 @@
   <tbody>
     <% if (residencies.length > 0) { %> <% residencies.forEach(residency => { %>
     <tr>
-      <td><a href="/residency/<%= residency.id %>"><%= residency.residency_name %></a></td>
+      <td><%= residency.residency_name %></td>
       <td><%= residency.collective_name %></td>
-      <td><button>Modifier</button><form id="delete-form-<%= residency._id %>" method="post" action="/admin/residency-delete/<%= residency._id %>" onsubmit="return confirmDelete(event)">
-        <button type="submit">Supprimer</button>
-      </form></td>
+      <td>
+        <div class="action">
+          <a class="button" href="/admin/residencies-modification/<%= residency.id %>">Modifier</a>
+          <form
+            id="delete-form-<%= residency._id %>"
+            method="post"
+            action="/admin/residency-delete/<%= residency._id %>"
+          >
+            <a class="button" href="#" onclick="return confirmDelete('<%= residency._id %>')">Supprimer</a>
+          </form>
+        </div>
+      </td>
     </tr>
     <% }); %> <% } else { %>
     <tr>
@@ -24,12 +33,12 @@
 </table>
 
 <script>
-  function confirmDelete(event) {
-    
-    if (!confirm("Êtes-vous sûr de vouloir supprimer cet événement ?")) {
-      event.preventDefault(); 
+  const confirmDelete = (residencyId) => {
+    if (confirm("Êtes-vous sûr de vouloir supprimer cet élément ?")) {
+      document.getElementById("delete-form-" + residencyId).submit();
+      return true;
+    } else {
       return false;
     }
-    return true; 
-  }
+  };
 </script>

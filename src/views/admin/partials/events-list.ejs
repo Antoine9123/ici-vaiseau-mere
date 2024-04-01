@@ -18,10 +18,17 @@
             <%= event.date_end.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) %>
           </td>
           <td>
-            <button>Modifier</button>
-            <form id="delete-form-<%= event._id %>" method="post" action="/admin/event-delete/<%= event._id %>" onsubmit="return confirmDelete(event)">
-              <button type="submit">Supprimer</button>
-            </form>
+            <div class="action">
+              <a class="button" href="/admin/events-modification/<%= event.id %>">Modifier</a>
+              <form
+                id="delete-form-<%= event._id %>"
+                method="post"
+                action="/admin/event-delete/<%= event._id %>"
+              >
+                <a class="button" href="#" onclick="return confirmDelete('<%= event._id %>')">Supprimer</a>
+              </form>
+            </div>
+
           </td>
         </tr>
       <% }); %> 
@@ -34,12 +41,12 @@
 </table>
 
 <script>
-  function confirmDelete(event) {
-    
-    if (!confirm("Êtes-vous sûr de vouloir supprimer cet événement ?")) {
-      event.preventDefault(); 
+  const confirmDelete = (eventID) => {
+    if (confirm("Êtes-vous sûr de vouloir supprimer cet élément ?")) {
+      document.getElementById("delete-form-" + eventID).submit();
+      return true;
+    } else {
       return false;
     }
-    return true; 
-  }
+  };
 </script>

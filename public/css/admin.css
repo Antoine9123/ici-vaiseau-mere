@@ -49,6 +49,40 @@ body {
   color: #dedede;
   text-decoration: none;
 }
+.action{
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  background-color: #f39589;
+  
+  margin: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.button:hover{
+  background-color: #f39589a1;
+}
+
+
+.action .button[href^="/admin/residencies-modification"] {
+  color: #272727;
+}
+
+.action form[action^="/admin/residency-delete"] .button {
+  color: #272727;
+}
+
+.action .button[href^="/admin/events-modification"] {
+  color: #272727;
+}
+
+.action form[action^="/admin/event-delete"] .button {
+  color: #272727;
+}
+
 
 /* ------------------------ */
 .menu {
