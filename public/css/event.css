@@ -222,9 +222,13 @@ main .main-container {
 }
 main .main-container .main-content {
   border: 1px solid grey;
-  width: 60%;
+  width: 70%;
 }
 main aside {
   border: 1px solid grey;
   margin-left: 80px;
+}
+main aside .become-member {
+  display: inline-block;
+  width: 175px;
 }/*# sourceMappingURL=event.css.map */
