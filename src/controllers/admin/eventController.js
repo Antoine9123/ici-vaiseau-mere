@@ -66,14 +66,12 @@ const event_modification_get = (req, res) => {
 
   Event.findById(eventId)
     .then(event => {
-      console.log(event)
+      
       Residency.find({ _id: { $in: event.current_residencies } })
         .then(currentResidencies => {
           Residency.find()
             .then(allResidencies => {
-              console.log("current-------------------------------------------------------------------->")
-              console.log(currentResidencies)
-
+              
               res.render("./admin/admin", { content: "./partials/events-mod", event: event, residencies: allResidencies, currentResidencies: currentResidencies });
             })
             .catch(err => {
