@@ -95,7 +95,6 @@ const event_update_post = (req, res) => {
   const { id } = req.params;
   const updatedEvent = req.body;
 
-  // Récupérer l'ancien nom de l'événement depuis la base de données
   Event.findById(id)
     .then((event) => {
       if (!event) {
