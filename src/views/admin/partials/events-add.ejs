@@ -38,7 +38,7 @@
 
     <h2>Artistes présents</h2>
 
-    <ul style="list-style-type: none; max-height: 200px; overflow-y: scroll;">
+    <ul style="list-style-type: none; max-height: 200px; overflow-y: scroll; margin-bottom: 50px;">
       <% residencies.sort((a, b) => a.residency_name.localeCompare(b.residency_name)).forEach(function(residency) { %>
         <li>
           <label for="<%= residency._id %>">
@@ -49,6 +49,6 @@
       <% }); %>
     </ul>
 
-    <button> Ajouter event</button>
+    <button class="custom-button"> Ajouter event</button>
   </form>
   

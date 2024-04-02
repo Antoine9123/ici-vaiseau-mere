@@ -84,6 +84,30 @@ body {
 }
 
 
+.img-input {
+  color: #f39589;
+}
+
+.img-form > label{
+  font-weight: bolder;
+  
+}
+
+.custom-button {
+
+  background-color: #ffd37e; 
+  color: #000000 ;
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 0px;
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+
+.custom-button:hover {
+  background-color: #ffd47ea9; 
+}
+
 /* ------------------------ */
 .menu {
   padding: 20px;
@@ -183,7 +207,7 @@ body {
   text-decoration: none;
 }
 
-img {
+body > img {
   position: absolute;
   width: auto;
   height: 50vh;

@@ -1,5 +1,4 @@
 const multer = require("multer");
-const path = require("path");
 const fs = require("fs");
 
 const createDirectory = (directoryPath) => {
@@ -20,15 +19,14 @@ const createDirectory = (directoryPath) => {
 const residencyStorage = multer.diskStorage({
   destination: function (req, file, cb) {
    
-    const folderName = req.body.collective_name.replace(/ /g, "_");
+    const folderName = format_name_folder(req.body.collective_name);
     createDirectory(`public/assets/residencies_img/${folderName}`);
 
     cb(null, `public/assets/residencies_img/${folderName}`);
   },
   filename: function (req, file, cb) {
     const fieldName = file.fieldname
-
-    const fileName = fieldName + path.extname(file.originalname);
+    const fileName = fieldName + ".png";
     cb(null, fileName);
   },
 });
@@ -39,18 +37,14 @@ const eventStorage = multer.diskStorage({
     const folderName = req.body.event_name.replace(/ /g, "_");
     createDirectory(`public/assets/events_img/${folderName}`);
 
- 
-    req.session.uploadedEventImages = req.session.uploadedEventImages || 0;
 
     cb(null, `public/assets/events_img/${folderName}`);
   },
   filename: function (req, file, cb) {
 
-    const fileName = "img" + req.session.uploadedEventImages + path.extname(file.originalname);
+    const fileName = "img0.png";
     cb(null, fileName);
 
-
-    req.session.uploadedEventImages++;
   },
 });
 

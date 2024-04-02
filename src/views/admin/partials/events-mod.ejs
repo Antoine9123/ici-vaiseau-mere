@@ -30,14 +30,21 @@
 
   <label for="event_youtube">Vidéo Youtube</label>
   <input type="text" id="event_youtube" name="event_youtube" value="<%= event.event_youtube %>" />
+  <%
+const folderName = format_name_folder(event.event_name);
+const height = "auto";
+const width = "25%";
+%>
 
+
+  <div style="display: flex; flex-direction: column; gap: 20px;">
   <label for="image">Vignette de l'événement (.jpg, .jpeg, .png)</label>
-  <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
-  <span id="image1FileName"><%= event.event_image_path %></span>
-
+  <input class="img-input" type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
+  <img src="/assets/events_img/<%= folderName %>/img0.png" alt="//image missing" width=<%= width %> height=<%= height %>>
+</div>
   <h2>Artistes présents</h2>
 
-  <ul style="list-style-type: none; max-height: 200px; overflow-y: scroll;">
+  <ul style="list-style-type: none; max-height: 200px; overflow-y: scroll;margin-bottom: 50px;">
     <% residencies.sort((a, b) => a.residency_name.localeCompare(b.residency_name)).forEach(function(residency) { %>
       <li>
         <label for="<%= residency._id %>">
@@ -50,7 +57,7 @@
   </ul>
   
 
-  <button>Modifier l'événement</button>
+  <button class="custom-button">Modifier l'événement</button>
 </form>
 
 
