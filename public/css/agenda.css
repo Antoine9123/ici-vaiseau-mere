@@ -198,7 +198,7 @@ body {
   background-image: url("../assets/background/agenda.png");
 }
 
-.event-list {
+main {
   overflow: scroll;
   scrollbar-width: none;
   height: 70vh;

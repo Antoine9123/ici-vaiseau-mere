@@ -6,7 +6,7 @@ body{
 
 
 
-.event-list{
+main{
     @include components.scroll-box;
     height:70vh;
 }
