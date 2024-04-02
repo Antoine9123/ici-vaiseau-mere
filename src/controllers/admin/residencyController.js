@@ -1,7 +1,7 @@
 const Residency = require("../../models/residency");
 const fs = require("fs");
 
-const format_name_folder = require("../../../function")
+const tl = require("../../../function")
 
 const residency_list = (req, res) => {
   Residency.find()
@@ -24,7 +24,6 @@ const residency_add_post = (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      // });
     });
 };
 
@@ -42,7 +41,7 @@ const residency_modification_get = (req, res) => {
 const residency_delete_post = (req, res) => {
   Residency.findById(req.params.id)
     .then((residency) => {
-      const folderName = format_name_folder(residency.collective_name);
+      const folderName = tl.format_name_folder(residency.collective_name);
       return new Promise((resolve, reject) => {
         fs.rm(`public/assets/residencies_img/${folderName}`, { recursive: true }, (err) => {
           if (err) {
@@ -85,8 +84,8 @@ const residency_update_post = (req, res) => {
       const oldCollectiveName = residency.collective_name;
       const newCollectiveName = updatedResidency.collective_name;
 
-      const oldFolderPath = `public/assets/residencies_img/${format_name_folder(oldCollectiveName)}`;
-      const newFolderPath = `public/assets/residencies_img/${format_name_folder(newCollectiveName)}`;
+      const oldFolderPath = `public/assets/residencies_img/${tl.format_name_folder(oldCollectiveName)}`;
+      const newFolderPath = `public/assets/residencies_img/${tl.format_name_folder(newCollectiveName)}`;
       fs.renameSync(oldFolderPath, newFolderPath);
 
       return Residency.findByIdAndUpdate(id, updatedResidency, { new: true });

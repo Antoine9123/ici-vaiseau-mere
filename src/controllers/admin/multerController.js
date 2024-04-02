@@ -1,6 +1,8 @@
 const multer = require("multer");
 const fs = require("fs");
 
+const tl = require("../../../function")
+
 const createDirectory = (directoryPath) => {
   if (!fs.existsSync(directoryPath)) {
     try {
@@ -19,7 +21,7 @@ const createDirectory = (directoryPath) => {
 const residencyStorage = multer.diskStorage({
   destination: function (req, file, cb) {
    
-    const folderName = format_name_folder(req.body.collective_name);
+    const folderName = tl.format_name_folder(req.body.collective_name);
     createDirectory(`public/assets/residencies_img/${folderName}`);
 
     cb(null, `public/assets/residencies_img/${folderName}`);
@@ -34,7 +36,7 @@ const residencyStorage = multer.diskStorage({
 const eventStorage = multer.diskStorage({
   destination: function (req, file, cb) {
     // Create a folder based on the event name
-    const folderName = req.body.event_name.replace(/ /g, "_");
+    const folderName = tl.format_name_folder(req.body.event_name);
     createDirectory(`public/assets/events_img/${folderName}`);
 
 

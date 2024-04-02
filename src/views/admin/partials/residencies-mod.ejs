@@ -23,8 +23,12 @@
 
 
   <h2>Visuel du collectif</h2>
+
+
   <%
-const folderName = residency.collective_name.replace(/ /g, "_");
+
+let folderName = residency.collective_name.replace(/[^\w\s]/g, "").replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase();
+folderName = folderName.toLowerCase()
 const height = "auto";
 const width = "25%";
 %>

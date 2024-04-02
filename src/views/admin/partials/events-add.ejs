@@ -32,11 +32,12 @@
     <label for="event_youtube">Vidéo Youtube</label>
     <input type="text" id="event_youtube" name="event_youtube" >
 
+    <div class="img-form" style="display: flex; flex-direction: column; gap: 20px;">
     <label for="image">Vignette de l'event (.jpg, .jpeg, .png)</label>
-    <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
-    <span id="image1FileName"></span>
+    <input class="img-input" type="file" id="image" name="image" accept=".jpg,.jpeg,.png" />
+  </div>
 
-    <h2>Artistes présents</h2>
+    <h2>Résidences présentes</h2>
 
     <ul style="list-style-type: none; max-height: 200px; overflow-y: scroll; margin-bottom: 50px;">
       <% residencies.sort((a, b) => a.residency_name.localeCompare(b.residency_name)).forEach(function(residency) { %>

@@ -2,7 +2,7 @@ const Event = require("../../models/event");
 const Residency = require("../../models/residency");
 const fs = require("fs");
 
-const format_name_folder = require("../../../function")
+const tl = require("../../../function")
 
 const event_list = (req, res) => {
   Event.find()
@@ -19,7 +19,6 @@ const event_add_get = (req, res) => {
 };
 
 const event_add_post = (req, res) => {
-  req.session.uploadedImages = 0;
   const event = new Event(req.body);
   event
     .save()
@@ -34,7 +33,7 @@ const event_add_post = (req, res) => {
 const event_delete_post = (req, res) => {
   Event.findById(req.params.id)
     .then((event) => {
-      const folderName = format_name_folder(event.event_name)
+      const folderName = tl.format_name_folder(event.event_name)
       return new Promise((resolve, reject) => {
         fs.rm(`public/assets/events_img/${folderName}`, { recursive: true }, (err) => {
           if (err) {
@@ -63,7 +62,6 @@ const event_delete_post = (req, res) => {
 };
 
 const event_modification_get = (req, res) => {
-  req.session.uploadedImages = 0;
   const eventId = req.params.id;
 
   Event.findById(eventId)
@@ -106,8 +104,8 @@ const event_update_post = (req, res) => {
       const oldEventName = event.event_name;
       const newEventName = updatedEvent.event_name;
 
-      const oldFolderPath = `public/assets/events_img/${format_name_folder(oldEventName)}`;
-      const newFolderPath = `public/assets/events_img/${format_name_folder(newEventName)}`;
+      const oldFolderPath = `public/assets/events_img/${tl.format_name_folder(oldEventName)}`;
+      const newFolderPath = `public/assets/events_img/${tl.format_name_folder(newEventName)}`;
       fs.renameSync(oldFolderPath, newFolderPath);
 
       return Event.findByIdAndUpdate(id, updatedEvent, { new: true });

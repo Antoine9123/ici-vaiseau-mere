@@ -4,6 +4,12 @@
  *                       *
  *************************/
 
+// FONCTION TO RENAME FOLDER (ANTOINE ADDED)
+const format_name_folder = (name) => {
+    let formatted_name = name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_");
+    console.log(formatted_name)
+    return formatted_name.toLowerCase();
+}
 
 //select all links in the nav bar
 const navBtn = document.querySelectorAll(".nav-btn");
