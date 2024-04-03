@@ -263,10 +263,13 @@ main aside h3 {
   text-transform: uppercase;
   margin-top: 1rem;
 }
-main aside p {
+main aside p, main aside a {
   font-family: "Oswald";
   font-size: 14px;
   margin-top: 0.5rem;
+}
+main aside a:hover {
+  color: var(--highlight-color);
 }
 main aside .become-member {
   max-width: 175px;
