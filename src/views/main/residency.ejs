@@ -3,9 +3,9 @@
   <head>
     <%- include("./partials/head.ejs")%>
     <link rel="stylesheet" href="/css/residency.css">
-
     <title><%=residency.collective_name%></title>
   </head>
+  
     <body>
       <%- include('./partials/header.ejs') %>
       <main>
@@ -14,7 +14,7 @@
             <div class="date">
               <div class="first-line">
                 <div class = "start-day"><%= residency.residency_start.getDate(); %> </div>
-                <div class="big-arrow"></div>
+                <div class="arrow"></div>
                 <div class="end-day"><%= residency.residency_end.getDate() %></div> 
               </div>
 

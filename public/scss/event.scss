@@ -1,0 +1,49 @@
+@use './components';
+
+.img-container{
+    @include components.img-container;
+    width:100%;
+    min-height:215px;
+}
+.checkerboard{
+    @include components.checkerboard(8px, var(--text-color-secondary));
+    height:16px;
+    width:100%;
+}
+main{
+    @include components.max-width;
+    @include components.scroll-box;
+    height: 77dvh;
+   
+
+    .main-container{
+        display: inline-flex;
+
+    .main-content{
+    
+
+        width:70%;
+
+    }
+
+        
+    }
+    aside{
+
+        margin-left:80px;
+        .become-member{
+            display:inline-block;
+            width:175px;
+        }
+        
+    }
+}
+
+.safe-space{
+    padding-top: 25px;
+    border-top: solid rgba(255, 255, 255, 0.493) 1px;
+}
+
+
+
+
