@@ -10,7 +10,8 @@
 
   <%- include('./partials/header.ejs') %>
   <main>
-    <div class="img-container" style = "background-image: url(<%="/assets/events_img/"+events.event_name.replaceAll(" ", "_")+"/img0.jpg" %>)">
+    <div class="img-container" 
+    style = "background-image: url(<%="/assets/events_img/"+events.event_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase()+"/img0.png" %>)">
       <div class="checkerboard"></div>
     </div>
     <article class="event">
@@ -29,19 +30,21 @@
     </article>
   <div class="main-container">
     <div class="main-content">
+      <% console.log("youtube : "+events.event_youtube) %>
       <iframe width="560" height="315" src=<%=events.event_youtube.replace("watch?v=","embed/")%> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <p><%= events.event_description %></p>
     </div>
 
     <aside>
       <a href="/become-a-member" class="become-member">become member</a>
+      <h2>info pratiques</h2>
       <div class="programation">
         <h3>Programmation</h3>
-        <div><%= events.event_programmation %></div>
+        <p><%= events.event_programmation %></p>
         </div>
         <div class="price">
           <h3>Prix</h3>
-          <div><%= events.event_price %></div>
+          <p><%= events.event_price %></p>
           </div>
 
     </aside>
