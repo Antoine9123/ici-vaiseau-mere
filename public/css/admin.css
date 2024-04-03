@@ -6,27 +6,27 @@
 }
 
 body {
-  background-color: #514a5e;
+  background-color: #16041a;
   color: #dedede;
   font-family: "Inconsolata", monospace;
 }
 
 ::selection {
-  background-color: #f39589;
-  color: #514a5e;
+  background-color: #ba356e;
+  color: #16041a;
 }
 
 .container-display h2 {
   font-size: x-large;
   margin-bottom: 20px;
   margin-top: 20px;
-  color: #f39589
+  color: #ba356e
 }
 
 .container-display span {
   margin-bottom: 20px;
   margin-top: 0px;
-  color: #f39589
+  color: #ba356e
 }
 
 /* ------------------------ */
@@ -55,7 +55,7 @@ body {
 }
 
 .button {
-  background-color: #f39589;
+  background-color: #ba356e;
   
   margin: 2px;
   padding-left: 3px;
@@ -63,8 +63,9 @@ body {
 }
 
 .button:hover{
-  background-color: #f39589a1;
+  background-color: #ba356fc8;
 }
+
 
 
 .action .button[href^="/admin/residencies-modification"] {
@@ -85,7 +86,7 @@ body {
 
 
 .img-input {
-  color: #f39589;
+  color: #ba356e;
 }
 
 .img-form > label{
@@ -93,9 +94,19 @@ body {
   
 }
 
+.logout{
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  text-decoration: none;
+  background-color: #16041a !important;
+  border: 1px solid #fbcc7a !important;
+  color: #dedede !important;
+}
+
 .custom-button {
 
-  background-color: #ffd37e; 
+  background-color: #fbcc7a; 
   color: #000000 ;
   border: none; 
   padding: 10px 20px; 
@@ -105,7 +116,7 @@ body {
 }
 
 .custom-button:hover {
-  background-color: #ffd47ea9; 
+  background-color: #fbcc7ab5; 
 }
 
 /* ------------------------ */
@@ -133,7 +144,7 @@ body {
 
 .submenu a:hover {
   color: #272727;
-  background-color: #f39589;
+  background-color: #ba356e;
 }
 
 /* ------------------------ */
@@ -158,7 +169,7 @@ body {
 }
 
 .container-display th {
-  background-color: #514a5e;
+  background-color: #16041a;
   text-transform: uppercase;
   border-bottom: #dedede 2px solid;
   text-align: left;
@@ -166,7 +177,7 @@ body {
 }
 
 .container-display td {
-  background-color: #514a5e;
+  background-color: #16041a;
   border-bottom: #dedede 1px solid;
   text-align: left;
   padding-top: 1vh;
