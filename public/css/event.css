@@ -23,10 +23,18 @@ body {
   background-position: center;
   height: 100dvh;
   color: var(--text-color);
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-  margin-top: 70px;
+  margin-top: 30px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+footer {
+  min-height: 10px;
 }
 
 a {
@@ -214,15 +222,14 @@ main {
   max-width: 1100px;
   margin: auto;
   padding: 0px 10px;
-  overflow: scroll;
-  scrollbar-width: none;
-  height: 77dvh;
 }
 main .main-container {
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 main .main-container .main-content {
-  max-width: 66%;
+  max-width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -230,7 +237,6 @@ main .main-container .main-content {
 main aside {
   display: flex;
   flex-direction: column;
-  margin-left: 80px;
   align-items: end;
 }
 main aside h2 {
@@ -251,7 +257,7 @@ main aside p {
   margin-top: 0.5rem;
 }
 main aside .become-member {
-  width: 175px;
+  max-width: 175px;
 }
 main aside .programation {
   text-align: right;
@@ -261,6 +267,7 @@ main aside .price {
 }
 
 .safe-space {
-  padding-top: 25px;
-  border-top: solid rgba(255, 255, 255, 0.493) 1px;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: solid rgba(255, 255, 255, 0.67) 1px;
 }/*# sourceMappingURL=event.css.map */

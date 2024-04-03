@@ -1,17 +1,18 @@
 @use './components';
 
-body{
+main{
     display:flex;
     flex-direction: column;
+    flex-grow: 1;
 }
+
 .main-container{
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-
-
 }
+
 .bottom-container{
     justify-self: flex-end;
 }

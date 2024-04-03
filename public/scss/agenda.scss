@@ -1,15 +1,7 @@
-@use './components';
+@use './_components';
 body{
     background-image: url("../assets/background/agenda.png");
-
     }
-
-
-
-main{
-    @include components.scroll-box;
-    height:70vh;
-}
 
 .link{
     display: block;

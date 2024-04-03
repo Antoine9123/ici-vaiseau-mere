@@ -34,6 +34,7 @@
         <iframe width="560" height="315" src="<%= events.event_youtube.replace('watch?v=','embed/') %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <% } %>
       <p><%= events.event_description %></p>
+      <p class = "safe-space" ><%=safe_place.text %></p>
     </div>
     <aside>
       <a href="/become-a-member" class="become-member">become member</a>
@@ -51,6 +52,9 @@
   </div>
     
   </main>
-  <p class = "safe-space" ><%=safe_place.text %></p>
+  <footer>
+
+  </footer>
+  
 </body>
 </html>

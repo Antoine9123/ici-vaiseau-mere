@@ -67,9 +67,17 @@ background-repeat: no-repeat;
 background-position: center;
 height: 100dvh;
 color: var(--text-color);
+display:flex;
+flex-direction: column;
 }
+
 main{
-    margin-top: 70px;
+    margin-top: 30px;
+    @include scroll-box;
+}
+footer{
+    min-height:10px;
+
 }
 a{
 color: var(--text-color);
@@ -141,7 +149,6 @@ text-decoration: none;
     }
 
 }
-
 
 .date-mini{
     .first-line {

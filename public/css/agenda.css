@@ -23,10 +23,18 @@ body {
   background-position: center;
   height: 100dvh;
   color: var(--text-color);
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-  margin-top: 70px;
+  margin-top: 30px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+footer {
+  min-height: 10px;
 }
 
 a {
@@ -196,12 +204,6 @@ a {
 
 body {
   background-image: url("../assets/background/agenda.png");
-}
-
-main {
-  overflow: scroll;
-  scrollbar-width: none;
-  height: 70vh;
 }
 
 .link {
