@@ -132,9 +132,10 @@ text-decoration: none;
         font-size: 2rem;
         line-height: 1.8rem;
         font-weight: 700;
+        width:15%;
     }
     .type{
-        width: 180px;
+        width: 15%;
         text-align: center;
         margin:0px 50px;
         font-size: 20px;
@@ -143,9 +144,9 @@ text-decoration: none;
         color: var(--text-color-secondary);
     }
     .name{
+        flex-grow: 1;
         font-size:24px;
         line-height: 40px;
-        max-width: 500px;
     }
 
 }
