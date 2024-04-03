@@ -10,7 +10,8 @@
 
   <%- include('./partials/header.ejs') %>
   <main>
-    <div class="img-container" style = "background-image: url(<%="/assets/events_img/"+events.event_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase()+"/img0.png" %>)">
+    <div class="img-container" 
+    style = "background-image: url(<%="/assets/events_img/"+events.event_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase()+"/img0.png" %>)">
       <div class="checkerboard"></div>
     </div>
     <article class="event">
@@ -31,8 +32,8 @@
     <div class="main-content">
       <% if (events.event_youtube !== "") { %>
         <iframe width="560" height="315" src="<%= events.event_youtube.replace('watch?v=','embed/') %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <% } %>
-      <p style="white-space: pre-line"><%= events.event_description %></p>
+      <% } %>
+      <p><%= events.event_description %></p>
     </div>
     <aside>
       <a href="/become-a-member" class="become-member">become member</a>

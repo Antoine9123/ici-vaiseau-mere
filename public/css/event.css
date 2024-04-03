@@ -21,7 +21,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  height: 100dvh;
   color: var(--text-color);
 }
 
@@ -223,6 +223,9 @@ main .main-container {
 }
 main .main-container .main-content {
   max-width: 66%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 main aside {
   display: flex;

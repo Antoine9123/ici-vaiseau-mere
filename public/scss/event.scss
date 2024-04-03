@@ -21,6 +21,9 @@ main{
 
     .main-content{
         max-width:66%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
     }
 
