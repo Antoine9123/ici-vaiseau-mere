@@ -30,8 +30,9 @@
     </article>
   <div class="main-container">
     <div class="main-content">
-      <% console.log("youtube : "+events.event_youtube) %>
-      <iframe width="560" height="315" src=<%=events.event_youtube.replace("watch?v=","embed/")%> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <% if (events.event_youtube !== "") { %>
+        <iframe width="560" height="315" src="<%= events.event_youtube.replace('watch?v=','embed/') %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <% } %>
       <p><%= events.event_description %></p>
     </div>
 
