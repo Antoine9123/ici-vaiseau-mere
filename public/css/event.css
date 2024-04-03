@@ -219,17 +219,42 @@ main {
   height: 77dvh;
 }
 main .main-container {
-  display: inline-flex;
+  display: flex;
 }
 main .main-container .main-content {
-  width: 70%;
+  max-width: 66%;
 }
 main aside {
+  display: flex;
+  flex-direction: column;
   margin-left: 80px;
+  align-items: end;
+}
+main aside h2 {
+  font-family: "Impact";
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+main aside h3 {
+  font-family: "Oswald";
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-top: 2rem;
+}
+main aside p {
+  font-family: "Oswald";
+  font-size: 14px;
+  margin-top: 0.5rem;
 }
 main aside .become-member {
-  display: inline-block;
   width: 175px;
+}
+main aside .programation {
+  text-align: right;
+}
+main aside .price {
+  text-align: right;
 }
 
 .safe-space {
