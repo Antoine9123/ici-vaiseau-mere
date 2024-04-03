@@ -1,4 +1,11 @@
 @use './components';
+body{
+    background-image: url("../assets/background/event.png");
+}
+
+.background-lines{
+    background-image:url("../assets/background/line-event.svg");
+}
 
 .img-container{
     @include components.img-container;

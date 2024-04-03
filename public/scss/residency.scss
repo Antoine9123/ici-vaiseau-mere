@@ -1,5 +1,13 @@
 @use './components';
 
+body{
+  background-image: url("../assets/background/residency.png");
+}
+
+.background-lines{
+  background-image:url("../assets/background/line-residency.svg");
+}
+
 .title-container{
     display:flex;
 

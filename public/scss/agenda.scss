@@ -1,7 +1,11 @@
 @use './_components';
 body{
     background-image: url("../assets/background/agenda.png");
-    }
+}
+
+.background-lines{
+    background-image:url("../assets/background/line-agenda.svg");
+}
 
 .link{
     display: block;

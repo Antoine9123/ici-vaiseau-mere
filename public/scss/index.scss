@@ -1,5 +1,12 @@
 @use './components';
 
+body{
+    background-image: url("../assets/background/home.png");
+}
+.background-lines{
+    background-image: url("../assets/background/line-home.svg");
+
+}
 main{
     display:flex;
     flex-direction: column;

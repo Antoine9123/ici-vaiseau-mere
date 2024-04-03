@@ -14,17 +14,22 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  z-index: 2;
 }
 
 body {
-  background-image: url("../assets/background/home.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100dvh;
   color: var(--text-color);
+}
+
+.background-lines {
+  height: 100dvh;
   display: flex;
   flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 main {
@@ -205,6 +210,14 @@ p {
   right: -1px;
   top: -1px;
   transform: rotate(35deg);
+}
+
+body {
+  background-image: url("../assets/background/residency.png");
+}
+
+.background-lines {
+  background-image: url("../assets/background/line-residency.svg");
 }
 
 .title-container {
