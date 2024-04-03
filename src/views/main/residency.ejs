@@ -53,17 +53,17 @@
                  
 
               </div>
-              <div class="residency-events">
-                <h3>events</h3>
-
-                <% events.forEach(event => { %>
-                  <% console.log(event) %>
-                  <a href="<%= "/agenda/"+event._id %>"><%= event.event_name %></a>
-                 
-                <% }) %>
-              </div>
+              <% if (events.length > 0) { %>
+                <div class="residency-events">
+                    <h3>events</h3>
+                    <% events.forEach(event => { %>
+                        <% console.log(event) %>
+                        <a href="<%= "/agenda/"+event._id %>"><%= event.event_name %></a>
+                    <% }) %>
+                </div>
+            <% } %>
             </aside>
-            <p class="description"><%= residency.description %></p>
+            <p class="description" style="white-space: pre-line"><%= residency.description %></p>
           </section>
           <section class="pictures">
             <div class="left-column">
