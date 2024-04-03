@@ -56,7 +56,6 @@
                 <div class="residency-events">
                     <h3>events</h3>
                     <% events.forEach(event => { %>
-                        <% console.log(event) %>
                         <a href="<%= "/agenda/"+event._id %>"><%= event.event_name %></a>
                     <% }) %>
                 </div>
@@ -79,7 +78,7 @@
         </section>
       </main>
       <footer>
-        
+
       </footer>
 </body>
 </html>

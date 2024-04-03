@@ -1,0 +1,23 @@
+<% residencies.forEach((residency) => { %>
+          <a class = "residency" href="/residencies/<%= residency._id%>">
+            <div class="img-container" style="background-image: url('/assets/residencies_img/<%= residency.collective_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase() %>/img0.png')">
+              <div class="checkerboard"></div>
+            </div>
+
+            <div class="text-container">
+              <div class="titles">
+                <h2><%= residency.collective_name %></h2>
+                <h3><%= residency.residency_name %></h3>
+              </div>
+
+              <div class="date-mini">
+                <div class="first-line">
+                  <div class = "start-day"><%= residency.residency_start.getDate(); %> </div>
+                  <div class="arrow"></div>
+                  <div class="end-day"><%= residency.residency_end.getDate() %></div> 
+                </div>
+                <div class = "month"><%= (residency.residency_end.getMonth()<10)?"0"+ residency.residency_end.getMonth():+ residency.residency_end.getMonth() %>.<%=residency.residency_end.getFullYear()-2000%>&nbsp</div>
+              </div>
+            </div>
+          </a>
+        <% }) %>

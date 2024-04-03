@@ -16,6 +16,19 @@ body{
     display:flex;
     justify-content: center;
     margin: 25px 0px;
+    .cross{
+        font-family: "impact";
+        align-items: center;
+        padding: 5px;
+        background-color: var(--text-color);
+        color: var(--text-color-secondary);
+        display:none;
+    }
+    .cross:hover{
+        background-color: var(--highlight-color);
+        cursor: pointer;
+        color: var(--text-color-secondary);
+    }
 
     .filter-btn{
         height:30px;
@@ -24,6 +37,12 @@ body{
         font-family: "Oswald";
         line-height: 30px;
         text-transform: uppercase;
+  
+    }
+    .selected{
+        background-color: var(--become-member);
+    }
+    .unselected{
         background-color: var(--text-color-secondary);
     }
     .filter-btn:hover{
@@ -41,6 +60,7 @@ body{
     padding-top:10px;
     background-color: var(--text-color-secondary);
     align-items: center;
+    display: block;
 
     .img-container{
         width: 220px;

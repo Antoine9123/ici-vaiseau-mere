@@ -222,6 +222,19 @@ body {
   justify-content: center;
   margin: 25px 0px;
 }
+.filter-section .cross {
+  font-family: "impact";
+  align-items: center;
+  padding: 5px;
+  background-color: var(--text-color);
+  color: var(--text-color-secondary);
+  display: none;
+}
+.filter-section .cross:hover {
+  background-color: var(--highlight-color);
+  cursor: pointer;
+  color: var(--text-color-secondary);
+}
 .filter-section .filter-btn {
   height: 30px;
   width: 136px;
@@ -229,6 +242,11 @@ body {
   font-family: "Oswald";
   line-height: 30px;
   text-transform: uppercase;
+}
+.filter-section .selected {
+  background-color: var(--become-member);
+}
+.filter-section .unselected {
   background-color: var(--text-color-secondary);
 }
 .filter-section .filter-btn:hover {
@@ -244,6 +262,7 @@ body {
   padding-top: 10px;
   background-color: var(--text-color-secondary);
   align-items: center;
+  display: block;
 }
 .residency .img-container {
   width: 220px;
