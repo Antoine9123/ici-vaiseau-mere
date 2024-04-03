@@ -223,10 +223,17 @@ p {
   width: 100%;
 }
 
+iframe {
+  margin-bottom: 50px;
+}
+
 main {
   max-width: 1100px;
   margin: auto;
   padding: 0px 10px;
+}
+main .event {
+  margin: 16px 0px 32px 0px;
 }
 main .main-container {
   display: flex;
@@ -248,13 +255,13 @@ main aside h2 {
   font-family: "Impact";
   font-size: 20px;
   text-transform: uppercase;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 main aside h3 {
   font-family: "Oswald";
   font-size: 1rem;
   text-transform: uppercase;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 main aside p {
   font-family: "Oswald";
@@ -269,6 +276,10 @@ main aside .programation {
 }
 main aside .price {
   text-align: right;
+}
+
+.description {
+  margin-bottom: 16px;
 }
 
 .safe-space {

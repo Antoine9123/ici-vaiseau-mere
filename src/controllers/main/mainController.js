@@ -18,20 +18,30 @@ const residency_index = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-const event_index = (req, res) => {
+
+const event_index = (req,res) => {
   const id = req.params.id;
+
   Event.findById(id)
   .then((event) => {
-      Content.findOne({ page: "safeplace" })
-        .then((safePlace) => {
-          res.render("./main/event", { events: event, safe_place: safePlace.content });
-        })
-        .catch((err) => console.log(err));
+
+    let residencies = [];
+
+    event.current_residencies.forEach((residencyId) => {
+      Residency.findById(residencyId)
+      .then((residency)=>{
+
+        residencies.push(residency)
+      }).catch((err) => console.log(err));
+    })
+    Content.findOne({ page: "safeplace" })
+    .then((safePlace) => {
+      res.render("./main/event", { events: event, safe_place: safePlace.content, residencies:residencies});
     })
     .catch((err) => console.log(err));
-};
-
-
+  })
+  .catch((err) => console.log(err));
+}
 
 module.exports = {
   residency_index,
