@@ -42,6 +42,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  white-space: pre-line;
+}
+
 .become-member {
   font-family: "Oswald";
   font-size: 1rem;

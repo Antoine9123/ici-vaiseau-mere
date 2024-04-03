@@ -83,6 +83,9 @@ a{
 color: var(--text-color);
 text-decoration: none;
 }
+p{
+    white-space: pre-line;
+}
 .become-member{
     @include link;
     padding : 0.5rem 2rem ;
