@@ -6,7 +6,7 @@
   }
   
   body {
-    background-color: #16041a;
+    background-color: #01052A;
     color: #dedede;
     font-family: "Inconsolata", monospace;
     height: 100vh;
@@ -17,7 +17,7 @@
   }
   
 button {
-  background-color: #fbcc7a; 
+  background-color: #FEF4BB; 
   color: #000000 ;
   border: none; 
   padding: 10px 20px; 
@@ -28,17 +28,17 @@ button {
 }
 
 button:hover {
-  background-color: #fbcc7ab5; 
+  background-color: rgba(251, 204, 122, 0.705)
   
 }
 
   ::selection {
-    background-color: #f39589;
+    background-color: #EE6767;
     color: #16041a;
   }
 
   h2{
-    color: #ba356e
+    color: #EE6767
   }
 
   .container{
@@ -48,7 +48,7 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #dedede;
+    border: 1px solid #EE6767;
     padding: 10px;
   }
 
