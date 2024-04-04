@@ -6,27 +6,27 @@
 }
 
 body {
-  background-color: #16041a;
+  background-color: #3F153C;
   color: #dedede;
   font-family: "Inconsolata", monospace;
 }
 
 ::selection {
-  background-color: #ba356e;
-  color: #16041a;
+  background-color: #C85B7A;
+  color: #3F153C;
 }
 
 .container-display h2 {
   font-size: x-large;
   margin-bottom: 20px;
   margin-top: 20px;
-  color: #ba356e
+  color: #C85B7A
 }
 
 .container-display span {
   margin-bottom: 20px;
   margin-top: 0px;
-  color: #ba356e
+  color: #C85B7A
 }
 
 /* ------------------------ */
@@ -55,7 +55,7 @@ body {
 }
 
 .button {
-  background-color: #ba356e;
+  background-color: #C85B7A;
   
   margin: 2px;
   padding-left: 3px;
@@ -86,7 +86,7 @@ body {
 
 
 .img-input {
-  color: #ba356e;
+  color: #C85B7A;
 }
 
 .img-form > label{
@@ -99,15 +99,15 @@ body {
   left: 15px;
   top: 15px;
   text-decoration: none;
-  background-color: #16041a !important;
-  border: 1px solid #fbcc7a !important;
-  color: #dedede !important;
+  background-color: #3F153C !important;
+  border: 1px solid #FFBA0A !important;
+  color: #dedede !;
 }
 
 .custom-button {
 
-  background-color: #fbcc7a; 
-  color: #000000 ;
+  background-color: #FFBA0A; 
+  color: #dedede ;
   border: none; 
   padding: 10px 20px; 
   border-radius: 0px;
@@ -144,7 +144,7 @@ body {
 
 .submenu a:hover {
   color: #272727;
-  background-color: #ba356e;
+  background-color: #C85B7A;
 }
 
 /* ------------------------ */
@@ -169,7 +169,7 @@ body {
 }
 
 .container-display th {
-  background-color: #16041a;
+  background-color: #3F153C;
   text-transform: uppercase;
   border-bottom: #dedede 2px solid;
   text-align: left;
@@ -177,7 +177,7 @@ body {
 }
 
 .container-display td {
-  background-color: #16041a;
+  background-color: #3F153C;
   border-bottom: #dedede 1px solid;
   text-align: left;
   padding-top: 1vh;
