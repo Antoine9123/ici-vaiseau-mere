@@ -6,7 +6,7 @@
   }
   
   body {
-    background-color: #514a5e;
+    background-color: #16041a;
     color: #dedede;
     font-family: "Inconsolata", monospace;
     height: 100vh;
@@ -16,9 +16,29 @@
     align-items: center;
   }
   
+button {
+  background-color: #fbcc7a; 
+  color: #000000 ;
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 0px;
+  cursor: pointer; 
+  margin-top: 10px;
+  transition: background-color 0.3s ease; 
+}
+
+button:hover {
+  background-color: #fbcc7ab5; 
+  
+}
+
   ::selection {
     background-color: #f39589;
-    color: #514a5e;
+    color: #16041a;
+  }
+
+  h2{
+    color: #ba356e
   }
 
   .container{

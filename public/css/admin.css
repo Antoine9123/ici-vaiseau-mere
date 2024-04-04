@@ -6,27 +6,27 @@
 }
 
 body {
-  background-color: #514a5e;
+  background-color: #01052A;
   color: #dedede;
   font-family: "Inconsolata", monospace;
 }
 
 ::selection {
-  background-color: #f39589;
-  color: #514a5e;
+  background-color: #EE6767;
+  color: #01052A;
 }
 
 .container-display h2 {
   font-size: x-large;
   margin-bottom: 20px;
   margin-top: 20px;
-  color: #f39589
+  color: #EE6767
 }
 
 .container-display span {
   margin-bottom: 20px;
   margin-top: 0px;
-  color: #f39589
+  color: #EE6767
 }
 
 /* ------------------------ */
@@ -55,7 +55,7 @@ body {
 }
 
 .button {
-  background-color: #f39589;
+  background-color: #EE6767;
   
   margin: 2px;
   padding-left: 3px;
@@ -63,8 +63,9 @@ body {
 }
 
 .button:hover{
-  background-color: #f39589a1;
+  background-color: #ee6767aa;
 }
+
 
 
 .action .button[href^="/admin/residencies-modification"] {
@@ -85,7 +86,7 @@ body {
 
 
 .img-input {
-  color: #f39589;
+  color: #EE6767;
 }
 
 .img-form > label{
@@ -93,10 +94,31 @@ body {
   
 }
 
+.logout{
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  text-decoration: none;
+  background-color: #3c59757b !important;
+  border: 1px solid #3C5975 !important;
+  color: #dedede !important;
+  transition: background-color 0.3s ease; 
+}
+
+.logout:hover{
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  text-decoration: none;
+  background-color: #3C5975 !important;
+  border: 1px solid #3C5975 !important;
+  color: #dedede !important;
+}
+
 .custom-button {
 
-  background-color: #ffd37e; 
-  color: #000000 ;
+  background-color: #FEF4BB; 
+  color: #01052A ;
   border: none; 
   padding: 10px 20px; 
   border-radius: 0px;
@@ -105,7 +127,7 @@ body {
 }
 
 .custom-button:hover {
-  background-color: #ffd47ea9; 
+  background-color: #fbcc7ab5; 
 }
 
 /* ------------------------ */
@@ -133,7 +155,7 @@ body {
 
 .submenu a:hover {
   color: #272727;
-  background-color: #f39589;
+  background-color: #EE6767;
 }
 
 /* ------------------------ */
@@ -158,7 +180,7 @@ body {
 }
 
 .container-display th {
-  background-color: #514a5e;
+  background-color: #01052A;
   text-transform: uppercase;
   border-bottom: #dedede 2px solid;
   text-align: left;
@@ -166,7 +188,7 @@ body {
 }
 
 .container-display td {
-  background-color: #514a5e;
+  background-color: #01052A;
   border-bottom: #dedede 1px solid;
   text-align: left;
   padding-top: 1vh;
