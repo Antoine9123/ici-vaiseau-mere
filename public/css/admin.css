@@ -6,27 +6,27 @@
 }
 
 body {
-  background-color: #3F153C;
+  background-color: #01052A;
   color: #dedede;
   font-family: "Inconsolata", monospace;
 }
 
 ::selection {
-  background-color: #C85B7A;
-  color: #3F153C;
+  background-color: #EE6767;
+  color: #01052A;
 }
 
 .container-display h2 {
   font-size: x-large;
   margin-bottom: 20px;
   margin-top: 20px;
-  color: #C85B7A
+  color: #EE6767
 }
 
 .container-display span {
   margin-bottom: 20px;
   margin-top: 0px;
-  color: #C85B7A
+  color: #EE6767
 }
 
 /* ------------------------ */
@@ -55,7 +55,7 @@ body {
 }
 
 .button {
-  background-color: #C85B7A;
+  background-color: #EE6767;
   
   margin: 2px;
   padding-left: 3px;
@@ -63,7 +63,7 @@ body {
 }
 
 .button:hover{
-  background-color: #ba356fc8;
+  background-color: #ee6767aa;
 }
 
 
@@ -86,7 +86,7 @@ body {
 
 
 .img-input {
-  color: #C85B7A;
+  color: #EE6767;
 }
 
 .img-form > label{
@@ -99,15 +99,26 @@ body {
   left: 15px;
   top: 15px;
   text-decoration: none;
-  background-color: #3F153C !important;
-  border: 1px solid #FFBA0A !important;
-  color: #dedede !;
+  background-color: #3c59757b !important;
+  border: 1px solid #3C5975 !important;
+  color: #dedede !important;
+  transition: background-color 0.3s ease; 
+}
+
+.logout:hover{
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  text-decoration: none;
+  background-color: #3C5975 !important;
+  border: 1px solid #3C5975 !important;
+  color: #dedede !important;
 }
 
 .custom-button {
 
-  background-color: #FFBA0A; 
-  color: #dedede ;
+  background-color: #FEF4BB; 
+  color: #01052A ;
   border: none; 
   padding: 10px 20px; 
   border-radius: 0px;
@@ -144,7 +155,7 @@ body {
 
 .submenu a:hover {
   color: #272727;
-  background-color: #C85B7A;
+  background-color: #EE6767;
 }
 
 /* ------------------------ */
@@ -169,7 +180,7 @@ body {
 }
 
 .container-display th {
-  background-color: #3F153C;
+  background-color: #01052A;
   text-transform: uppercase;
   border-bottom: #dedede 2px solid;
   text-align: left;
@@ -177,7 +188,7 @@ body {
 }
 
 .container-display td {
-  background-color: #3F153C;
+  background-color: #01052A;
   border-bottom: #dedede 1px solid;
   text-align: left;
   padding-top: 1vh;
