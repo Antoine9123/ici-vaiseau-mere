@@ -13,7 +13,7 @@ const authRoute = require("./src/routes/authRoutes");
 require("dotenv").config();
 
 const app = express();
-const PORT = 3001;
+const PORT = 4001;
 
 // register view engine
 app.set("view engine", "ejs");

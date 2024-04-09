@@ -18,6 +18,10 @@ const residency_index = (req, res) => {
     .catch((err) => console.log(err));
 };
 
+const getResidency = async (residencyId) => {
+  let residency = await Residency.findById(residencyId);
+  return residency;
+}
 
 const event_index = (req,res) => {
   const id = req.params.id;

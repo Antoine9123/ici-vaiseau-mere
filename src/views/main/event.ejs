@@ -49,9 +49,11 @@
           <p ><%= events.event_price %></p>
         </div>
       <h2>Résidences</h2>
-      <% residencies.forEach((residency) => { %>
-        <a href="/residencies/<%= residency._id %>"><%= residency.collective_name %></a>
-      <% }) %>
+      <% if (residencies.length >0 ){ %>
+        <% residencies.forEach((residency) => { %>
+          <a href="/residencies/<%= residency._id %>"><%= residency.collective_name %></a>
+        <% }) %>
+      <% } %>
 
     </aside>
   </div>
