@@ -30,8 +30,10 @@ const event_index = (req,res) => {
     event.current_residencies.forEach((residencyId) => {
       Residency.findById(residencyId)
       .then((residency)=>{
-
-        residencies.push(residency)
+        if (residency !== null){
+          residencies.push(residency)
+        }
+        
       }).catch((err) => console.log(err));
     })
     Content.findOne({ page: "safeplace" })
