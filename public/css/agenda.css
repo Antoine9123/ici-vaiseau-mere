@@ -110,14 +110,18 @@ p {
   height: 120px;
   padding: 0px 10px;
 }
+.event .date-and-type {
+  display: flex;
+  align-items: center;
+}
 .event .date {
+  width: 150px;
   font-size: 2rem;
   line-height: 1.8rem;
   font-weight: 700;
-  width: 15%;
 }
 .event .type {
-  width: 15%;
+  width: 150px;
   text-align: center;
   margin: 0px 50px;
   font-size: 20px;
@@ -126,7 +130,6 @@ p {
   color: var(--text-color-secondary);
 }
 .event .name {
-  flex-grow: 1;
   font-size: 24px;
   line-height: 40px;
 }
@@ -212,6 +215,27 @@ p {
   transform: rotate(35deg);
 }
 
+@media (max-width: 768px) {
+  .desktop {
+    display: hide;
+  }
+  .event .date-and-type {
+    flex-direction: column-reverse;
+    margin-right: 20px;
+    gap: 5px;
+  }
+  .event .date-and-type div {
+    width: 100px;
+    margin: 0px 0px;
+  }
+  .event .date-and-type .date .arrow {
+    margin-left: 5px;
+  }
+  .event .date-and-type .date div {
+    font-size: 20px;
+    line-height: 18px;
+  }
+}
 body {
   background-image: url("../assets/background/agenda.png");
 }
