@@ -1,15 +1,17 @@
-/*************************
- *                       *
- *  Love Art / Make Art  *
- *                       *
- *************************/
-
 // FONCTION TO RENAME FOLDER (ANTOINE ADDED)
 const format_name_folder = (name) => {
     let formatted_name = name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_");
     console.log(formatted_name)
     return formatted_name.toLowerCase();
 }
+
+/*************************
+ *                       *
+ *  Love Art / Make Art  *
+ *                       *
+ *************************/
+
+
 
 //select all links in the nav bar
 const navBtn = document.querySelectorAll(".nav-btn");
@@ -54,4 +56,16 @@ let makeArtEnable = checkbox.checked
 displayNavBtn();
 
 
+/******************
+ *                *
+ *   Burger Menu  *
+ *                *
+ ******************/
 
+const hamburger = document.querySelector(".hamburger")
+const activables = document.querySelectorAll(".nav-menu,main,footer")
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    activables.forEach((elem) => elem.classList.toggle("active"))
+})
