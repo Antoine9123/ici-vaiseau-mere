@@ -23,40 +23,31 @@ const getResidency = async (residencyId) => {
   return residency;
 }
 
-const event_index = async (req, res) => {
+const event_index = (req,res) => {
   const id = req.params.id;
-  let residencyList = [];
-  let event;
-  let safePlace;
-  try {
-      event = await Event.findById(id);
-  } catch (err) {
-      console.log(err);
-  }
 
-  if (event) {
-      try {
-        for (let i = 0; i < event.current_residencies.length; i++) {
-          const residency = await getResidency(event.current_residencies[i]);
-          if (residency !== null){
-            residencyList.push(residency);
-          }
+  Event.findById(id)
+  .then((event) => {
+
+    let residencies = [];
+
+    event.current_residencies.forEach((residencyId) => {
+      Residency.findById(residencyId)
+      .then((residency)=>{
+        if (residency !== null){
+          residencies.push(residency)
         }
-      } catch (err) {
-          console.log(err);
-      }
-  }
-  try {
-      safePlace = await Content.findOne({ page: "safeplace" });
-      console.log("Safe place:", safePlace); // Log the safe place content
-  } catch (err) {
-      console.log(err);
-  }
-
-  console.log("Residency list:", residencyList); // Log the residency list
-  
-  res.render("./main/event", { events: event, safe_place: safePlace ? safePlace.content : "", residencies: residencyList });
-};
+        
+      }).catch((err) => console.log(err));
+    })
+    Content.findOne({ page: "safeplace" })
+    .then((safePlace) => {
+      res.render("./main/event", { events: event, safe_place: safePlace.content, residencies:residencies});
+    })
+    .catch((err) => console.log(err));
+  })
+  .catch((err) => console.log(err));
+}
 
 module.exports = {
   residency_index,
