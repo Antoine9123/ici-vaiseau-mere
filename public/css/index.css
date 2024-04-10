@@ -243,6 +243,23 @@ p {
     line-height: 18px;
   }
 }
+.videowrapper {
+  float: none;
+  clear: both;
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+.videowrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background-image: url("../assets/background/home.png");
 }
@@ -255,13 +272,20 @@ main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  align-items: center;
 }
 
 .main-container {
+  width: 520px;
   flex-grow: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-around;
+}
+@media (max-width: 650px) {
+  .main-container {
+    width: 80%;
+  }
 }
 
 .bottom-container {

@@ -11,13 +11,20 @@ main{
     display:flex;
     flex-direction: column;
     flex-grow: 1;
+    align-items: center;
+
 }
 
 .main-container{
-    flex-grow: 1;
+    width:520px;
+    @media (max-width:650px){
+        width:80%;
+    }
+    flex-grow:1;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-around;
+
 }
 
 .bottom-container{
