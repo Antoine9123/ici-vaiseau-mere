@@ -260,8 +260,21 @@ body {
   width: 100%;
 }
 
-iframe {
-  margin-bottom: 50px;
+.videowrapper {
+  float: none;
+  clear: both;
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+.videowrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 main {
@@ -275,18 +288,33 @@ main .event {
 main .main-container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  main .main-container {
+    flex-direction: column;
+  }
 }
 main .main-container .main-content {
-  max-width: 70%;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 main aside {
+  min-width: 30%;
   display: flex;
   flex-direction: column;
   align-items: end;
+  text-align: end;
+}
+@media (max-width: 768px) {
+  main aside {
+    flex-direction: row;
+    align-items: start;
+  }
+  main aside * {
+    text-align: left;
+  }
 }
 main aside h2 {
   font-family: "Impact";
@@ -304,6 +332,9 @@ main aside p, main aside a {
   font-family: "Oswald";
   font-size: 14px;
   margin-top: 0.5rem;
+}
+main aside .residencies a {
+  display: block;
 }
 main aside a:hover {
   color: var(--highlight-color);
