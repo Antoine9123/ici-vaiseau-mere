@@ -16,7 +16,7 @@
       <section class="title-section">
         <div class = "top-container">
           <h1 class = "section-title">Residencies</h1>
-          <a href="become-a-member" class = "become-member wip">become a member</a>
+          <a href="become-a-member" class = "become-member wip desktop">become a member</a>
         </div>
         <div class="line"></div>
       </section> 
@@ -31,6 +31,7 @@
       </section>
 
       <section class="residencies-list">
+        <div class="wrapper">
         <% residencies.forEach((residency) => { %>
 
 
@@ -67,7 +68,7 @@
             </div>
           </a>
         <% }) %>
-        
+      </div>  
       </section>
     </main>
     <footer></footer>
