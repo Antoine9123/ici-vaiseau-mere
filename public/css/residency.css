@@ -72,6 +72,10 @@ p {
   text-decoration: line-through;
 }
 
+.mobile {
+  display: none;
+}
+
 .title-section {
   max-width: 1100px;
   margin: auto;
@@ -216,8 +220,11 @@ p {
 }
 
 @media (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
   .desktop {
-    display: hide;
+    display: none;
   }
   .event .date-and-type {
     flex-direction: column-reverse;
@@ -247,24 +254,38 @@ body {
 .title-container {
   display: flex;
 }
-.title-container .titles {
+@media (max-width: 768px) {
+  .title-container {
+    flex-direction: column;
+  }
+}
+
+.titles {
   flex-grow: 1;
 }
-.title-container .titles h1 {
+
+h1 {
   font-size: 3rem;
   font-family: "Impact";
 }
-.title-container .titles h2 {
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+h2 {
   font-family: "Oswald";
   font-weight: 200;
   font-size: 2rem;
 }
-.title-container .socials {
+
+.socials {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
 }
-.title-container .socials a {
+.socials a {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -273,17 +294,39 @@ body {
   background-position: center;
   margin: 0px 5px;
 }
-.title-container .socials .siteweb {
+.socials .siteweb {
   background-image: url("/assets/icon/globe-solid.svg");
 }
-.title-container .socials .fb {
+.socials .fb {
   background-image: url("/assets/icon/facebook.svg");
 }
-.title-container .socials .insta {
+.socials .insta {
   background-image: url("/assets/icon/instagram.svg");
 }
-.title-container .socials .youtube {
+.socials .youtube {
   background-image: url("/assets/icon/youtube.svg");
+}
+
+@media (max-width: 768px) {
+  .date {
+    justify-content: center;
+    width: 80px;
+    margin: 0px 10px;
+  }
+  .date div {
+    height: 20px;
+  }
+  .date .arrow {
+    margin-left: 5px;
+  }
+  .date div {
+    font-size: 20px;
+    line-height: 18px;
+  }
+}
+.mobile .second-line {
+  display: flex;
+  flex-direction: row;
 }
 
 .main-content {
@@ -292,13 +335,25 @@ body {
   padding: 0px 10px;
 }
 .main-content .info {
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
   margin: 50px 0px;
+}
+@media (max-width: 768px) {
+  .main-content .info {
+    flex-direction: column-reverse;
+  }
 }
 .main-content .info aside {
   min-width: 20%;
   margin-right: 80px;
+}
+@media (max-width: 768px) {
+  .main-content .info aside {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0 0 0;
+  }
 }
 .main-content .info aside h3 {
   text-transform: uppercase;
@@ -317,6 +372,11 @@ body {
   margin-bottom: 50px;
   padding: 0px 8px;
 }
+@media (max-width: 768px) {
+  .main-content .info aside .residency-artists {
+    width: 50%;
+  }
+}
 .main-content .info aside .residency-events {
   background-color: var(--text-color);
   color: var(--text-color-secondary);
@@ -334,6 +394,11 @@ body {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+}
+@media (max-width: 768px) {
+  .pictures {
+    flex-direction: column;
+  }
 }
 .pictures .img-container {
   background-size: cover;
@@ -358,4 +423,27 @@ body {
 .pictures .right-column .img-container {
   width: 100%;
   height: 50%;
+}
+
+@media (max-width: 768px) {
+  .pictures {
+    height: auto;
+  }
+  .pictures .left-column, .pictures .right-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+  }
+  .pictures .img-container {
+    display: block;
+    min-height: 90vw;
+    margin-bottom: 10px;
+  }
+  .pictures .left-column {
+    flex-grow: 1;
+  }
+  .pictures .right-column {
+    flex-grow: 1;
+  }
 }/*# sourceMappingURL=residency.css.map */

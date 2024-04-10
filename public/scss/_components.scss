@@ -102,6 +102,10 @@ p{
 .wip{
     text-decoration: line-through;
 }
+
+.mobile{
+    display: none;
+}
 .title-section{
     @include max-width;
     
@@ -263,8 +267,11 @@ p{
   }
 
   @media(max-width:768px){
+    .mobile{
+        display:block;
+    }
     .desktop{
-        display:hide;
+        display:none;
     }
     .event{
         .date-and-type{

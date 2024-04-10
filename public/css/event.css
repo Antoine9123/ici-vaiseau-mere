@@ -72,6 +72,10 @@ p {
   text-decoration: line-through;
 }
 
+.mobile {
+  display: none;
+}
+
 .title-section {
   max-width: 1100px;
   margin: auto;
@@ -216,8 +220,11 @@ p {
 }
 
 @media (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
   .desktop {
-    display: hide;
+    display: none;
   }
   .event .date-and-type {
     flex-direction: column-reverse;

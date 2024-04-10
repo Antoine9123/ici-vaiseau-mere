@@ -11,62 +11,108 @@ body{
 .title-container{
     display:flex;
 
-    .titles{
-      flex-grow: 1;
-      h1{
-        font-size: 3rem;
-        font-family: 'Impact';
-      }
-      h2{
-          font-family: "Oswald";
-          font-weight: 200;
-          font-size:2rem;
-      }
+    @media (max-width:768px){
+      flex-direction: column;
     }
+}
 
-    .socials{
-      display: flex;
-      flex-direction: row;
-      align-items:flex-end;
-  
-      a{
-        display:inline-block;
-        width: 20px;
-        height: 20px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        margin: 0px 5px;
-
-      }
-  
-  
-      .siteweb{
-        background-image: url("/assets/icon/globe-solid.svg");
-      }
-      .fb{
-        background-image: url("/assets/icon/facebook.svg");
-      }
-      .insta{
-        background-image: url("/assets/icon/instagram.svg");
-      }
-      .youtube{
-        background-image: url("/assets/icon/youtube.svg");
-      }
+.titles{
+  flex-grow: 1;
+}
+  h1{
+    font-size: 3rem;
+    font-family: 'Impact';
+    @media (max-width:768px){
+      font-size: 2rem;
     }
+  }
+  h2{
+      font-family: "Oswald";
+      font-weight: 200;
+      font-size:2rem;
+  }
 
+
+.socials{
+  display: flex;
+  flex-direction: row;
+  align-items:flex-end;
+
+  a{
+    display:inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0px 5px;
+
+  }
+
+
+  .siteweb{
+    background-image: url("/assets/icon/globe-solid.svg");
+  }
+  .fb{
+    background-image: url("/assets/icon/facebook.svg");
+  }
+  .insta{
+    background-image: url("/assets/icon/instagram.svg");
+  }
+  .youtube{
+    background-image: url("/assets/icon/youtube.svg");
+  }
+}
+
+
+
+@media (max-width:768px){
+  .date{
+    justify-content: center;
+    width:80px;
+    margin: 0px 10px;
+
+    div{
+      height:20px
+    }
+    
+    .arrow{    
+        margin-left: 5px;
+    }
+    div{
+        font-size: 20px;
+        line-height: 18px;
+    }
+  }
+}
+.mobile{
+
+  .second-line{
+    display:flex;
+    flex-direction: row;
+  }
 }
 
 .main-content{
   @include components.max-width;
   .info{
-    display:inline-flex;
+    display:flex;
     justify-content: space-between;
     margin: 50px 0px;
+    @media (max-width:768px){
+      flex-direction: column-reverse;
+
+    }
 
     aside{
       min-width: 20%;
       margin-right: 80px;
+      @media (max-width:768px){
+        display: flex;
+        justify-content: space-around;
+        margin: 50px 0 0 0;
+      }
+
 
       h3{
         text-transform: uppercase;
@@ -80,6 +126,9 @@ body{
       }
       .residency-artists{
         width:100%;
+        @media(max-width:768px){
+          width:50%
+        }
         font-family: "Oswald";
         font-size: 1rem;
         margin-bottom: 50px;
@@ -105,6 +154,9 @@ body{
   display:flex;
   flex-direction: row;
   margin-top: 20px;
+  @media (max-width:768px){
+    flex-direction:column;
+  }
   .img-container{
     @include components.img-container;
     margin-bottom: 10px;
@@ -127,6 +179,28 @@ body{
       height:50%;
     }
   }
+}
+@media (max-width:768px){
+  .pictures{
+    height:auto;
 
+  .left-column, .right-column{
+    display: flex;
+    flex-direction: column;
+    width:100%;
 
+    margin:0px 0px 0px 0px;
+  }
+  .img-container{
+    display:block;
+    min-height: 90vw;
+    margin-bottom: 10px;
+  }
+  .left-column{
+flex-grow: 1;
+  }
+  .right-column{
+flex-grow:1;
+  }
+}
 }
