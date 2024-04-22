@@ -16,6 +16,7 @@
       <div class="checkerboard"></div>
     </div>
     <article class="event">
+      <div class="date-and-type">
       <div class="date">
         <div class="first-line">
           <div class = "start-day"><%= events.date_start.getDate(); %> </div>
@@ -27,18 +28,22 @@
         </div>
       </div>
       <div class="type"> <%= events.event_type %> </div>
+      </div>
       <div class="name"><%= events.event_name%></div>
     </article>
   <div class="main-container">
     <div class="main-content">
       <% if (events.event_youtube !== "") { %>
-        <iframe width="560" height="315" src="<%= events.event_youtube.replace('watch?v=','embed/') %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <% } %>
+        <div class="videowrapper">
+          <iframe src="<%= events.event_youtube.replace('watch?v=','embed/') %>?showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen showinfo="0"></iframe>
+        </div>
+        <% } %>
       <p class = "description"><%= events.event_description %></p>
       <p class = "safe-space" ><%=safe_place.text %></p>
     </div>
     <aside>
-      <a href="/become-a-member" class="become-member">become member</a>
+      <a href="/become-a-member" class="become-member desktop">become member</a>
+      <div class="info-pratiques">
       <h2>info pratiques</h2>
       <div class="programation">
         <h3>Programmation</h3>
@@ -48,14 +53,18 @@
           <h3>Prix</h3>
           <p ><%= events.event_price %></p>
         </div>
+      </div>
+        <div class="residencies">
       <h2>Résidences</h2>
       <% if (residencies.length >0 ){ %>
         <% residencies.forEach((residency) => { %>
           <a href="/residencies/<%= residency._id %>"><%= residency.collective_name %></a>
         <% }) %>
       <% } %>
+    </div>
 
     </aside>
+
   </div>
     
   </main>

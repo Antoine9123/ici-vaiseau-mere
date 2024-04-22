@@ -14,7 +14,7 @@
       <section class="title-section">
         <div class = "top-container">
           <h1 class = "section-title">Upcoming event</h1>
-          <a href="become-a-member" class = "become-member wip">become a member</a>
+          <a href="become-a-member" class = "become-member wip desktop">become a member</a>
         </div>
         <div class="line"></div>
       </section> 
@@ -26,17 +26,19 @@
             <% if (event.date_end.getTime() >= today.getTime()){%>
           <a class = "link"  href = "/agenda/<%=event.id %>">
             <article class="event">
-              <div class="date">
-                <div class="first-line">
-                  <div class = "start-day"><%= event.date_start.getDate(); %> </div>
-                  <div class="arrow"></div>
-                  <div class="end-day"><%= event.date_end.getDate() %></div> 
+              <div class="date-and-type">
+                <div class="date">
+                  <div class="first-line">
+                    <div class = "start-day"><%= event.date_start.getDate(); %> </div>
+                    <div class="arrow"></div>
+                    <div class="end-day"><%= event.date_end.getDate() %></div> 
+                  </div>
+                  <div>
+                    <%= (event.date_end.getMonth()<10)?"0"+ event.date_end.getMonth():+ event.date_end.getMonth() %>.<%=event.date_end.getFullYear()-2000%>&nbsp
+                  </div>
                 </div>
-                <div>
-                  <%= (event.date_end.getMonth()<10)?"0"+ event.date_end.getMonth():+ event.date_end.getMonth() %>.<%=event.date_end.getFullYear()-2000%>&nbsp
-                </div>
+                <div class="type"><%= event.event_type %></div>
               </div>
-              <div class="type"><%= event.event_type %></div>
               <div class="name"><%= event.event_name %></div>
             </article>
           </a>
@@ -59,17 +61,19 @@
             <% if (event.date_end.getTime() < today.getTime()){%>
           <a class = "link"  href = "/agenda/<%=event.id %>">
             <article class="event">
-              <div class="date">
-                <div class="first-line">
-                  <div class = "start-day"><%= event.date_start.getDate(); %> </div>
-                  <div class="arrow"></div>
-                  <div class="end-day"><%= event.date_end.getDate() %></div> 
+              <div class="date-and-type">
+                <div class="date">
+                  <div class="first-line">
+                    <div class = "start-day"><%= event.date_start.getDate(); %> </div>
+                    <div class="arrow"></div>
+                    <div class="end-day"><%= event.date_end.getDate() %></div> 
+                  </div>
+                  <div>
+                    <%= (event.date_end.getMonth()<10)?"0"+ event.date_end.getMonth():+ event.date_end.getMonth() %>.<%=event.date_end.getFullYear()-2000%>&nbsp
+                  </div>
                 </div>
-                <div>
-                  <%= (event.date_end.getMonth()<10)?"0"+ event.date_end.getMonth():+ event.date_end.getMonth() %>.<%=event.date_end.getFullYear()-2000%>&nbsp
-                </div>
+                <div class="type"><%= event.event_type %></div>
               </div>
-              <div class="type"><%= event.event_type %></div>
               <div class="name"><%= event.event_name %></div>
             </article>
           </a>

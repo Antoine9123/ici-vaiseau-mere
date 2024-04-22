@@ -17,9 +17,10 @@ body{
     height:16px;
     width:100%;
 }
-iframe{
-    margin-bottom:50px;
-}
+//  copy-past from https://stackoverflow.com/questions/15844500/shrink-a-youtube-video-to-responsive-width
+
+
+
 main{
     @include components.max-width;
     .event{
@@ -29,19 +30,30 @@ main{
     .main-container{
         display: flex;
         justify-content: space-between;
-        flex-wrap: wrap;
+        @media(max-width:768px){
+            flex-direction: column;
+        }
 
         .main-content{
-            max-width:70%;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
     }
     aside{
+        min-width:30%;
         display: flex;
         flex-direction: column;
         align-items:end ;
+        text-align: end;
+        @media(max-width:768px){
+            flex-direction: row;
+            align-items: start;
+            *{
+                text-align: left;
+            }
+        }
         
         h2{
             font-family: "Impact";
@@ -59,6 +71,9 @@ main{
             font-family: "Oswald";
             font-size:14px;
             margin-top: 0.5rem;
+        }
+        .residencies a{
+            display:block;
         }
         a:hover{
             color: var(--highlight-color);

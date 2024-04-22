@@ -11,6 +11,7 @@
       <%- include('./partials/header.ejs') %>
       <main>
         <section class="title-section">
+          <div class="desktop">
           <div class = "title-container">
             <div class="date">
               <div class="first-line">
@@ -36,6 +37,34 @@
               <a class = "youtube" href="<%= residency.residency_youtube %>" target="_blank" rel="noopener noreferrer"></a>
             </div>
           </div>
+        </div>
+        <div class="mobile">
+          <h1><%= residency.collective_name %></h1>
+          <div class="second-line">
+            <div class="date">
+              <div class="first-line">
+                  <div class = "start-day"><%= residency.residency_start.getDate(); %> </div>
+                  <div class="arrow"></div>
+                  <div class="end-day"><%= residency.residency_end.getDate() %></div> 
+                </div>
+                  <div>
+                    <%= (residency.residency_end.getMonth()<10)?"0"+ residency.residency_end.getMonth():+ residency.residency_end.getMonth() %>.<%=residency.residency_end.getFullYear()-2000%>&nbsp
+                  </div>
+            </div>
+              <div class="name-and-socials">
+                <h2><%= residency.residency_name %></h2>
+                <div class="socials">
+                  <a class = "siteweb" href="<%= residency.residency_website %>" target="_blank" rel="noopener noreferrer"></a>
+                  <a class = "fb" href="<%= residency.residency_facebook %>" target="_blank" rel="noopener noreferrer"></a>
+                  <a class = "insta" href="<%= residency.residency_insta %>" target="_blank" rel="noopener noreferrer"></a>
+                  <a class = "youtube" href="<%= residency.residency_youtube %>" target="_blank" rel="noopener noreferrer"></a>
+                </div>
+
+              </div>
+          </div>
+
+        </div>
+
 
           <div class="line"></div>
         </section> 
