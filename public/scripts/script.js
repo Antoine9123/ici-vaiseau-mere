@@ -11,7 +11,10 @@ const format_name_folder = (name) => {
  *                       *
  *************************/
 
-
+// this variable stores if we are in the love art or make art section.
+// true = make Art, false = love art
+// it is set to match what ever the button says.
+let makeArtEnable = false
 
 //select all links in the nav bar
 const navBtn = document.querySelectorAll(".nav-btn");
@@ -35,22 +38,25 @@ const displayNavBtn = () => {
 
 // this generate the event listener on the love art / make art switch.
 // the swith behave like a checkbox button.
-let checkbox = document.querySelector("input[type='checkbox']");
-checkbox.addEventListener("change", (e) => {
-    makeArtEnable = checkbox.checked;
-    displayNavBtn();
+let checkboxes = document.querySelectorAll("input[type='checkbox']");
+checkboxes.forEach((checkbox) => {
+    addEventListener("change", (e) => {
+        makeArtEnable = checkbox.checked;
+        displayNavBtn();
+        console.log("button checked")
+    });
+    checkbox.checked = document.body.classList.contains("make-art");
+
 });
 
 // if the body of the html page has the class make-art, 
 // the switch button is switched to make art
 // and only the make art buttons are displayed.
-checkbox.checked = document.body.classList.contains("make-art");
+
+// checkbox.checked = document.body.classList.contains("make-art");
 
 
-// this variable stores if we are in the love art or make art section.
-// true = make Art, false = love art
-// it is set to match what ever the button says.
-let makeArtEnable = checkbox.checked
+
 
 //call the variable to be executed when de page is displayed
 displayNavBtn();
