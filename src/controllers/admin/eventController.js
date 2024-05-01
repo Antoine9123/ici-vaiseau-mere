@@ -1,10 +1,10 @@
 const Event = require("../../models/event");
 const Residency = require("../../models/residency");
 const fs = require("fs");
-const tmp = require('tmp');
-const cloudinary = require('../../utils/cloudinary');
+const tmp = require("tmp");
+const cloudinary = require("../../utils/cloudinary");
 
-const tl = require("../../../function")
+const tl = require("../../../function");
 
 const event_list = (req, res) => {
   Event.find()
@@ -26,8 +26,8 @@ const event_add_post = async (req, res) => {
     if (req.file) {
       const file = req.file;
       const tempFile = tmp.fileSync();
-      require('fs').writeFileSync(tempFile.name, file.buffer);
-      
+      require("fs").writeFileSync(tempFile.name, file.buffer);
+
       cloudinary.uploader.upload(tempFile.name, function (error, result) {
         if (error) {
           console.error("Error uploading image:", error);
@@ -39,7 +39,8 @@ const event_add_post = async (req, res) => {
 
           // Create event object and save it
           const event = new Event(req.body);
-          event.save()
+          event
+            .save()
             .then(() => {
               tempFile.removeCallback();
               res.redirect("/admin/events-list");
@@ -63,68 +64,61 @@ const event_add_post = async (req, res) => {
   }
 };
 
+const event_delete_post = async (req, res) => {
+  try {
+    const event = await Event.findById(req.params.id);
 
+    if (event) {
+      const publicId = event.image[0].split("/").pop().split(".")[0];
+      await cloudinary.uploader.destroy(publicId);
 
-const event_delete_post = (req, res) => {
-  Event.findById(req.params.id)
-    .then((event) => {
-      const folderName = tl.format_name_folder(event.event_name)
-      return new Promise((resolve, reject) => {
-        fs.rm(`public/assets/events_img/${folderName}`, { recursive: true }, (err) => {
-          if (err) {
-            console.error("Erreur lors de la suppression du dossier:", err);
-            reject(err);
-          } else {
-            console.log("Dossier supprimé avec succès");
-            resolve();
-          }
-        });
-      });
-    })
-    .then(() => {
-      return Event.findByIdAndDelete(req.params.id);
-    })
-    .then((deletedEvent) => {
+      const deletedEvent = await Event.findByIdAndDelete(req.params.id);
+
       if (!deletedEvent) {
         return res.status(404).json({ message: "Event not found" });
       }
+
       res.redirect("/admin/events-list");
-    })
-    .catch((error) => {
-      console.error("Error deleting event:", error);
-      res.status(500).json({ message: "Internal server error" });
-    });
+    } else {
+      return res.status(404).json({ message: "Event not found" });
+    }
+  } catch (error) {
+    console.error("Error deleting event:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 const event_modification_get = (req, res) => {
   const eventId = req.params.id;
 
   Event.findById(eventId)
-    .then(event => {
-      
+    .then((event) => {
       Residency.find({ _id: { $in: event.current_residencies } })
-        .then(currentResidencies => {
+        .then((currentResidencies) => {
           Residency.find()
-            .then(allResidencies => {
-              
-              res.render("./admin/admin", { content: "./partials/events-mod", event: event, residencies: allResidencies, currentResidencies: currentResidencies });
+            .then((allResidencies) => {
+              res.render("./admin/admin", {
+                content: "./partials/events-mod",
+                event: event,
+                residencies: allResidencies,
+                currentResidencies: currentResidencies,
+              });
             })
-            .catch(err => {
-              console.error('Error finding all residencies:', err);
-              res.status(500).send('Server error');
+            .catch((err) => {
+              console.error("Error finding all residencies:", err);
+              res.status(500).send("Server error");
             });
         })
-        .catch(err => {
-          console.error('Error finding residencies:', err);
-          res.status(500).send('Server error');
+        .catch((err) => {
+          console.error("Error finding residencies:", err);
+          res.status(500).send("Server error");
         });
     })
-    .catch(err => {
-      console.error('Error finding event:', err);
-      res.status(500).send('Server error');
+    .catch((err) => {
+      console.error("Error finding event:", err);
+      res.status(500).send("Server error");
     });
 };
-
 
 const event_update_post = (req, res) => {
   const { id } = req.params;
@@ -135,7 +129,7 @@ const event_update_post = (req, res) => {
       if (!event) {
         return res.status(404).send("Event not found");
       }
-      
+
       const oldEventName = event.event_name;
       const newEventName = updatedEvent.event_name;
 
@@ -154,12 +148,11 @@ const event_update_post = (req, res) => {
     });
 };
 
-
 module.exports = {
   event_list,
   event_add_get,
   event_add_post,
   event_delete_post,
   event_update_post,
-  event_modification_get
+  event_modification_get,
 };
