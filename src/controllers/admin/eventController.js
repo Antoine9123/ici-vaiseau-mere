@@ -1,6 +1,8 @@
 const Event = require("../../models/event");
 const Residency = require("../../models/residency");
 const fs = require("fs");
+const tmp = require('tmp');
+const cloudinary = require('../../utils/cloudinary');
 
 const tl = require("../../../function")
 
@@ -18,17 +20,50 @@ const event_add_get = (req, res) => {
   });
 };
 
-const event_add_post = (req, res) => {
-  const event = new Event(req.body);
-  event
-    .save()
-    .then((result) => {
+const event_add_post = async (req, res) => {
+  try {
+    // If file has been uploaded
+    if (req.file) {
+      const file = req.file;
+      const tempFile = tmp.fileSync();
+      require('fs').writeFileSync(tempFile.name, file.buffer);
+      
+      cloudinary.uploader.upload(tempFile.name, function (error, result) {
+        if (error) {
+          console.error("Error uploading image:", error);
+          res.status(500).send("Error uploading image.");
+          tempFile.removeCallback();
+        } else {
+          console.log("Image uploaded successfully:", result);
+          req.body.image = result.secure_url;
+
+          // Create event object and save it
+          const event = new Event(req.body);
+          event.save()
+            .then(() => {
+              tempFile.removeCallback();
+              res.redirect("/admin/events-list");
+            })
+            .catch((err) => {
+              console.error("Error saving event:", err);
+              res.status(500).send("Error saving event.");
+              tempFile.removeCallback();
+            });
+        }
+      });
+    } else {
+      // If no file is uploaded, create event object and save it
+      const event = new Event(req.body);
+      await event.save();
       res.redirect("/admin/events-list");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    }
+  } catch (error) {
+    console.error("Error uploading image or saving event:", error);
+    res.status(500).send("Error uploading image or saving event.");
+  }
 };
+
+
 
 const event_delete_post = (req, res) => {
   Event.findById(req.params.id)

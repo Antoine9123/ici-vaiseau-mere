@@ -20,12 +20,11 @@ const residency_add_get = (req, res) => {
 
 // -----------------------------------------------------------------------------------------
 const residency_add_post = async (req, res) => {
-  
   // If files have been uploaded
   if (req.files) {
     const images = req.files;
     const uploadPromises = [];
-    let img_url = []
+    const img_url = []; // Using const instead of let
 
     for (const field in images) {
       images[field].forEach(file => {
@@ -51,8 +50,8 @@ const residency_add_post = async (req, res) => {
 
     try {
       await Promise.all(uploadPromises);
-      req.body.images = img_url
-      const residency = new Residency(req.body);
+      req.body.images = img_url;
+      const residency = new Residency(req.body); // Create residency object
       await residency.save();
       res.redirect("/admin/residencies-list");
     } catch (error) {
@@ -60,7 +59,9 @@ const residency_add_post = async (req, res) => {
       res.status(500).send("Error uploading images or saving residency.");
     }
   } else {
+    // If no files are uploaded, create residency object and save it
     try {
+      const residency = new Residency(req.body);
       await residency.save();
       res.redirect("/admin/residencies-list");
     } catch (error) {
@@ -69,6 +70,7 @@ const residency_add_post = async (req, res) => {
     }
   }
 };
+
 
 
 // ----------------------------------------------------------------------------------------->
