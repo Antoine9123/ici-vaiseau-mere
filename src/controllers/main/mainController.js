@@ -49,7 +49,30 @@ const event_index = (req,res) => {
   .catch((err) => console.log(err));
 }
 
+const next_event = (req, res) => {
+  const currentDate = new Date(); 
+  
+  Event.find({ date_end: { $gt: currentDate } }) 
+    .sort({ date_end: 1 }) 
+    .limit(1) 
+    .then((result) => {
+      if (result.length > 0) {
+        console.log(result[0]);
+        res.status(201).json(result[0]); 
+      } else {
+        res.status(404).json({ message: "Aucun événement futur trouvé." });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    });
+}
+
+
+
 module.exports = {
   residency_index,
   event_index,
+  next_event
 };
