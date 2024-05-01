@@ -39,8 +39,8 @@ const width = "25%";
 
   <div class="img-form" style="display: flex; flex-direction: column; gap: 20px;">
   <label for="image">Vignette de l'événement (.jpg, .jpeg, .png)</label>
-  <input class="img-input" type="file" id="image" name="image" accept=".jpg,.jpeg,.png" onchange="displayFileName('image1')" />
-  <img src="/assets/events_img/<%= folderName %>/img0.png" alt="//image missing" width=<%= width %> height=<%= height %>>
+  <input class="img-input" type="file" id="image" name="image" accept=".jpg,.jpeg,.png" maxlength="10485760" onchange="displayFileName('image1')" />
+  <img src="<%= event.image[0] %>" alt="//image missing" width=<%= width %> height=<%= height %>>
 </div>
   <h2>Résidences présentes</h2>
 

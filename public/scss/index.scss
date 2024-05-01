@@ -11,23 +11,30 @@ main{
     display:flex;
     flex-direction: column;
     flex-grow: 1;
-    align-items: center;
 
 }
 
 .main-container{
     width:520px;
+    margin: auto;
     @media (max-width:650px){
         width:80%;
     }
     flex-grow:1;
     display: flex;
     align-items: center;
-    justify-content: space-around;
 
 }
 
 .bottom-container{
     justify-self: flex-end;
+
+}
+.link{
+    display: block;
+}
+.link:hover{
+    background-color: var(--highlight-color-transparent);
+    color: var(--text-color-secondary);
 }
 

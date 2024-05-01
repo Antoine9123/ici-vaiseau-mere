@@ -1,58 +1,18 @@
 const multer = require("multer");
-const fs = require("fs");
-
-const tl = require("../../../function")
-
-const createDirectory = (directoryPath) => {
-  if (!fs.existsSync(directoryPath)) {
-    try {
-      fs.mkdirSync(directoryPath, { recursive: true });
-      console.log(`Directory created successfully at ${directoryPath}`);
-    } catch (err) {
-      console.error(`Error creating directory: ${err}`);
-    }
-  } else {
-    console.log(`Directory already exists at ${directoryPath}`);
-  }
-};
+const cloudinary = require('../../utils/cloudinary');
 
 // -----STORAGE---------------------------------------------------------------->
 
-const residencyStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
-   
-    const folderName = tl.format_name_folder(req.body.collective_name);
-    createDirectory(`public/assets/residencies_img/${folderName}`);
-
-    cb(null, `public/assets/residencies_img/${folderName}`);
-  },
-  filename: function (req, file, cb) {
-    const fieldName = file.fieldname
-    const fileName = fieldName + ".png";
-    cb(null, fileName);
-  },
-});
-
-const eventStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    // Create a folder based on the event name
-    const folderName = tl.format_name_folder(req.body.event_name);
-    createDirectory(`public/assets/events_img/${folderName}`);
-
-
-    cb(null, `public/assets/events_img/${folderName}`);
-  },
-  filename: function (req, file, cb) {
-
-    const fileName = "img0.png";
-    cb(null, fileName);
-
-  },
-});
+// Custom storage configurations for residency and event uploads
+const residencyStorage = multer.memoryStorage();
+const eventStorage = multer.memoryStorage();
 
 // -----MIDDLEWARES ---------------------------------------------------------------->
 
+// Multer middleware with Cloudinary storage for residency uploads
 const residencyUpload = multer({ storage: residencyStorage });
+
+// Multer middleware with Cloudinary storage for event uploads
 const eventUpload = multer({ storage: eventStorage });
 
 module.exports = {

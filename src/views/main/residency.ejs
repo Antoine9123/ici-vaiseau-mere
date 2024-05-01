@@ -91,17 +91,17 @@
                 </div>
             <% } %>
             </aside>
-            <p class="description" style="white-space: pre-line"><%= residency.description %></p>
+            <p class="description subjectivity" style="white-space: pre-line"><%= residency.description %></p>
           </section>
           <section class="pictures">
             <div class="left-column">
-              <div class="img-container" style = "background-image: url(<%= "/assets/residencies_img/"+residency.collective_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase()+"/img1.png" %>)"></div>
-              <div class="img-container" style = "background-image: url(<%= "/assets/residencies_img/"+residency.collective_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase()+"/img2.png" %>)"></div>
-              <div class="img-container" style = "background-image: url(<%= "/assets/residencies_img/"+residency.collective_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase()+"/img3.png" %>)"></div>
+              <div class="img-container" style = "background-image: url(<%=residency.images[1]%>)"></div>
+              <div class="img-container" style = "background-image: url(<%=residency.images[2]%>)"></div>
+              <div class="img-container" style = "background-image: url(<%=residency.images[3]%>)"></div>
             </div>
             <div class="right-column">
-              <div class="img-container" style = "background-image: url(<%= "/assets/residencies_img/"+residency.collective_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase()+"/img4.png" %>)"></div>
-              <div class="img-container" style = "background-image: url(<%= "/assets/residencies_img/"+residency.collective_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase()+"/img5.png" %>)"></div>
+              <div class="img-container" style = "background-image: url(<%=residency.images[4]%>)"></div>
+              <div class="img-container" style = "background-image: url(<%=residency.images[5]%>)"></div>
             </div>
 
           </section>

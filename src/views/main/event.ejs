@@ -11,10 +11,13 @@
 
   <%- include('./partials/header.ejs') %>
   <main>
-    <div class="img-container" 
-    style = "background-image: url(<%="/assets/events_img/"+events.event_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase()+"/img0.png" %>)">
-      <div class="checkerboard"></div>
-    </div>
+    <% if (events.image && events.image.length>0) { %>
+      <div class="img-container" 
+      style = "background-image: url(<%=events.image[0]%>)">
+        <div class="checkerboard"></div>
+      </div>
+    <% } %>
+
     <article class="event">
       <div class="date-and-type">
       <div class="date">
@@ -38,8 +41,8 @@
           <iframe src="<%= events.event_youtube.replace('watch?v=','embed/') %>?showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen showinfo="0"></iframe>
         </div>
         <% } %>
-      <p class = "description"><%= events.event_description %></p>
-      <p class = "safe-space" ><%=safe_place.text %></p>
+      <p class = "subjectivity"><%= events.event_description %></p>
+      <p class = "safe-space subjectivity" ><%=safe_place.text %></p>
     </div>
     <aside>
       <a href="/become-a-member" class="become-member desktop">become member</a>
