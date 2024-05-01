@@ -58,8 +58,9 @@
         </div>
       </div>
         <div class="residencies">
+          <% if (residencies.length >0 ){ %>
       <h2>Résidences</h2>
-      <% if (residencies.length >0 ){ %>
+
         <% residencies.forEach((residency) => { %>
           <a href="/residencies/<%= residency._id %>"><%= residency.collective_name %></a>
         <% }) %>
