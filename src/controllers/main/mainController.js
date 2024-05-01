@@ -28,6 +28,7 @@ const event_index = (req,res) => {
 
   Event.findById(id)
   .then((event) => {
+    console.log(event)
 
     let residencies = [];
 

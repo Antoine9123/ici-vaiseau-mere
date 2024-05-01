@@ -10,6 +10,7 @@ router.get("/", MainController.next_event);
 router.get("/agenda", (req, res) => {
   Event.find()
     .then((result) => {
+
       res.render("main/agenda", { events: result });
     })
     .catch((err) => console.log(err));
