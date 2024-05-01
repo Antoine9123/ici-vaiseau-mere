@@ -38,8 +38,8 @@
           <iframe src="<%= events.event_youtube.replace('watch?v=','embed/') %>?showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen showinfo="0"></iframe>
         </div>
         <% } %>
-      <p class = "description"><%= events.event_description %></p>
-      <p class = "safe-space" ><%=safe_place.text %></p>
+      <p class = "subjectivity"><%= events.event_description %></p>
+      <p class = "safe-space subjectivity" ><%=safe_place.text %></p>
     </div>
     <aside>
       <a href="/become-a-member" class="become-member desktop">become member</a>

@@ -33,25 +33,32 @@
           <div class="line"></div>
         </section> 
         <section class="event-list">
-
-            <a class = "link"  href = "/agenda/#">
-              <afticle class="event">
+          <% if (nextEvent.length > 0) { %> 
+            <% nextEvent.forEach(event => { %>
+              <% const today = new Date()%>
+              <% if (event.date_end.getTime() >= today.getTime()){%>
+            <a class = "link"  href = "/agenda/<%=event.id %>">
+              <article class="event">
                 <div class="date-and-type">
                   <div class="date">
                     <div class="first-line">
-                      <div class = "start-day">24</div>
+                      <div class = "start-day"><%= event.date_start.getDate(); %> </div>
                       <div class="arrow"></div>
-                      <div class="end-day">25</div> 
+                      <div class="end-day"><%= event.date_end.getDate() %></div> 
                     </div>
                     <div>
-                      12.24&nbsp
+                      <%= (event.date_end.getMonth()<10)?"0"+ event.date_end.getMonth():+ event.date_end.getMonth() %>.<%=event.date_end.getFullYear()-2000%>&nbsp
                     </div>
                   </div>
-                  <div class="type">Celebration</div>
+                  <div class="type"><%= event.event_type %></div>
                 </div>
-                <div class="name">les Nuls Revival : La Carioca - Christmas candelight Concert</div>
+                <div class="name"><%= event.event_name %></div>
               </article>
             </a>
+            <% } %>
+          <% }); %> <% } else { %>
+            <div>No events available</div>
+          <% } %>
         </section>
       </div>
     </main>
