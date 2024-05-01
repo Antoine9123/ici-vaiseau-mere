@@ -1,6 +1,6 @@
 const filterBtn = document.querySelectorAll(".filter-btn");
 const miniatures = document.querySelectorAll(".residency");
-const cross = document.querySelector(".cross")
+const all = document.querySelector(".all")
 
 const resetColor = () => filterBtn.forEach((filter) =>{
     filter.classList.remove("selected")
@@ -13,7 +13,6 @@ filterBtn.forEach((filter) =>{
         resetColor()
         filter.classList.add("selected")
         filter.classList.remove("unselected")
-        cross.style.display = "block";
         miniatures.forEach((miniature) =>{
             if (miniature.classList.contains(type)){
                 miniature.style.display = "block"
@@ -25,7 +24,7 @@ filterBtn.forEach((filter) =>{
 })
 
 
-cross.addEventListener("click", () => {
+all.addEventListener("click", () => {
     filterBtn.forEach((filter) => {
         filter.classList.remove("selected");
         filter.classList.add("unselected");
@@ -33,5 +32,4 @@ cross.addEventListener("click", () => {
     miniatures.forEach((miniature) =>{
         miniature.style.display = "block";
     });
-    cross.style.display = "none";
 });

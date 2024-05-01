@@ -38,21 +38,9 @@ background-image:url("../assets/background/line-residencies.svg");
     justify-content: center;
     margin: 25px 0px;
     padding: 0px 10px;
-    .cross{
-        font-family: "impact";
-        align-items: center;
-        padding: 5px;
-        background-color: var(--text-color);
-        color: var(--text-color-secondary);
-        display:none;
-    }
-    .cross:hover{
-        background-color: var(--highlight-color);
-        cursor: pointer;
-        color: var(--text-color-secondary);
-    }
 
-    .filter-btn{
+
+    div{
         height:30px;
         max-width: 136px;
         flex-grow:1;
@@ -60,27 +48,32 @@ background-image:url("../assets/background/line-residencies.svg");
         font-family: "Oswald";
         line-height: 30px;
         text-transform: uppercase;
-  
+        &:hover{
+            background-color: var(--become-member);
+            cursor: pointer;
+            color: var(--text-color-secondary);
+
+        }
+        &:active{
+            color:var(--text-color);
+        }
     }
     .selected{
         background-color: var(--become-member);
+        &:hover{
+            color: var(--text-color);
+        }
     }
     .unselected{
         background-color: var(--text-color-secondary);
-    }
-    .filter-btn:hover{
-        background-color: var(--become-member);
-        cursor: pointer;
-        color: var(--text-color-secondary);
     }
 
 }
 
 .residency{
-    width:260px;
-    height:300px;
+
     margin: 5px;
-    padding-top:10px;
+    padding: 5px;
     background-color: var(--text-color-secondary);
     align-items: center;
     display: inline;
