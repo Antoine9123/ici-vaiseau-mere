@@ -13,6 +13,8 @@ const residencySchema = new Schema(
     residency_facebook: { type: String },
     residency_youtube: { type: String },
     residency_website: { type: String },
+
+    images: [{type:String}],
     
     artist_name_1: { type: String },
     artist_url_1: { type: String },
