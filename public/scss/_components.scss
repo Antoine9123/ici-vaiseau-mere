@@ -10,6 +10,11 @@
 font-family: 'Impact';
 src: url('../assets/fonts/impact.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Subjectivity';
+    src: url('../assets/fonts/Subjectivity/Subjectivity-Regular.woff2') format('woff2');
+}
+
 
 @mixin link{
     font-family: 'Oswald';
@@ -94,6 +99,10 @@ text-decoration: none;
 p{
     white-space: pre-line;
 }
+.subjectivity{
+    font-family: "Subjectivity";
+    color:red;
+}
 .become-member{
     @include link;
     padding : 0.5rem 2rem ;
@@ -165,7 +174,7 @@ p{
         color: var(--text-color-secondary);
     }
     .name{
-        // flex-grow: 1;
+        flex-grow: 1;
         font-size:24px;
         line-height: 40px;
     }
