@@ -52,7 +52,7 @@ router.post("/events-add", Multer.eventUpload.single("image", 1), EventControlle
 router.post("/event-delete/:id", EventController.event_delete_post);
 
 router.get("/events-modification/:id", EventController.event_modification_get);
-router.post("/events-update/:id", Multer.eventUpload.single("img0", 1), EventController.event_update_post);
+router.post("/events-update/:id", Multer.eventUpload.single("image", 1), EventController.event_update_post);
 
 // ----- PAGES ROUTES --------------------------------------------------------------->
 

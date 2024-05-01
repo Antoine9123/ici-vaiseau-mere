@@ -120,33 +120,54 @@ const event_modification_get = (req, res) => {
     });
 };
 
-const event_update_post = (req, res) => {
-  const { id } = req.params;
-  const updatedEvent = req.body;
+const event_update_post = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedEvent = req.body;
+    const event = await Event.findById(id);
+    if (!event) {
+      return res.status(404).send("Event not found");
+    }
+    updatedEvent.image = event.image; // Copy existing image URL from the database
 
-  Event.findById(id)
-    .then((event) => {
-      if (!event) {
-        return res.status(404).send("Event not found");
+    // Check if file is uploaded
+    if (req.file) {
+      const file = req.file;
+
+      // Create a temporary file to write the buffer
+      const tempFile = tmp.fileSync();
+      require('fs').writeFileSync(tempFile.name, file.buffer);
+
+      // Upload file from temporary file path to Cloudinary
+      const result = await cloudinary.uploader.upload(tempFile.name);
+      console.log("--RESULT-------------------------------------");
+      console.log(result);
+
+      // If there's an existing image, delete it from Cloudinary
+      console.log(event.image)
+      if (event.image) {
+        const publicId = event.image[0].split('/').pop().split('.')[0];
+        await cloudinary.uploader.destroy(publicId);
       }
 
-      const oldEventName = event.event_name;
-      const newEventName = updatedEvent.event_name;
+      // Update the image URL in the updatedEvent object
+      updatedEvent.image[0] = result.secure_url;
 
-      const oldFolderPath = `public/assets/events_img/${tl.format_name_folder(oldEventName)}`;
-      const newFolderPath = `public/assets/events_img/${tl.format_name_folder(newEventName)}`;
-      fs.renameSync(oldFolderPath, newFolderPath);
+      // Remove temporary file
+      tempFile.removeCallback();
+    }
 
-      return Event.findByIdAndUpdate(id, updatedEvent, { new: true });
-    })
-    .then((updatedEvent) => {
-      res.redirect("/admin/events-list");
-    })
-    .catch((err) => {
-      console.error("Error updating event:", err);
-      res.status(500).send("Error updating event");
-    });
+    // Update the event data in the database
+    const updatedEventData = await Event.findByIdAndUpdate(id, updatedEvent, { new: true });
+
+    res.redirect("/admin/events-list");
+  } catch (err) {
+    console.error("Error updating event:", err);
+    res.status(500).send("Error updating event");
+  }
 };
+
+
 
 module.exports = {
   event_list,

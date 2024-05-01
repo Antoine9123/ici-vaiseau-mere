@@ -86,66 +86,96 @@ const residency_modification_get = (req, res) => {
     });
 };
 
-const residency_delete_post = (req, res) => {
-  Residency.findById(req.params.id)
-    .then((residency) => {
-      const folderName = tl.format_name_folder(residency.collective_name);
-      return new Promise((resolve, reject) => {
-        fs.rm(`public/assets/residencies_img/${folderName}`, { recursive: true }, (err) => {
-          if (err) {
-            console.error("Erreur lors de la suppression du dossier:", err);
-            reject(err);
-          } else {
-            console.log("Dossier supprimé avec succès");
-            resolve();
-          }
-        });
-      });
-    })
-    .then(() => {
-      return Residency.findByIdAndDelete(req.params.id);
-    })
-    .then((deletedResidency) => {
+const residency_delete_post = async (req, res) => {
+  try {
+
+    const residency = await Residency.findById(req.params.id);
+    
+    if (residency) {
+      
+      for (const imageUrl of residency.images) {
+        
+        const publicId = imageUrl.split("/").pop().split(".")[0];
+        
+        await cloudinary.uploader.destroy(publicId);
+      }
+
+      
+      const deletedResidency = await Residency.findByIdAndDelete(req.params.id);
+      
+     
       if (!deletedResidency) {
         return res.status(404).json({ message: "Residency not found" });
       }
-      res.redirect("/admin/residencies-list");
-    })
-    .catch((error) => {
-      console.error("Error deleting residency:", error);
-      res.status(500).json({ message: "Internal server error" });
-    });
-};
-
-const residency_update_post = (req, res) => {
-  
-  const { id } = req.params;
-  const updatedResidency = req.body;
-
-  // Récupérer l'ancien nom du collectif depuis la base de données
-  Residency.findById(id)
-    .then((residency) => {
-      if (!residency) {
-        return res.status(404).send("Residency not found");
-      }
       
-      const oldCollectiveName = residency.collective_name;
-      const newCollectiveName = updatedResidency.collective_name;
-
-      const oldFolderPath = `public/assets/residencies_img/${tl.format_name_folder(oldCollectiveName)}`;
-      const newFolderPath = `public/assets/residencies_img/${tl.format_name_folder(newCollectiveName)}`;
-      fs.renameSync(oldFolderPath, newFolderPath);
-
-      return Residency.findByIdAndUpdate(id, updatedResidency, { new: true });
-    })
-    .then((updatedResidency) => {
       res.redirect("/admin/residencies-list");
-    })
-    .catch((err) => {
-      console.error("Error updating residency:", err);
-      res.status(500).send("Error updating residency");
-    });
+    } else {
+     
+      return res.status(404).json({ message: "Residency not found" });
+    }
+  } catch (error) {
+    console.error("Error deleting residency:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
+
+
+
+const residency_update_post = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedResidency = req.body;
+
+    const residency = await Residency.findById(id);
+    if (!residency) {
+      return res.status(404).send("Residency not found");
+    }
+    updatedResidency.images = residency.images 
+
+    // Check if files are uploaded
+    if (req.files) {
+      const newImagesPromises = Object.keys(req.files).map(async (fieldName) => {
+        const file = req.files[fieldName][0]; 
+        const index = parseInt(fieldName.replace("img", "")); 
+        console.log("index = " + index)
+
+        // Create a temporary file to write the buffer
+        const tempFile = tmp.fileSync();
+        require('fs').writeFileSync(tempFile.name, file.buffer);
+
+        // Upload file from temporary file path
+        const result = await cloudinary.uploader.upload(tempFile.name);
+        console.log("--RESULT-------------------------------------")
+        console.log(result)
+
+        if (residency.images[index]) {
+          console.log("CAN BE HERE -----------------------------------------")
+          const publicId = residency.images[index].split('/').pop().split('.')[0];
+          await cloudinary.uploader.destroy(publicId);
+        }
+        
+        updatedResidency.images[index] = result.secure_url;
+
+        // Remove temporary file
+        tempFile.removeCallback();
+
+        // Delete old picture in that index in Cloudinary if it exists
+        
+      });
+
+      await Promise.all(newImagesPromises);
+    }
+
+    // Update the residency data in the database
+    const updatedResidencyData = await Residency.findByIdAndUpdate(id, updatedResidency, { new: true });
+
+    res.redirect("/admin/residencies-list");
+  } catch (err) {
+    console.error("Error updating residency:", err);
+    res.status(500).send("Error updating residency");
+  }
+};
+
 
 
 
