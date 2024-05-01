@@ -11,10 +11,13 @@
 
   <%- include('./partials/header.ejs') %>
   <main>
-    <div class="img-container" 
-    style = "background-image: url(<%="/assets/events_img/"+events.event_name.replace(/[^\w\s]/g, "").replace(/\s+/g, "_").toLowerCase()+"/img0.png" %>)">
-      <div class="checkerboard"></div>
-    </div>
+    <% if (events.image && events.image.length>0) { %>
+      <div class="img-container" 
+      style = "background-image: url(<%=events.image[0]%>)">
+        <div class="checkerboard"></div>
+      </div>
+    <% } %>
+
     <article class="event">
       <div class="date-and-type">
       <div class="date">
