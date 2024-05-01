@@ -17,14 +17,14 @@ router.get("/", AdminController.admin_index);
 router.get("/residencies-list", ResidencyController.residency_list);
 router.get("/residencies-add", ResidencyController.residency_add_get);
 router.post(
-  "/residencies-add",
+  '/residencies-add',
   Multer.residencyUpload.fields([
-    { name: "img0", maxCount: 1 },
-    { name: "img1", maxCount: 1 },
-    { name: "img2", maxCount: 1 },
-    { name: "img3", maxCount: 1 },
-    { name: "img4", maxCount: 1 },
-    { name: "img5", maxCount: 1 },
+    { name: 'img0', maxCount: 1 },
+    { name: 'img1', maxCount: 1 },
+    { name: 'img2', maxCount: 1 },
+    { name: 'img3', maxCount: 1 },
+    { name: 'img4', maxCount: 1 },
+    { name: 'img5', maxCount: 1 },
   ]),
   ResidencyController.residency_add_post
 );
