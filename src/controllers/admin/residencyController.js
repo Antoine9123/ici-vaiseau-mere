@@ -24,8 +24,7 @@ const residency_add_post = async (req, res) => {
   if (req.files) {
     const images = req.files;
     const uploadPromises = [];
-    const img_url = []; // Using const instead of let
-
+    const img_store = {}
     for (const field in images) {
       images[field].forEach(file => {
         const tempFile = tmp.fileSync();
@@ -37,8 +36,15 @@ const residency_add_post = async (req, res) => {
                 console.error("Error uploading image:", error);
                 reject(error);
               } else {
-                console.log("Image uploaded successfully:", result);
-                img_url.push(result.secure_url);
+                
+               
+                
+                img_store[file.fieldname.split("")[3]] = result.secure_url
+                
+                
+                
+                
+                
                 resolve();
               }
               tempFile.removeCallback();
@@ -50,7 +56,10 @@ const residency_add_post = async (req, res) => {
 
     try {
       await Promise.all(uploadPromises);
-      req.body.images = img_url;
+      req.body.images = []
+      for (let i = 0; i < 6; i++) {
+        req.body.images.push(img_store[i])
+      }
       const residency = new Residency(req.body); // Create residency object
       await residency.save();
       res.redirect("/admin/residencies-list");
@@ -59,7 +68,6 @@ const residency_add_post = async (req, res) => {
       res.status(500).send("Error uploading images or saving residency.");
     }
   } else {
-    // If no files are uploaded, create residency object and save it
     try {
       const residency = new Residency(req.body);
       await residency.save();
@@ -159,7 +167,6 @@ const residency_update_post = async (req, res) => {
         // Remove temporary file
         tempFile.removeCallback();
 
-        // Delete old picture in that index in Cloudinary if it exists
         
       });
 
